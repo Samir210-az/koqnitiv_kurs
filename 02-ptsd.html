@@ -171,9 +171,11 @@
   /* Session plan timeline */
   .session-plan{margin:26px 0;}
   .sess-row{
-    display:grid; grid-template-columns:64px 1fr; gap:16px;
-    padding:14px 0; border-bottom:1px solid var(--border);
+    display:grid; grid-template-columns:56px 1fr auto; gap:14px; align-items:center;
+    padding:15px 12px; border-bottom:1px solid var(--border);
+    cursor:pointer; border-radius:14px; transition:background .25s, transform .25s;
   }
+  .sess-row:hover{background:var(--surface); transform:translateX(4px);}
   .sess-row:last-child{border-bottom:none;}
   .sess-num{
     font-family:var(--font-d); font-weight:800; color:var(--rose); font-size:1rem;
@@ -182,6 +184,41 @@
   }
   .sess-txt h4{font-size:.94rem; margin-bottom:3px;}
   .sess-txt p{font-size:.83rem; color:var(--text-2);}
+  .sess-open{font-size:.76rem; color:var(--rose); font-weight:700; white-space:nowrap; display:flex; align-items:center; gap:5px;}
+
+  /* Session modal */
+  .modal-overlay{position:fixed; inset:0; z-index:200; background:rgba(6,9,20,0.72); backdrop-filter:blur(6px); display:flex; align-items:flex-end; justify-content:center; opacity:0; visibility:hidden; transition:opacity .3s;}
+  .modal-overlay.active{opacity:1; visibility:visible;}
+  @media(min-width:720px){ .modal-overlay{align-items:center;} }
+  .modal-box{width:100%; max-width:680px; max-height:88vh; overflow-y:auto; background:linear-gradient(180deg, #131c38, #0e1730); border:1px solid var(--border); border-radius:26px 26px 0 0; padding:32px 26px 40px; position:relative; transform:translateY(40px); transition:transform .35s cubic-bezier(.2,.8,.2,1); -webkit-user-select:text; user-select:text;}
+  @media(min-width:720px){ .modal-box{border-radius:26px; transform:translateY(0) scale(.94);} }
+  .modal-overlay.active .modal-box{transform:translateY(0) scale(1);}
+  .modal-close{position:sticky; top:0; float:right; margin-left:12px; width:36px;height:36px; border-radius:50%; border:1px solid var(--border); background:rgba(255,255,255,.06); color:var(--text-1); font-size:1.1rem; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:5;}
+  .modal-close:hover{background:rgba(255,255,255,.14);}
+  .m-tag{display:inline-block; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--rose); background:var(--rose-soft); border:1px solid rgba(251,113,133,.35); padding:5px 13px; border-radius:999px; margin-bottom:14px;}
+  .m-title{font-family:var(--font-d); font-size:1.45rem; font-weight:800; margin-bottom:18px; line-height:1.3; clear:both;}
+  .m-block{margin-bottom:22px;}
+  .m-block h5{font-size:.82rem; text-transform:uppercase; letter-spacing:.06em; color:var(--text-3); margin-bottom:10px; display:flex; align-items:center; gap:8px;}
+  .m-goal{background:var(--sky-soft); border-left:3px solid var(--sky); border-radius:0 12px 12px 0; padding:14px 18px; font-size:.9rem; color:var(--text-1);}
+  .m-materials{display:flex; flex-wrap:wrap; gap:8px;}
+  .m-materials span{background:var(--surface); border:1px solid var(--border); padding:6px 13px; border-radius:999px; font-size:.8rem; color:var(--text-2);}
+  .m-phase{background:rgba(255,255,255,.03); border:1px solid var(--border); border-radius:16px; padding:16px 18px; margin-bottom:12px;}
+  .m-phase .ph-name{font-weight:700; font-size:.88rem; color:var(--rose); margin-bottom:8px; display:flex; align-items:center; gap:8px;}
+  .m-phase p{font-size:.87rem; color:var(--text-2); margin-bottom:8px;}
+  .m-phase p:last-child{margin-bottom:0;}
+  .m-dialog{background:rgba(0,0,0,.18); border-radius:12px; padding:12px 14px; margin-top:8px;}
+  .m-dialog .dl{display:flex; gap:10px; margin-bottom:9px; font-size:.86rem;}
+  .m-dialog .dl:last-child{margin-bottom:0;}
+  .m-dialog .dw{flex-shrink:0; width:64px; font-weight:700; font-size:.75rem; padding-top:1px;}
+  .m-dialog .dw.t{color:var(--teal);}
+  .m-dialog .dw.k{color:var(--rose);}
+  .m-dialog .dt{color:var(--text-2);}
+  .m-homework{background:var(--amber-soft); border-left:3px solid var(--amber); border-radius:0 12px 12px 0; padding:14px 18px; font-size:.87rem; color:var(--text-1);}
+  .m-nextprev{display:flex; justify-content:space-between; gap:12px; margin-top:26px; padding-top:20px; border-top:1px solid var(--border);}
+  .m-navbtn{flex:1; text-align:center; padding:10px 14px; border-radius:12px; background:var(--surface); border:1px solid var(--border); color:var(--text-2); font-size:.82rem; font-weight:600; cursor:pointer; transition:background .2s;}
+  .m-navbtn:hover{background:var(--surface-h); color:var(--text-1);}
+  .m-navbtn.disabled{opacity:.4; pointer-events:none;}
+  body.modal-open{overflow:hidden;}
 
   /* Fear thermometer */
   .thermo-wrap{display:flex; justify-content:center; margin:30px 0;}
@@ -384,17 +421,20 @@
     <div class="sec-head"><div class="sec-num">5</div><h2>Seans-seans proqram (12 seanslıq model)</h2></div>
     <p class="lead">Aşağıdakı struktur fərdi ehtiyaca görə uzadıla və ya qısaldıla bilər — bu, orta göstərici olaraq nəzərdə tutulur.</p>
     <div class="session-plan">
-      <div class="sess-row"><div class="sess-num">1</div><div class="sess-txt"><h4>Tanışlıq və qiymətləndirmə</h4><p>Etibar əlaqəsinin qurulması, simptomların qiymətləndirilməsi, məqsədlərin müəyyənləşdirilməsi.</p></div></div>
-      <div class="sess-row"><div class="sess-num">2</div><div class="sess-txt"><h4>Psixotəhsil</h4><p>Travma və beyin haqqında sadə izah — "niyə belə hiss edirəm" sualına cavab.</p></div></div>
-      <div class="sess-row"><div class="sess-num">3</div><div class="sess-txt"><h4>Nəfəs və relaksasiya bacarıqları</h4><p>Qutu nəfəsi, əzələ boşaltma texnikaları öyrədilir və məşq edilir.</p></div></div>
-      <div class="sess-row"><div class="sess-num">4</div><div class="sess-txt"><h4>Emosiyaların tanınması</h4><p>Hiss lüğəti, "Qorxu termometri" ilə emosiya intensivliyinin ölçülməsi.</p></div></div>
-      <div class="sess-row"><div class="sess-num">5</div><div class="sess-txt"><h4>Koqnitiv baş etmə bacarıqları</h4><p>Düşüncə-hiss-davranış üçbucağı, faydasız fikirlərin tanınması.</p></div></div>
-      <div class="sess-row"><div class="sess-num">6-8</div><div class="sess-txt"><h4>Trauma hekayəsinin yaradılması</h4><p>Hadisənin tədricən, kiçik hissələrlə şəkil, yazı və ya söhbət vasitəsilə ifadəsi.</p></div></div>
-      <div class="sess-row"><div class="sess-num">9</div><div class="sess-txt"><h4>Koqnitiv emal</h4><p>Trauma ilə bağlı təhrif olunmuş inancların (məs. özünü günahlandırma) işlənməsi.</p></div></div>
-      <div class="sess-row"><div class="sess-num">10</div><div class="sess-txt"><h4>İn-vivo məruzəetmə</h4><p>Qaçınılan, lakin real təhlükəsiz situasiyalarla tədrici qarşılaşma planı.</p></div></div>
-      <div class="sess-row"><div class="sess-num">11</div><div class="sess-txt"><h4>Birgə valideyn-uşaq seansı</h4><p>Hekayənin paylaşılması, ailəvi dəstəyin gücləndirilməsi.</p></div></div>
-      <div class="sess-row"><div class="sess-num">12</div><div class="sess-txt"><h4>Təhlükəsizlik planı və yekun</h4><p>Gələcək üçün bacarıqların ümumiləşdirilməsi, irəliləyişin qeyd edilməsi.</p></div></div>
+      <div class="sess-row" onclick="openSession(1)"><div class="sess-num">1</div><div class="sess-txt"><h4>Tanışlıq və qiymətləndirmə</h4><p>Etibar əlaqəsinin qurulması, simptomların qiymətləndirilməsi, məqsədlərin müəyyənləşdirilməsi.</p></div><div class="sess-open">Seansı aç ▸</div></div>
+      <div class="sess-row" onclick="openSession(2)"><div class="sess-num">2</div><div class="sess-txt"><h4>Psixotəhsil</h4><p>Travma və beyin haqqında sadə izah — "niyə belə hiss edirəm" sualına cavab.</p></div><div class="sess-open">Seansı aç ▸</div></div>
+      <div class="sess-row" onclick="openSession(3)"><div class="sess-num">3</div><div class="sess-txt"><h4>Nəfəs və relaksasiya bacarıqları</h4><p>Qutu nəfəsi, əzələ boşaltma texnikaları öyrədilir və məşq edilir.</p></div><div class="sess-open">Seansı aç ▸</div></div>
+      <div class="sess-row" onclick="openSession(4)"><div class="sess-num">4</div><div class="sess-txt"><h4>Emosiyaların tanınması</h4><p>Hiss lüğəti, "Qorxu termometri" ilə emosiya intensivliyinin ölçülməsi.</p></div><div class="sess-open">Seansı aç ▸</div></div>
+      <div class="sess-row" onclick="openSession(5)"><div class="sess-num">5</div><div class="sess-txt"><h4>Koqnitiv baş etmə bacarıqları</h4><p>Düşüncə-hiss-davranış üçbucağı, faydasız fikirlərin tanınması.</p></div><div class="sess-open">Seansı aç ▸</div></div>
+      <div class="sess-row" onclick="openSession(6)"><div class="sess-num">6</div><div class="sess-txt"><h4>Trauma hekayəsi — başlanğıc</h4><p>Hadisənin ən "təhlükəsiz" hissəsindən başlayaraq şəkil və ya sözlə ifadə.</p></div><div class="sess-open">Seansı aç ▸</div></div>
+      <div class="sess-row" onclick="openSession(7)"><div class="sess-num">7</div><div class="sess-txt"><h4>Trauma hekayəsi — davamı</h4><p>Hekayənin ən çətin məqamına tədricən yaxınlaşma, emosiyaların idarə edilməsi.</p></div><div class="sess-open">Seansı aç ▸</div></div>
+      <div class="sess-row" onclick="openSession(8)"><div class="sess-num">8</div><div class="sess-txt"><h4>Trauma hekayəsi — tamamlanma</h4><p>Hekayənin bütövləşdirilməsi, yeni məna və perspektivin qurulması.</p></div><div class="sess-open">Seansı aç ▸</div></div>
+      <div class="sess-row" onclick="openSession(9)"><div class="sess-num">9</div><div class="sess-txt"><h4>Koqnitiv emal</h4><p>Trauma ilə bağlı təhrif olunmuş inancların (məs. özünü günahlandırma) işlənməsi.</p></div><div class="sess-open">Seansı aç ▸</div></div>
+      <div class="sess-row" onclick="openSession(10)"><div class="sess-num">10</div><div class="sess-txt"><h4>İn-vivo məruzəetmə</h4><p>Qaçınılan, lakin real təhlükəsiz situasiyalarla tədrici qarşılaşma planı.</p></div><div class="sess-open">Seansı aç ▸</div></div>
+      <div class="sess-row" onclick="openSession(11)"><div class="sess-num">11</div><div class="sess-txt"><h4>Birgə valideyn-uşaq seansı</h4><p>Hekayənin paylaşılması, ailəvi dəstəyin gücləndirilməsi.</p></div><div class="sess-open">Seansı aç ▸</div></div>
+      <div class="sess-row" onclick="openSession(12)"><div class="sess-num">12</div><div class="sess-txt"><h4>Təhlükəsizlik planı və yekun</h4><p>Gələcək üçün bacarıqların ümumiləşdirilməsi, irəliləyişin qeyd edilməsi.</p></div><div class="sess-open">Seansı aç ▸</div></div>
     </div>
+    <div class="example"><b>💡 Tövsiyə:</b> Yuxarıdakı hər seansın üzərinə klikləyərək, o seansın tam ssenarisini (giriş, əsas hissə, real dialoq nümunələri, ev tapşırığı) oxuya bilərsiniz.</div>
   </section>
 
   <!-- 6. Nümunə dialoq -->
@@ -489,6 +529,13 @@
 
 </main>
 
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeSession()">
+  <div class="modal-box">
+    <div class="modal-close" onclick="closeSession()">✕</div>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
 <footer>
   <p>© 2026 Koqnitiv Davranış Terapiyası Kursu · Modul 2/20</p>
   <p style="margin-top:8px;">By <a href="https://instagram.com/s_akhundoff" target="_blank" rel="noopener">@s_akhundoff</a></p>
@@ -508,6 +555,172 @@ window.addEventListener('mousemove', e=>{
     b.style.transform = `translate(${mx*speed}px, ${my*speed}px)`;
   });
 });
+</script>
+<script>
+const SESSIONS = [
+{num:1, title:"Tanışlıq və Qiymətləndirmə", goal:"Klientlə (və ya uşaqla) etibarlı əlaqə qurmaq, simptomların şiddətini qiymətləndirmək, ailəyə ümid vermək və seansların gedişini izah etmək.",
+materials:["Qiymətləndirmə anketi","Rəngli kağız və qələmlər","Qorxu termometri şablonu"],
+phases:[
+ {name:"🟢 Giriş — Tanışlıq (10 dəq)", text:["Seans həmişə isti, təhlükəsiz bir salamlaşma ilə başlayır. Məqsəd — klientin (uşaq/böyük) rahat hiss etməsidir, hələ heç bir travma detalına toxunulmur."],
+  dialog:[["T","Salam! Mən [ad], bu gündən sənlə birlikdə işləyəcəyik. Bura gəlmək sənin üçün necə idi?"],["K","Bilmirəm... bir az narahat idim."],["T","Bu tamamilə normaldır, yeni yerə gələndə çoxumuz belə hiss edirik. İstəyirsən əvvəlcə sənin xoşuna gələn şeylərdən danışaq?"]]},
+ {name:"🔵 Əsas hissə — Qiymətləndirmə (25 dəq)", text:["Terapevt həssas suallarla, birbaşa travma detalına getmədən, simptomların tezliyini və şiddətini öyrənir. Standartlaşdırılmış anketlərdən (məs. CRIES-8, UCLA PTSD indeksi) istifadə oluna bilər."],
+  dialog:[["T","Bəzən pis xatirələr özbaşına ağlımıza gəlir, elə deyilmi? Sənin başına belə şey gəlirmi?"],["K","Bəli, xüsusən gecə yatanda."],["T","Anlayıram. Bu, 1-dən 10-a qədər desək, nə qədər tez-tez olur?"],["K","Deyəsən 7 kimi, demək olar hər gecə."]]},
+ {name:"🟣 Bağlanış — Ümid və struktur (10 dəq)", text:["Seans sonunda klientə proqram haqqında sadə məlumat verilir — neçə seans olacağı, nə üçün faydalı olacağı vurğulanır ki, ümid hissi yaransın."],
+  dialog:[["T","Bu gün mənə çox şey öyrətdin, təşəkkür edirəm. Bundan sonra birlikdə bu hissləri necə sakitləşdirməyi öyrənəcəyik — addım-addım, tələsmədən."]]}
+],
+homework:"Bu həftə hər axşam əhval-ruhiyyəni tək bir söz və ya rənglə (məs. 'boz gün', 'sarı gün') balaca dəftərə qeyd et. Növbəti seansda birlikdə baxacağıq."},
+
+{num:2, title:"Psixotəhsil — Niyə Belə Hiss Edirəm?", goal:"Travma və beynin necə işlədiyini sadə, qorxutmayan dildə izah etmək; klientə 'mən dəli deyiləm, bu normal reaksiyadır' hissini vermək.",
+materials:["'Siqnalizasiya' metaforası üçün sadə şəkil","Psixotəhsil iş vərəqi"],
+phases:[
+ {name:"🟢 Giriş — Körpü (5 dəq)", text:["Keçən həftənin əhval-ruhiyyə dəftəri birlikdə nəzərdən keçirilir."],
+  dialog:[["T","Dəftərinə baxaq — bu həftə ən çox hansı rəng/söz təkrarlandı?"],["K","Boz. Çox vaxt boz idi."],["T","Təşəkkür edirəm ki, bunu izlədin, bu bizə çox kömək edəcək."]]},
+ {name:"🔵 Əsas hissə — Beyin metaforası (20 dəq)", text:["Terapevt 'yanğın siqnalizasiyası' metaforasından istifadə edərək, beynin təhlükəni necə tanıdığını və travmadan sonra niyə həddindən artıq həssaslaşdığını izah edir."],
+  dialog:[["T","Təsəvvür et ki, evdə bir siqnalizasiya var, təhlükə olanda çalır ki, bizi qorusun. Amma bir dəfə böyük yanğın olubsa, siqnalizasiya bundan sonra çox həssaslaşır — hətta çörək qızardanda da çalır. Sənin 'siqnalizasiyan' indi belədir, ona görə kiçik səslərdən də qorxursan."],["K","Deməli, mən xarab deyiləm?"],["T","Qətiyyən yox. Sənin beynin səni qorumaq üçün çox çalışır, sadəcə bir az 'tənzimləmə' lazımdır — biz bunu birlikdə edəcəyik."]]},
+ {name:"🟣 Bağlanış (5 dəq)", text:["Klientə metaforanı öz sözləri ilə təkrarlaması istənilir — bu, anlaşılmanı təsdiqləyir."],
+  dialog:[["T","İndi sən mənə izah et — niyə hər kiçik səsdən qorxursan?"],["K","Çünki mənim siqnalizasiyam çox həssaslaşıb."],["T","Tam düz! Növbəti seansda o siqnalizasiyanı necə sakitləşdirəcəyimizi öyrənəcəyik."]]}
+],
+homework:"Ailə üzvlərindən birinə 'mənim siqnalizasiyam bir az həssaslaşıb' cümləsini öz sözlərinlə izah et."},
+
+{num:3, title:"Nəfəs və Relaksasiya Bacarıqları", goal:"Bədəni sakitləşdirmək üçün konkret, praktik alət (qutu nəfəsi, əzələ boşaltma) öyrətmək və seansda birlikdə məşq etmək.",
+materials:["Nəfəs kartı (vizual)","Taймer və ya telefon"],
+phases:[
+ {name:"🟢 Giriş (5 dəq)", text:["Keçən seansın metaforası qısaca xatırlanır."]},
+ {name:"🔵 Əsas hissə — Qutu nəfəsi məşqi (20 dəq)", text:["Terapevt əvvəlcə özü nümayiş etdirir, sonra klientlə birlikdə 3-4 dövr məşq edir."],
+  dialog:[["T","Gəl birlikdə sınayaq: burnundan 4 saniyə nəfəs al... indi 4 saniyə saxla... indi ağzından 4 saniyə ver... və yenə 4 saniyə saxla. Mənimlə bərabər edək."],["K","(məşqdən sonra) Bir az rahatladım."],["T","Əla! Bu, siqnalizasiyanı sakitləşdirən ən sadə düymələrdən biridir — istənilən yerdə, istənilən vaxt işə yarayır."]]},
+ {name:"🟣 Bağlanış (5 dəq)", text:["Əzələ boşaltma texnikası qısaca göstərilir: yumruq düzəlt-sıx-burax."]}
+],
+homework:"Gündə ən azı 2 dəfə (səhər və axşam) qutu nəfəsini məşq et, nəticəni dəftərə yaz."},
+
+{num:4, title:"Emosiyaların Tanınması", goal:"Hiss lüğətini zənginləşdirmək və Qorxu Termometri vasitəsilə emosiyanın intensivliyini ölçməyi öyrətmək.",
+materials:["Hiss kartları (şəkilli)","Qorxu termometri şablonu"],
+phases:[
+ {name:"🔵 Əsas hissə — Hiss lüğəti (20 dəq)", text:["Fərqli emosiyaların (qorxu, kədər, qəzəb, utanc) bədən əlamətləri ilə əlaqələndirilməsi."],
+  dialog:[["T","Qorxanda bədənində nə hiss edirsən?"],["K","Ürəyim bərk döyünür, əllərim titrəyir."],["T","Bax bu, sənin bədəninin 'qorxu dili'dir. İndi bu hissi 1-dən 10-a qədər desək, neçədir?"],["K","6 kimi bir şey."]]},
+ {name:"🟣 Bağlanış (10 dəq)", text:["Qorxu termometrindən istifadə edərək gün ərzində fərqli anları qiymətləndirmə məşqi edilir."]}
+],
+homework:"Gün ərzində hiss etdiyin 3 fərqli emosiyanı adı və termometr rəqəmi ilə qeyd et."},
+
+{num:5, title:"Koqnitiv Baş Etmə Bacarıqları", goal:"Düşüncə-hiss-davranış üçbucağını tanıtmaq və faydasız, avtomatik düşüncələri fərqləndirməyi öyrətmək.",
+materials:["Fikir qeydiyyat vərəqi","Sadələşdirilmiş üçbucaq diaqramı"],
+phases:[
+ {name:"🔵 Əsas hissə — Üçbucaq nümunəsi (25 dəq)", text:["Klientin öz həyatından bir nümunə üzərində üçbucaq birlikdə doldurulur."],
+  dialog:[["T","Məktəbdə zəng çalanda nə düşünürsən?"],["K","'Yenə pis bir şey olacaq' düşünürəm."],["T","Bu düşüncə səni necə hiss etdirir?"],["K","Qorxu, ürəyim yenə sürətlənir."],["T","Bəs bu fikir 100% doğrudurmu, yoxsa başqa izah da ola bilər?"],["K","Bəlkə də sadəcə zəngdir, dərs bitib..."]]},
+ {name:"🟣 Bağlanış (5 dəq)", text:["Balanslaşdırılmış fikrin gücləndirilməsi."]}
+],
+homework:"Bu həftə bir vəziyyəti üçbucaq (düşüncə-hiss-davranış) formasında dəftərə yaz."},
+
+{num:6, title:"Trauma Hekayəsi — Başlanğıc", goal:"Travmatik hadisənin ən 'az qorxulu' hissəsindən başlayaraq, təhlükəsiz templə ifadəyə keçid etmək.", 
+materials:["Kağız, rəngli qələmlər","Yazı dəftəri (yeniyetmə/böyük üçün)"],
+phases:[
+ {name:"🟢 Giriş (5 dəq)", text:["Bu mərhələyə keçməzdən əvvəl klientin bütün sakitləşdirmə bacarıqlarına yiyələndiyi təsdiqlənir."]},
+ {name:"🔵 Əsas hissə — Hekayənin başlanğıcı (25 dəq)", text:["Klientə hadisədən əvvəlki, nisbətən 'sakit' anlardan başlaması təklif olunur — birbaşa ən ağır məqama getmədən."],
+  dialog:[["T","Bu gün hekayəni yazmağa (və ya çəkməyə) başlayacağıq, amma ən asan yerindən — hadisədən əvvəl, hər şey normal olanda. Hazırsan?"],["K","Yaxşı, sınaya bilərəm."],["K","O gün məktəbdən evə qayıdırdım, hava günəşli idi..."],["T","Əla başladın. Bu barədə daha nə xatırlayırsan?"]]},
+ {name:"🟣 Bağlanış (5 dəq)", text:["Seans mütləq sakitləşdirmə bacarığı ilə bitir ki, klient gərgin vəziyyətdə getməsin."]}
+],
+homework:"Məcburi deyil, amma istəsən hekayənin bu hissəsinə əlavə edəcək detalları düşün."},
+
+{num:7, title:"Trauma Hekayəsi — Davamı", goal:"Hekayənin çətin məqamına tədricən yaxınlaşmaq, bu zaman ortaya çıxan emosiyaları qorxu termometri və nəfəs bacarıqları ilə idarə etmək.",
+materials:["Qorxu termometri","Əvvəlki hekayə hissəsi","Sakitləşdirmə kartları"],
+phases:[
+ {name:"🟢 Giriş (5 dəq)", text:["Əvvəlki hissə birlikdə oxunur, klient dəstəklənir."]},
+ {name:"🔵 Əsas hissə — Çətin məqama yaxınlaşma (25 dəq)", text:["Terapevt daim qorxu termometrini yoxlayır, həddindən artıq yüksək olduqda fasilə verib nəfəs bacarığına qayıdır."],
+  dialog:[["T","İndi termometrdə haradasan?"],["K","8 kimi..."],["T","Yaxşı, gəl bir az fasilə verək və birlikdə 3 dərin nəfəs alaq."],["(nəfəsdən sonra)",""],["T","İndi necəsən? Davam etməyə hazırsanmı?"],["K","Bəli, indi 5 kimidir, davam edə bilərəm."]]},
+ {name:"🟣 Bağlanış (5 dəq)", text:["Seans həmişə klientin sakit vəziyyətdə olduğuna əmin olunaraq bitir."]}
+],
+homework:"-"},
+
+{num:8, title:"Trauma Hekayəsi — Tamamlanma", goal:"Hekayəni bütövləşdirmək, hadisəyə yeni, daha balanslaşdırılmış məna və perspektiv qatmaq.",
+materials:["Tam yazılmış/çəkilmiş hekayə"],
+phases:[
+ {name:"🔵 Əsas hissə — Hekayənin tamamlanması (25 dəq)", text:["Hekayənin sonuna 'indi mən təhlükəsizəm' kimi hazırkı zamana keçid əlavə olunur."],
+  dialog:[["T","Hekayənin sonuna, 'bu gün mən necəyəm' hissəsini əlavə edək. İndi özün haqqında nə deyə bilərsən?"],["K","İndi mən təhlükəsizəm. O hadisə keçmişdə qaldı."],["T","Bu, çox güclü bir cümlədir. Bunu bir daha desənə?"],["K","İndi mən təhlükəsizəm."]]},
+ {name:"🟣 Bağlanış (10 dəq)", text:["Bütün hekayə əvvəldən sona bir dəfə birlikdə oxunur — bu, klientin nəzarəti öz əlinə aldığını hiss etdirir."]}
+],
+homework:"İstəsən, hekayəni etibar etdiyin bir nəfərlə (valideyn, bacı-qardaş) paylaş — məcburi deyil, sənin seçimindir."},
+
+{num:9, title:"Koqnitiv Emal", goal:"Travma ilə bağlı təhrif olunmuş inancları (məsələn, özünü günahlandırma) tanımaq və sorğulamaq.",
+materials:["Fikir qeydiyyat vərəqi"],
+phases:[
+ {name:"🔵 Əsas hissə — Günah hissinin sorğulanması (25 dəq)", text:["Çox vaxt klientlər (xüsusən uşaqlar) özlərini günahlandırırlar. Bu inanc həssaslıqla sorğulanır."],
+  dialog:[["K","Əgər mən o gün fərqli bir yol seçsəydim, bu baş verməzdi. Bu mənim günahımdır."],["T","Anlayıram ki, belə düşünürsən. Gəl bunu birlikdə araşdıraq — o an sən hansı məlumata malik idin?"],["K","Heç nə bilmirdim, elə gündəlik yolum idi."],["T","Deməli, o zaman əlində olan məlumatla ən məntiqli qərarı vermisən. Bu hadisəni planlaşdıran sən deyildin."]]},
+ {name:"🟣 Bağlanış (5 dəq)", text:["Yeni, balanslaşdırılmış fikir yazılı şəkildə qeyd olunur."]}
+],
+homework:"Yeni balanslaşdırılmış fikri hər gün bir dəfə ucadan oxu: 'Bu, mənim günahım deyildi.'"},
+
+{num:10, title:"İn-vivo Məruzəetmə", goal:"Qaçınılan, lakin real həyatda təhlükəsiz olan situasiyalarla tədrici, nəzarətli qarşılaşma planı qurmaq.",
+materials:["Məruzəetmə pilləkəni (asadan çətinə sıralanmış siyahı)"],
+phases:[
+ {name:"🔵 Əsas hissə — Pilləkənin qurulması (25 dəq)", text:["Klientlə birlikdə qaçınılan situasiyalar ən asandan ən çətinə sıralanır."],
+  dialog:[["T","Hansı yerlərdən/vəziyyətlərdən qaçırsan?"],["K","O yoldan keçməkdən, maşınların səsindən..."],["T","Gəl bunları 1-dən 10-a qədər sıralayaq — ən asanı hansıdır?"],["K","Bəlkə uzaqdan o yola baxmaq — bu 3 kimi qorxuludur."],["T","Əla, bu həftə elə bunu sınayaq — uzaqdan baxmaq, yanında etibarlı biri ilə."]]},
+ {name:"🟣 Bağlanış (5 dəq)", text:["İlk addımın nə vaxt və necə ediləcəyi konkretləşdirilir."]}
+],
+homework:"Pilləkənin ilk (ən asan) addımını bu həftə 1 dəfə, dəstəklə sına."},
+
+{num:11, title:"Birgə Valideyn-Uşaq Seansı", goal:"Uşağın hekayəsini (icazəsi ilə) valideynlə paylaşmaq, ailə əlaqəsini gücləndirmək və valideynə dəstək bacarıqları öyrətmək.",
+materials:["Uşağın hekayəsi (icazə ilə)"],
+phases:[
+ {name:"🟢 Giriş (10 dəq)", text:["Əvvəlcə uşaqla tək danışılır — hekayəni valideynlə paylaşmağa razı olub-olmadığı soruşulur."]},
+ {name:"🔵 Əsas hissə — Birgə seans (25 dəq)", text:["Uşaq öz templəsi ilə hekayəsini valideynə danışır və ya oxuyur, valideyn əvvəlcədən necə reaksiya verəcəyi barədə hazırlanıb."],
+  dialog:[["K","(hekayəni oxuyur)",""],["Valideyn","(dinlədikdən sonra) Bunu mənimlə paylaşdığın üçün çox təşəkkür edirəm. Mən səninləyəm, həmişə yanındayam."],["T","Bu, çox cəsarətli bir addım idi, hər ikiniz üçün."]]},
+ {name:"🟣 Bağlanış (5 dəq)", text:["Ailəvi bir 'təhlükəsizlik ritualı' (məs. axşam 5 dəqiqəlik söhbət) birlikdə planlaşdırılır."]}
+],
+homework:"Ailəlikdə həftədə 2 dəfə 'təhlükəsizlik ritualını' həyata keçirin."},
+
+{num:12, title:"Təhlükəsizlik Planı və Yekun", goal:"Öyrənilən bütün bacarıqları ümumiləşdirmək, irəliləyişi qeyd etmək və gələcək üçün konkret təhlükəsizlik planı hazırlamaq.",
+materials:["Təhlükəsizlik planı şablonu","Kiçik 'nailiyyət' sertifikatı"],
+phases:[
+ {name:"🟢 Giriş (5 dəq)", text:["İlk seansdakı qiymətləndirmə ilə indiki vəziyyət müqayisə olunur."]},
+ {name:"🔵 Əsas hissə — Təhlükəsizlik planı (20 dəq)", text:["Klient çətin an gələndə hansı bacarıqdan istifadə edəcəyini özü müəyyənləşdirir."],
+  dialog:[["T","Əgər gələcəkdə yenidən narahat hiss etsən, əlindəki 'alətlər qutusunda' nələr var?"],["K","Nəfəs almaq, termometrə baxmaq, anama demək..."],["T","Möhtəşəm! Sən artıq öz alətlər qutunu qurmusan. Bunları bu kağıza yazaq ki, həmişə yadında qalsın."]]},
+ {name:"🟣 Bağlanış — Qeyd (10 dəq)", text:["Seans müsbət, gücləndirici bir notla, irəliləyişin təqdiri ilə bitir."],
+  dialog:[["T","İlk gəldiyin gündən bura qədər çox böyük yol qət etdin. Səninlə fəxr edirəm."]]}
+],
+homework:"Təhlükəsizlik planını görünən bir yerdə (məs. otağında) saxla və lazım olanda ona bax."}
+];
+
+function renderSession(s){
+  let html = `<span class="m-tag">Seans ${s.num} / 12</span><h3 class="m-title">${s.title}</h3>`;
+  html += `<div class="m-block"><h5>🎯 Seansın məqsədi</h5><div class="m-goal">${s.goal}</div></div>`;
+  html += `<div class="m-block"><h5>🧰 Lazım olan materiallar</h5><div class="m-materials">${s.materials.map(m=>`<span>${m}</span>`).join('')}</div></div>`;
+  html += `<div class="m-block"><h5>📋 Seansın gedişi</h5>`;
+  s.phases.forEach(ph=>{
+    html += `<div class="m-phase"><div class="ph-name">${ph.name}</div>`;
+    (ph.text||[]).forEach(t=>{ html += `<p>${t}</p>`; });
+    if(ph.dialog && ph.dialog.length){
+      html += `<div class="m-dialog">`;
+      ph.dialog.forEach(d=>{
+        const who = d[0]==='T' ? 'Terapevt' : (d[0]==='K' ? 'Klient' : d[0]);
+        const cls = d[0]==='T' ? 't' : (d[0]==='K' ? 'k' : '');
+        html += `<div class="dl"><span class="dw ${cls}">${who}:</span><span class="dt">${d[1]}</span></div>`;
+      });
+      html += `</div>`;
+    }
+    html += `</div>`;
+  });
+  html += `</div>`;
+  html += `<div class="m-block"><h5>📝 Ev tapşırığı</h5><div class="m-homework">${s.homework}</div></div>`;
+  html += `<div class="m-nextprev">
+    <div class="m-navbtn ${s.num<=1?'disabled':''}" onclick="openSession(${s.num-1})">◂ Əvvəlki seans</div>
+    <div class="m-navbtn ${s.num>=12?'disabled':''}" onclick="openSession(${s.num+1})">Növbəti seans ▸</div>
+  </div>`;
+  return html;
+}
+
+function openSession(n){
+  const s = SESSIONS.find(x=>x.num===n);
+  if(!s) return;
+  document.getElementById('modalContent').innerHTML = renderSession(s);
+  document.getElementById('modalOverlay').classList.add('active');
+  document.body.classList.add('modal-open');
+  document.getElementById('modalOverlay').scrollTop = 0;
+  document.querySelector('.modal-box').scrollTop = 0;
+}
+function closeSession(){
+  document.getElementById('modalOverlay').classList.remove('active');
+  document.body.classList.remove('modal-open');
+}
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeSession(); });
 </script>
 <script src="protect.js" defer></script>
 </body>
