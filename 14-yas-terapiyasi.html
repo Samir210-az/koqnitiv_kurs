@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0f172a">
+<title>Modul 14 · Yas Terapiyası</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>:root{ --acc:#94a3b8; --acc-soft:rgba(148,163,184,0.16); --acc-rgb:148,163,184; }</style>
+</head>
+<body>
+
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+
+<div class="topbar">
+  <a class="back" href="index.html">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+    Kurs menyusuna qayıt
+  </a>
+  <span class="progress-pill">Modul 14 / 20</span>
+</div>
+
+<main>
+  <div class="hero">
+    <span class="tag">Modul 14 · İtki və Yas</span>
+    <h1>Yas Terapiyası Proqramı</h1>
+    <p>Uşaq və böyüklərdə itki və yas prosesi ilə iş üçün həssas, mərhələli proqram.</p>
+  </div>
+<section>
+  <div class="sec-head"><div class="sec-num">1</div><h2>Yas sadə dillə nədir?</h2></div>
+  <div class="simple-box"><b>Sadə dildə deyilsə:</b> Yas — sevdiyimiz birini itirdikdə yaşadığımız təbii, insani prosesdir. Bu, "5 mərhələdən" xətti keçən bir yol deyil — daha çox dalğalara bənzəyir: bəzən sakit, bəzən çox güclü. Hər insanın yas yolu fərqlidir və bunun "düzgün" bir müddəti yoxdur.</div>
+</section>
+<section>
+  <div class="sec-head"><div class="sec-num">2</div><h2>Yaş qruplarına görə fərqli təzahür</h2></div>
+  <div class="age-grid">
+    <div class="age-card child"><h4>👶 Uşaqlar</h4><ul><li>Oyunda itkini canlandırma</li><li>"O geri qayıdacaqmı?" sualları</li><li>Regressiya, yuxu problemləri</li></ul></div>
+    <div class="age-card teen"><h4>🧑 Yeniyetmələr</h4><ul><li>Təcridolma və ya riskli davranış</li><li>Emosiyaları gizlətmə meyli</li></ul></div>
+    <div class="age-card adult"><h4>🧑‍🦱 Böyüklər</h4><ul><li>Günah hissi, "kaş" düşüncələri</li><li>Gündəlik funksionallıqda azalma</li></ul></div>
+  </div>
+</section>
+<section>
+  <div class="sec-head"><div class="sec-num">3</div><h2>Seans-seans proqram (10 seanslıq model)</h2></div>
+  <div class="session-plan"><div class="sess-row" onclick="openSession(1)"><div class="sess-num">1</div><div class="sess-txt"><h4>Tanışlıq və itki tarixçəsi</h4><p>İtkinin təfərrüatları həssaslıqla öyrənilir.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(2)"><div class="sess-num">2</div><div class="sess-txt"><h4>Psixotəhsil: Yas necə keçir?</h4><p>Yasın 'xətti' deyil, 'dalğalı' proses olduğu izah edilir.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(3)"><div class="sess-num">3</div><div class="sess-txt"><h4>Duyğuların adlandırılması</h4><p>Yasla bağlı müxtəlif hisslərin (qəzəb, günah, həsrət) tanınması.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(4)"><div class="sess-num">4</div><div class="sess-txt"><h4>Xatirələrin qorunması</h4><p>İtirilən şəxslə bağlı müsbət xatirələrin toplanması.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(5)"><div class="sess-num">5</div><div class="sess-txt"><h4>Bədən reaksiyalarının idarə edilməsi</h4><p>Yasın fiziki əlamətləri (yorğunluq, iştahsızlıq) ilə iş.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(6)"><div class="sess-num">6</div><div class="sess-txt"><h4>Günah hissi ilə iş</h4><p>'Kaş fərqli davransaydım' düşüncələrinin işlənməsi.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(7)"><div class="sess-num">7</div><div class="sess-txt"><h4>Sosial dəstəyin gücləndirilməsi</h4><p>Ailə və dostlarla əlaqənin qorunması.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(8)"><div class="sess-num">8</div><div class="sess-txt"><h4>Yeni normala uyğunlaşma</h4><p>Həyatın itkidən sonra necə davam etdiyi müzakirə olunur.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(9)"><div class="sess-num">9</div><div class="sess-txt"><h4>Xüsusi günlərin planlaşdırılması</h4><p>Doğum günü, bayram kimi çətin günlər üçün strategiya.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(10)"><div class="sess-num">10</div><div class="sess-txt"><h4>Yekun və davamlılıq</h4><p>Prosesin ümumiləşdirilməsi, gələcək dəstək resursları.</p></div><div class="sess-open">Seansı aç ▸</div></div></div>
+</section>
+<div class="quote">"Yas, sevginin davam etməli olduğu yeri tapa bilməməsidir." <span>— Yas terapiyası prinsipi (continuing bonds)</span></div>
+<div class="summary-box"><h3>📌 Modulun xülasəsi</h3><ul>
+ <li>Yas xətti deyil, dalğalı bir prosesdir — hər insanda fərqli keçir.</li>
+ <li>"Continuing bonds" yanaşması — itirilən şəxslə əlaqəni kəsmək yox, yeni formada davam etdirmək fikrinə əsaslanır.</li>
+ <li>Xatirə ritualları və sosial dəstək yas prosesini asanlaşdırır.</li>
+</ul>
+<p style="margin-top:14px; font-size:.85rem; color:var(--text-3);">Qeyd: Əgər yas prosesi uzun müddət gündəlik funksionallığı ciddi əngəlləyirsə, mütəxəssis dəstəyi almaq tövsiyə olunur.</p>
+</div>
+<div class="nav-bottom"><a class="nav-btn home" href="index.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>Menyuya qayıt</a><a class="nav-btn next" href="15-somatik.html">Növbəti modul: Somatik Xəstəliklər<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+</main>
+
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeSession()">
+  <div class="modal-box">
+    <div class="modal-close" onclick="closeSession()">✕</div>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Koqnitiv Davranış Terapiyası Kursu · Modul 14/20</p>
+  <p style="margin-top:8px;">By <a href="https://instagram.com/s_akhundoff" target="_blank" rel="noopener">@s_akhundoff</a></p>
+</footer>
+
+<script>
+const TOTAL_SESSIONS = 10;
+const SESSIONS = [{"num": 1, "title": "Tanışlıq və itki tarixçəsi", "short": "İtkinin təfərrüatları həssaslıqla öyrənilir.", "goal": "Etibarlı əlaqə qurmaq və itkinin konteksti haqqında məlumat toplamaq.", "materials": ["-"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["Klientə öz templəsi ilə, məcbur edilmədən danışmaq imkanı verilir."], "dialog": [["T", "İstəyirsənsə, sənə vaxt verim, hazır olduğunda mənə istədiyin qədər danış."], ["K", "Babam 3 ay əvvəl vəfat etdi... hələ də inana bilmirəm."]]}], "homework": "-"}, {"num": 2, "title": "Psixotəhsil: Yas necə keçir?", "short": "Yasın 'xətti' deyil, 'dalğalı' proses olduğu izah edilir.", "goal": "Yas prosesinin normal, fərdi və proqnozlaşdırılmaz ola biləcəyini göstərmək.", "materials": ["Yas dalğaları diaqramı"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["Yasın mərhələləri (inkar, qəzəb, sövdələşmə, kədər, qəbul) 'ciddi sıra' deyil, dalğalar kimi təqdim olunur."], "dialog": [["T", "Bəzi günlər yaxşı hiss edib, sonra birdən çox kədərlənə bilərsən — bu tamamilə normaldır."], ["K", "Bəzən gülürəm, sonra özümü günahkar hiss edirəm."], ["T", "Gülmək, babanı unutmaq demək deyil."]]}], "homework": "-"}, {"num": 3, "title": "Duyğuların adlandırılması", "short": "Yasla bağlı müxtəlif hisslərin (qəzəb, günah, həsrət) tanınması.", "goal": "Hiss lüğətini zənginləşdirmək, hisslərin hamısının 'icazəli' olduğunu göstərmək.", "materials": ["Hiss kartları"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["Klient müxtəlif hissləri (qəzəb, tənhalıq, rahatlıq) tanıyır və adlandırır."], "dialog": [["T", "Babanın vəfatından sonra hansı hissləri yaşamısan?"], ["K", "Kədər, bəzən qəzəb — niyə o getdi?"], ["T", "Qəzəb də yasın normal hissəsidir."]]}], "homework": "Gün ərzində hiss etdiyin emosiyaları qeyd et."}, {"num": 4, "title": "Xatirələrin qorunması", "short": "İtirilən şəxslə bağlı müsbət xatirələrin toplanması.", "goal": "Əlaqəni 'kəsmək' deyil, yeni formada davam etdirmək (continuing bonds).", "materials": ["Xatirə qutusu/kitabı"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["Klient sevdiyi xatirələri, şəkilləri, hekayələri toplayaraq 'xatirə qutusu' yaradır."], "dialog": [["T", "Babanla bağlı ən sevdiyin xatirə hansıdır?"], ["K", "Birlikdə balıq tuturduq, mənə hekayələr danışırdı."], ["T", "Gəl bu xatirələri bir yerə toplayaq ki, həmişə sənlə qalsın."]]}], "homework": "Xatirə qutusuna 2-3 əşya/şəkil əlavə et."}, {"num": 5, "title": "Bədən reaksiyalarının idarə edilməsi", "short": "Yasın fiziki əlamətləri (yorğunluq, iştahsızlıq) ilə iş.", "goal": "Yasın bədəndə də iz buraxdığını normallaşdırmaq və özünəqayğı öyrətmək.", "materials": ["Özünəqayğı vərəqi"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["Yuxu, iştaha, enerji səviyyəsi araşdırılır, sadə özünəqayğı addımları planlaşdırılır."], "dialog": [["T", "Yuxun necədir bu günlərdə?"], ["K", "Pis, tez-tez oyanıram."], ["T", "Bu, yasın bədəndə göstərdiyi normal təsirdir. Gəl bir neçə sakitləşdirici rutin quraq."]]}], "homework": "Axşam sakitləşdirici rutin tətbiq et."}, {"num": 6, "title": "Günah hissi ilə iş", "short": "'Kaş fərqli davransaydım' düşüncələrinin işlənməsi.", "goal": "Yersiz özünü günahlandırmanı azaltmaq.", "materials": ["Fikir vərəqi"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["Klientin özünü günahlandırdığı konkret fikir araşdırılır və balanslaşdırılır."], "dialog": [["K", "Kaş son gün onunla daha çox vaxt keçirəydim."], ["T", "O zaman əlində olan məlumatla ən yaxşısını etdin. Bunu bilə bilməzdin."]]}], "homework": "Günah fikrini yaz və balanslaşdırılmış cavab tap."}, {"num": 7, "title": "Sosial dəstəyin gücləndirilməsi", "short": "Ailə və dostlarla əlaqənin qorunması.", "goal": "Təcridolmanın qarşısını almaq, dəstək şəbəkəsini aktivləşdirmək.", "materials": ["-"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["Klientin kimlərlə danışa biləcəyi, kimin dəstək verə biləcəyi müəyyənləşdirilir."], "dialog": [["T", "Bu hisslər haqqında kiminlə danışırsan?"], ["K", "Heç kiminlə, hamı öz qəminə qərq olub."], ["T", "Bəlkə bir yaxın dostunla bu barədə danışmağı sınayaq?"]]}], "homework": "Bir yaxınla hisslərini paylaş."}, {"num": 8, "title": "Yeni normala uyğunlaşma", "short": "Həyatın itkidən sonra necə davam etdiyi müzakirə olunur.", "goal": "'Həyat davam edir' hissini utanc olmadan qəbul etmək.", "materials": ["-"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["Klientə gündəlik həyata tədricən qayıtmağın 'xəyanət' olmadığı izah edilir."], "dialog": [["K", "Əylənəndə özümü pis hiss edirəm, sanki onu unuduram."], ["T", "Əylənmək, sevməyi dayandırmaq demək deyil. İkisi bir yerdə ola bilər."]]}], "homework": "-"}, {"num": 9, "title": "Xüsusi günlərin planlaşdırılması", "short": "Doğum günü, bayram kimi çətin günlər üçün strategiya.", "goal": "Emosional olaraq çətin ola biləcək günlərə hazırlıqlı olmaq.", "materials": ["Plan vərəqi"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["Yaxınlaşan xüsusi bir gün üçün konkret dəstək planı hazırlanır."], "dialog": [["T", "Babanın doğum günü yaxınlaşır. Bu gün üçün nə etmək istərdin?"], ["K", "Bəlkə ailə ilə birlikdə onun sevdiyi yeməyi bişirərik."], ["T", "Bu, gözəl bir xatirə ritualı olardı."]]}], "homework": "Planı ailənlə paylaş."}, {"num": 10, "title": "Yekun və davamlılıq", "short": "Prosesin ümumiləşdirilməsi, gələcək dəstək resursları.", "goal": "İrəliləyişi qeyd etmək, davamlı özünəqayğı planı qurmaq.", "materials": ["-"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["İlk seansla müqayisədə dəyişiklik nəzərdən keçirilir."], "dialog": [["T", "İlk gəldiyinlə indi arasında nə fərq hiss edirsən?"], ["K", "Hələ də kədərliyəm, amma artıq nəfəs ala bilirəm."], ["T", "Bu, çox mənalı bir irəliləyişdir. Yas bitmir, amma daşınması asanlaşır."]]}], "homework": "Xatirə ritualını davam etdir."}];
+</script>
+<script src="engine.js"></script>
+<script src="protect.js" defer></script>
+</body>
+</html>
