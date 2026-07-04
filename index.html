@@ -29,6 +29,7 @@
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
+  body{-webkit-user-select:none;-moz-user-select:none;user-select:none;}
   body{
     font-family:var(--font-b);
     background:
@@ -275,7 +276,7 @@
 <script>
 const lessons = [
   {n:"01", icon:"🧠", title:"Koqnitiv terapiya nəzəriyyəsi", desc:"CBT-nin təməli: koqnitiv üçbucaq, ABC modeli, sxemlər və terapevtik strukturu.", href:"01-nezeriyye.html", active:true},
-  {n:"02", icon:"🌩️", title:"Postravmatik stress və CBT", desc:"Uşaq, yeniyetmə və böyüklərlə iş — seans proqramı və iş dəftəri.", href:"02-ptsd.html", active:false},
+  {n:"02", icon:"🌩️", title:"Postravmatik stress və CBT", desc:"Uşaq, yeniyetmə və böyüklərlə iş — seans proqramı və iş dəftəri.", href:"02-ptsd.html", active:true},
   {n:"03", icon:"🔥", title:"Aqressiya və CBT", desc:"Uşaq, yeniyetmə və böyüklərlə hazır proqram.", href:"03-aqressiya.html", active:false},
   {n:"04", icon:"😟", title:"Qayğı pozuntusu, emosional gərginlik və Qorxu", desc:"CBT ilə işləmək proqramı — uşaq, yeniyetmə və böyüklər.", href:"04-qayği-qorxu.html", active:false},
   {n:"05", icon:"🎯", title:"Qorxu ovçusu proqramı", desc:"Fobiya və qorxularla iş üçün strukturlaşdırılmış proqram.", href:"05-qorxu-ovcusu.html", active:false},
@@ -344,5 +345,6 @@ window.addEventListener('scroll', ()=>{
   });
 });
 </script>
+<script src="protect.js" defer></script>
 </body>
 </html>
