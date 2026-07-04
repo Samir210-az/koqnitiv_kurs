@@ -1,0 +1,19 @@
+{
+  "name": "AN Psixoloji Dəstək və Reabilitasiya Mərkəzi — Koqnitiv Davranış Terapiyası Kursu",
+  "short_name": "KBT Kursu",
+  "description": "Koqnitiv Davranış Terapiyası üzrə 20 modullu peşəkar inkişaf kursu — AN Psixoloji Dəstək və Reabilitasiya Mərkəzi",
+  "start_url": "./index.html",
+  "scope": "./",
+  "id": "/koqnitiv_kurs/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0b1224",
+  "theme_color": "#0b1224",
+  "lang": "az",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
