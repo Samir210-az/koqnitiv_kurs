@@ -58,6 +58,8 @@ h2{font-family:var(--font-d); font-size:clamp(1.35rem,3vw,1.7rem); font-weight:7
 
 .simple-box{border-left:3px solid var(--sky); background:var(--sky-soft); border-radius:0 14px 14px 0; padding:18px 22px; margin:18px 0; font-size:.94rem;}
 .simple-box b{color:var(--sky);}
+.sci-box{border-left:3px solid var(--violet); background:var(--violet-soft); border-radius:0 14px 14px 0; padding:18px 22px; margin:18px 0; font-size:.94rem;}
+.sci-box b{color:var(--violet);}
 .example{border-left:3px solid var(--amber); background:var(--amber-soft); border-radius:0 14px 14px 0; padding:16px 20px; margin:16px 0; font-size:.92rem;}
 .example b{color:var(--amber);}
 
