@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0f172a">
+<title>Modul 15 · Somatik İş</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>:root{ --acc:#84cc16; --acc-soft:rgba(132,204,22,0.16); --acc-rgb:132,204,22; }</style>
+</head>
+<body>
+
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+
+<div class="topbar">
+  <a class="back" href="index.html">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+    Kurs menyusuna qayıt
+  </a>
+  <span class="progress-pill">Modul 15 / 20</span>
+</div>
+
+<main>
+  <div class="hero">
+    <span class="tag">Modul 15 · Sağlamlıq Psixologiyası</span>
+    <h1>Somatik Xəstəliklərlə İş Proqramı</h1>
+    <p>Xroniki xəstəliklə yaşayan klientlərlə psixoloji dəstək üçün CBT-əsaslı proqram.</p>
+  </div>
+<section>
+  <div class="sec-head"><div class="sec-num">1</div><h2>Sadə dillə: Xəstəlik və zehin necə bağlıdır?</h2></div>
+  <div class="simple-box"><b>Sadə dildə deyilsə:</b> Xroniki xəstəliklə yaşamaq təkcə fiziki deyil, həm də çox böyük emosional yükdür. Stress, narahatlıq və kədər ağrı qavrayışını gücləndirə bilər — bu o demək deyil ki, ağrı "xəyalidir", sadəcə bədən və zehin sıx bağlıdır.</div>
+</section>
+<section>
+  <div class="sec-head"><div class="sec-num">2</div><h2>Multidisiplinar baxış</h2></div>
+  <div class="grid-3">
+    <div class="lens-card"><span class="ico">🧠</span><h4>Psixoloji</h4><p>Xəstəliklə bağlı katastrofikləşdirmə, itki hissi, kimlik dəyişikliyi.</p></div>
+    <div class="lens-card"><span class="ico">✋</span><h4>Erqoterapevt</h4><p>Enerji idarəetməsi (pacing), gündəlik fəaliyyətlərin uyğunlaşdırılması.</p></div>
+    <div class="lens-card"><span class="ico">👨‍👩‍👧</span><h4>Sosial dəstək</h4><p>Ailə/dostlarla kommunikasiya, izolyasiyanın qarşısının alınması.</p></div>
+  </div>
+</section>
+<section>
+  <div class="sec-head"><div class="sec-num">3</div><h2>Seans-seans proqram (8 seanslıq model)</h2></div>
+  <div class="session-plan"><div class="sess-row" onclick="openSession(1)"><div class="sess-num">1</div><div class="sess-txt"><h4>Tanışlıq və xəstəliklə tanışlıq</h4><p>Xəstəliyin klient üçün mənası araşdırılır.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(2)"><div class="sess-num">2</div><div class="sess-txt"><h4>Psixotəhsil: Bədən-zehin əlaqəsi</h4><p>Stress və xəstəlik simptomları arasındakı əlaqə izah edilir.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(3)"><div class="sess-num">3</div><div class="sess-txt"><h4>Ağrı ilə baş etmə bacarıqları</h4><p>Diqqəti yönləndirmə və relaksasiya texnikaları.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(4)"><div class="sess-num">4</div><div class="sess-txt"><h4>Xəstəliklə bağlı düşüncələrin işlənməsi</h4><p>'Mən artıq normal həyat yaşaya bilmərəm' kimi fikirlərin sorğulanması.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(5)"><div class="sess-num">5</div><div class="sess-txt"><h4>Enerji idarəetməsi (Pacing)</h4><p>Fəaliyyətlərin enerjiyə uyğun planlaşdırılması.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(6)"><div class="sess-num">6</div><div class="sess-txt"><h4>Sosial dəstək və kommunikasiya</h4><p>Xəstəliyi yaxınlara izah etmə bacarıqları.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(7)"><div class="sess-num">7</div><div class="sess-txt"><h4>Kimlik və özünüqiymətləndirmə</h4><p>Xəstəlikdən kənar şəxsiyyət hisslərinin gücləndirilməsi.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(8)"><div class="sess-num">8</div><div class="sess-txt"><h4>Yekun və davamlılıq planı</h4><p>Öyrənilən bacarıqların ümumiləşdirilməsi.</p></div><div class="sess-open">Seansı aç ▸</div></div></div>
+</section>
+<div class="quote">"Xəstəlik həyatın bir hissəsidir, bütövlüyü deyil." <span>— Sağlamlıq psixologiyası prinsipi</span></div>
+<div class="summary-box"><h3>📌 Modulun xülasəsi</h3><ul>
+ <li>Stress və emosional vəziyyət ağrı qavrayışına təsir edir — bədən-zehin əlaqəsi güclüdür.</li>
+ <li>Enerji idarəetməsi (pacing) "hamısı və ya heç nə" nümunəsinin qarşısını alır.</li>
+ <li>Xəstəlikdən kənar şəxsiyyət hissini qorumaq psixoloji sağlamlıq üçün vacibdir.</li>
+</ul></div>
+<div class="nav-bottom"><a class="nav-btn home" href="index.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>Menyuya qayıt</a><a class="nav-btn next" href="16-depressiya.html">Növbəti modul: Depressiya<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+</main>
+
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeSession()">
+  <div class="modal-box">
+    <div class="modal-close" onclick="closeSession()">✕</div>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Koqnitiv Davranış Terapiyası Kursu · Modul 15/20</p>
+  <p style="margin-top:8px;">By <a href="https://instagram.com/s_akhundoff" target="_blank" rel="noopener">@s_akhundoff</a></p>
+</footer>
+
+<script>
+const TOTAL_SESSIONS = 8;
+const SESSIONS = [{"num": 1, "title": "Tanışlıq və xəstəliklə tanışlıq", "short": "Xəstəliyin klient üçün mənası araşdırılır.", "goal": "Xəstəliyin gündəlik həyata təsirini və klientin bu barədə düşüncələrini anlamaq.", "materials": ["-"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["Klientdən diaqnozdan bəri həyatının necə dəyişdiyi soruşulur."], "dialog": [["T", "Bu xəstəliklə yaşamaq sənin üçün necədir?"], ["K", "Çox şey dəyişdi, əvvəlki kimi aktiv ola bilmirəm."]]}], "homework": "-"}, {"num": 2, "title": "Psixotəhsil: Bədən-zehin əlaqəsi", "short": "Stress və xəstəlik simptomları arasındakı əlaqə izah edilir.", "goal": "Emosional vəziyyətin fiziki simptomlara təsirini göstərmək.", "materials": ["Bədən-zehin diaqramı"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["Stresin ağrı qavrayışını necə gücləndirə biləcəyi izah olunur."], "dialog": [["T", "Stresli günlərdə ağrın daha güclü olurmu?"], ["K", "Bəli, fərq edirəm."], ["T", "Bu, ağrının 'xəyali' olduğu demək deyil — sadəcə zehin və bədən bir-birinə çox bağlıdır."]]}], "homework": "Ağrı səviyyəsini stress səviyyəsi ilə birlikdə qeyd et."}, {"num": 3, "title": "Ağrı ilə baş etmə bacarıqları", "short": "Diqqəti yönləndirmə və relaksasiya texnikaları.", "goal": "Ağrı qavrayışını azaldan praktik alətlər öyrətmək.", "materials": ["Nəfəs kartı"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["Diqqəti yönləndirmə (distraction) və mütərəqqi əzələ boşaltma məşq edilir."], "dialog": [["T", "Ağrı güclənəndə diqqətini başqa bir şeyə (musiqi, söhbət) yönəltməyi sınayaq."], ["K", "Bu, kömək edə bilər kimi görünür."]]}], "homework": "Ağrı anında diqqətyönləndirmə texnikasını sına."}, {"num": 4, "title": "Xəstəliklə bağlı düşüncələrin işlənməsi", "short": "'Mən artıq normal həyat yaşaya bilmərəm' kimi fikirlərin sorğulanması.", "goal": "Katastrofikləşdirməni azaltmaq, real imkanlara fokuslanmaq.", "materials": ["Fikir vərəqi"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["Xəstəliklə bağlı ümumiləşdirilmiş mənfi fikirlər araşdırılır."], "dialog": [["K", "Bu xəstəliklə heç nə edə bilmərəm."], ["T", "Tam heç nəmi, yoxsa bəzi şeyləri fərqli şəkildə edə bilərsən?"], ["K", "Bəlkə fərqli tempdə, amma edə bilərəm."]]}], "homework": "Bir 'heç nə edə bilmərəm' fikrini yenidən yaz."}, {"num": 5, "title": "Enerji idarəetməsi (Pacing)", "short": "Fəaliyyətlərin enerjiyə uyğun planlaşdırılması.", "goal": "'Hamısı və ya heç nə' fəaliyyət nümunəsinin qarşısını almaq.", "materials": ["Enerji jurnalı"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["Fəaliyyətlərin kiçik, davam etdirilə bilən dozalara bölünməsi (pacing) öyrədilir."], "dialog": [["T", "Yaxşı gündə hər şeyi etməyə çalışıb, sonra bir neçə gün yorğun qalırsanmı?"], ["K", "Dəqiq belədir."], ["T", "Gəl fəaliyyətləri daha kiçik, sabit dozalara bölək."]]}], "homework": "Bir fəaliyyəti kiçik dozalara böl və tətbiq et."}, {"num": 6, "title": "Sosial dəstək və kommunikasiya", "short": "Xəstəliyi yaxınlara izah etmə bacarıqları.", "goal": "İzolyasiyanın qarşısını almaq, ehtiyacları ifadə etməyi öyrətmək.", "materials": ["-"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["Klientə ehtiyaclarını yaxınlarına necə ifadə edə biləcəyi öyrədilir."], "dialog": [["T", "Yaxınların sənin ehtiyaclarını bilirmi?"], ["K", "Tam yox, utanıram deməyə."], ["T", "Gəl sadə bir cümlə formalaşdıraq: 'Bu gün enerjim az, kömək lazımdır.'"]]}], "homework": "Bir ehtiyacını yaxın birinə ifadə et."}, {"num": 7, "title": "Kimlik və özünüqiymətləndirmə", "short": "Xəstəlikdən kənar şəxsiyyət hisslərinin gücləndirilməsi.", "goal": "'Mən xəstəliyimdən ibarət deyiləm' hissini gücləndirmək.", "materials": ["-"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["Klientin xəstəlikdən asılı olmayan güclü tərəfləri və maraqları müzakirə olunur."], "dialog": [["T", "Xəstəlikdən əlavə, özünü necə təsvir edərdin?"], ["K", "Rəssamam, yumor hissim var..."], ["T", "Bunlar da sənin bir hissəndir, xəstəlik qədər əhəmiyyətlidir."]]}], "homework": "-"}, {"num": 8, "title": "Yekun və davamlılıq planı", "short": "Öyrənilən bacarıqların ümumiləşdirilməsi.", "goal": "Uzunmüddətli özünəqayğı planı qurmaq.", "materials": ["Bacarıqlar siyahısı"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["İlk seansla müqayisədə emosional dəyişiklik nəzərdən keçirilir."], "dialog": [["T", "Bu proqramda ən çox nə köməyinə oldu?"], ["K", "Enerji idarəetməsi və özümü ifadə etmək."], ["T", "Bu bacarıqları özünlə apar, onlar sənin gündəlik həyatını asanlaşdıracaq."]]}], "homework": "Bacarıqları davamlı tətbiq et."}];
+</script>
+<script src="engine.js"></script>
+<script src="protect.js" defer></script>
+</body>
+</html>
