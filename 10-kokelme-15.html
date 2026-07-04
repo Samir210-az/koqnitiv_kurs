@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0f172a">
+<title>Modul 10 · Kökələmə Proqramı</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>:root{ --acc:#2dd4bf; --acc-soft:rgba(45,212,191,0.16); --acc-rgb:45,212,191; }</style>
+</head>
+<body>
+
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+
+<div class="topbar">
+  <a class="back" href="index.html">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+    Kurs menyusuna qayıt
+  </a>
+  <span class="progress-pill">Modul 10 / 20</span>
+</div>
+
+<main>
+  <div class="hero">
+    <span class="tag">Modul 10 · Sensor-Davranış Yemək Proqramı</span>
+    <h1>15 Seanslıq Kökələmə Proqramı</h1>
+    <p>Seçici yeyən uşaqlarla sensor-informed, davranış əsaslı iş dəftəri proqramı.</p>
+  </div>
+<section>
+  <div class="sec-head"><div class="sec-num">1</div><h2>Sadə dillə: Niyə bəzi uşaqlar yeməkdə seçici olur?</h2></div>
+  <div class="simple-box"><b>Sadə dildə deyilsə:</b> Bəzi uşaqlar üçün yeməyin dadı, qoxusu, konsistensiyası "adi"dən daha güclü hiss olunur — bu, sensor sistemin fərqli işləməsi ilə bağlıdır, "ərköyünlük" deyil. Məqsədimiz uşağı məcbur etmək deyil, tədricən, təzyiqsiz addımlarla yeni yeməklərlə "dostluq" qurmasına kömək etməkdir.</div>
+  <div class="example"><b>Vacib qeyd:</b> Bu proqram konkret çəki/kalori hədəfləri qoymur — məqsəd sağlam, sıxıntısız yemək vərdişləri və ailə ilə pozitiv mealtime təcrübəsi yaratmaqdır. Fiziki inkişafla bağlı narahatlıqlar üçün pediatr/dietoloqla əməkdaşlıq tövsiyə olunur.</div>
+</section>
+<section>
+  <div class="sec-head"><div class="sec-num">2</div><h2>Multidisiplinar baxış</h2></div>
+  <div class="grid-3">
+    <div class="lens-card"><span class="ico">✋</span><h4>Erqoterapevt / Sensor</h4><p>Toxunma, dad, qoxu həssaslığının qiymətləndirilməsi və tədrici desensitizasiya.</p></div>
+    <div class="lens-card"><span class="ico">🧠</span><h4>Psixoloji</h4><p>Yemək zamanı narahatlığın azaldılması, müsbət gücləndirmə.</p></div>
+    <div class="lens-card"><span class="ico">👨‍👩‍👧</span><h4>Ailə sistemi</h4><p>Mealtime-ın münaqişə yerindən sakit, birgə təcrübəyə çevrilməsi.</p></div>
+  </div>
+</section>
+<section>
+  <div class="sec-head"><div class="sec-num">3</div><h2>Sensor Yaxınlaşma Pilləkəni</h2></div>
+  <p class="lead">Yeni yeməklə tanışlıq həmişə bu ardıcıllıqla, təzyiqsiz aparılır:</p>
+  <div class="ground-grid">
+    <div class="ground-card"><span class="big">1</span><p>Görmək</p></div>
+    <div class="ground-card"><span class="big">2</span><p>Toxunmaq</p></div>
+    <div class="ground-card"><span class="big">3</span><p>Qoxlamaq</p></div>
+    <div class="ground-card"><span class="big">4</span><p>Dodağa toxundurmaq</p></div>
+    <div class="ground-card"><span class="big">5</span><p>Dadmaq</p></div>
+  </div>
+</section>
+<section>
+  <div class="sec-head"><div class="sec-num">4</div><h2>Seans-seans proqram (15 seanslıq model)</h2></div>
+  <div class="session-plan"><div class="sess-row" onclick="openSession(1)"><div class="sess-num">1</div><div class="sess-txt"><h4>Tanışlıq və qiymətləndirmə</h4><p>Yemək vərdişləri, sensor həssaslıq və ailə mühiti qiymətləndirilir.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(2)"><div class="sess-num">2</div><div class="sess-txt"><h4>Psixotəhsil: Niyə çətinlik çəkirəm?</h4><p>Sensor həssaslığın yemək seçiciliyinə təsiri izah edilir.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(3)"><div class="sess-num">3</div><div class="sess-txt"><h4>Mealtime rutininin qurulması</h4><p>Sabit, sakit yemək vaxtı və mühiti planlaşdırılır.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(4)"><div class="sess-num">4</div><div class="sess-txt"><h4>Sensor desensitizasiya — baxmaq</h4><p>Yeni yeməyə yalnız baxmaqla tanışlıq.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(5)"><div class="sess-num">5</div><div class="sess-txt"><h4>Sensor desensitizasiya — toxunmaq</h4><p>Yeməyə əllə toxunma addımı.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(6)"><div class="sess-num">6</div><div class="sess-txt"><h4>Sensor desensitizasiya — iyləmək</h4><p>Yeməyi qoxlama addımı.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(7)"><div class="sess-num">7</div><div class="sess-txt"><h4>Sensor desensitizasiya — dodağa toxundurma</h4><p>Yeməyi dodağa toxundurma, udmaq məcburi deyil.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(8)"><div class="sess-num">8</div><div class="sess-txt"><h4>Kiçik dad addımı</h4><p>Balaca miqdarda dadmaq, istəsə tüpürmək icazəlidir.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(9)"><div class="sess-num">9</div><div class="sess-txt"><h4>Müsbət gücləndirmə sistemi</h4><p>Yeni yemək cəhdləri üçün mükafat sistemi.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(10)"><div class="sess-num">10</div><div class="sess-txt"><h4>Ailə ilə birgə yemək seansı</h4><p>Ailənin nümunə davranışının gücündən istifadə.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(11)"><div class="sess-num">11</div><div class="sess-txt"><h4>Yeni yeməklərin genişləndirilməsi</h4><p>Sınanmış yeməklərə bənzər yeni seçimlərin əlavəsi.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(12)"><div class="sess-num">12</div><div class="sess-txt"><h4>Çətinliklərin həlli</h4><p>Geriləmə anlarında strategiya.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(13)"><div class="sess-num">13</div><div class="sess-txt"><h4>Məktəb/bağça ilə koordinasiya</h4><p>Yemək vərdişlərinin digər mühitlərə köçürülməsi.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(14)"><div class="sess-num">14</div><div class="sess-txt"><h4>İrəliləyişin qeydə alınması</h4><p>Proqramın əvvəlindən bəri dəyişikliklər gözdən keçirilir.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(15)"><div class="sess-num">15</div><div class="sess-txt"><h4>Yekun və davamlılıq planı</h4><p>Ailə üçün davamlı strategiya planı hazırlanır.</p></div><div class="sess-open">Seansı aç ▸</div></div></div>
+</section>
+<div class="quote">"Yemək öyrənmək bir yarışa deyil, gəzintiyə bənzəyir — hər addım öz vaxtında." <span>— Feeding Therapy prinsipi</span></div>
+<div class="summary-box"><h3>📌 Modulun xülasəsi</h3><ul>
+ <li>Yemək seçiciliyi çox vaxt sensor həssaslıqla bağlıdır, iradə məsələsi deyil.</li>
+ <li>Tədrici, təzyiqsiz sensor yaxınlaşma (görmək→toxunmaq→qoxlamaq→dadmaq) əsas metoddur.</li>
+ <li>Ailənin sakit nümunəsi və müsbət gücləndirmə vacib rol oynayır.</li>
+ <li>Fiziki inkişaf narahatlıqları üçün pediatr ilə əməkdaşlıq tövsiyə olunur.</li>
+</ul></div>
+<div class="nav-bottom"><a class="nav-btn home" href="index.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>Menyuya qayıt</a><a class="nav-btn next" href="11-qrup-terapiyasi.html">Növbəti modul: Qrup Terapiyası<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+</main>
+
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeSession()">
+  <div class="modal-box">
+    <div class="modal-close" onclick="closeSession()">✕</div>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Koqnitiv Davranış Terapiyası Kursu · Modul 10/20</p>
+  <p style="margin-top:8px;">By <a href="https://instagram.com/s_akhundoff" target="_blank" rel="noopener">@s_akhundoff</a></p>
+</footer>
+
+<script>
+const TOTAL_SESSIONS = 15;
+const SESSIONS = [{"num": 1, "title": "Tanışlıq və qiymətləndirmə", "short": "Yemək vərdişləri, sensor həssaslıq və ailə mühiti qiymətləndirilir.", "goal": "Uşağın yemək tarixçəsini, sevdiyi/qaçındığı yeməkləri anlamaq.", "materials": ["Yemək gündəliyi"], "phases": [{"name": "🔵 Seansın gedişi", "text": [], "dialog": [["T", "Hansı yeməkləri sevirsən, hansılardan xoşun gəlmir?"], ["K", "Ət və tərəvəzdən xoşum gəlmir, konsistensiyası mənə pis gəlir."], ["T", "Bu, çox dəyərli məlumatdır — sensor həssaslıq ola bilər, birlikdə araşdıracağıq."]]}], "homework": "Bu həftə öyrənilən addımı evdə 2-3 dəfə təkrarla."}, {"num": 2, "title": "Psixotəhsil: Niyə çətinlik çəkirəm?", "short": "Sensor həssaslığın yemək seçiciliyinə təsiri izah edilir.", "goal": "Ailəyə/uşağa problemin 'ərköcəlik' olmadığını izah etmək.", "materials": ["Sensor izah vərəqi"], "phases": [{"name": "🔵 Seansın gedişi", "text": [], "dialog": [["T", "Bəzi uşaqların dadı, qoxusu, konsistensiyası bir az fərqli hiss etdiyini bilirsənmi?"], ["K", "Yox, bilmirdim, elə bilirdim mən sadəcə qəribəyəm."], ["T", "Qətiyyən yox, bu, bədəninin fərqli hiss etməsidir, biz bunu tədricən 'öyrədəcəyik'."]]}], "homework": "Bu həftə öyrənilən addımı evdə 2-3 dəfə təkrarla."}, {"num": 3, "title": "Mealtime rutininin qurulması", "short": "Sabit, sakit yemək vaxtı və mühiti planlaşdırılır.", "goal": "Yemək vaxtını təzyiqsiz, proqnozlaşdırıla bilən edir.", "materials": ["Rutin cədvəli"], "phases": [{"name": "🔵 Seansın gedişi", "text": [], "dialog": [["T", "Yemək vaxtı ailənizdə necə keçir?"], ["K", "Adətən mübahisə olur, məni yeməyə məcbur edirlər."], ["T", "Gəl bunu dəyişək — təzyiqsiz, sakit bir rutin quraq."]]}], "homework": "Bu həftə öyrənilən addımı evdə 2-3 dəfə təkrarla."}, {"num": 4, "title": "Sensor desensitizasiya — baxmaq", "short": "Yeni yeməyə yalnız baxmaqla tanışlıq.", "goal": "Yeni yeməklərlə təhlükəsiz, aşağı təzyiqli tanışlıq.", "materials": ["Yeni yemək nümunələri"], "phases": [{"name": "🔵 Seansın gedişi", "text": [], "dialog": [["T", "Bu tərəvəzə sadəcə baxaq, dadmaq məcburi deyil."], ["K", "Yaxşı, baxa bilərəm."], ["T", "Əla, bu, artıq böyük addımdır!"]]}], "homework": "Bu həftə öyrənilən addımı evdə 2-3 dəfə təkrarla."}, {"num": 5, "title": "Sensor desensitizasiya — toxunmaq", "short": "Yeməyə əllə toxunma addımı.", "goal": "Sensor iyerarxiyada növbəti addıma keçid.", "materials": ["Yemək nümunələri"], "phases": [{"name": "🔵 Seansın gedişi", "text": [], "dialog": [["T", "İndi bu tərəvəzə barmağınla toxuna bilərsənmi?"], ["K", "(toxunur) Bu, elə də pis deyil."], ["T", "Möhtəşəm irəliləyiş!"]]}], "homework": "Bu həftə öyrənilən addımı evdə 2-3 dəfə təkrarla."}, {"num": 6, "title": "Sensor desensitizasiya — iyləmək", "short": "Yeməyi qoxlama addımı.", "goal": "Növbəti sensor addımın tamamlanması.", "materials": ["Yemək nümunələri"], "phases": [{"name": "🔵 Seansın gedişi", "text": [], "dialog": [["T", "İndi qoxusunu hiss edə bilərsənmi?"], ["K", "Bir az qəribə, amma pis deyil."]]}], "homework": "Bu həftə öyrənilən addımı evdə 2-3 dəfə təkrarla."}, {"num": 7, "title": "Sensor desensitizasiya — dodağa toxundurma", "short": "Yeməyi dodağa toxundurma, udmaq məcburi deyil.", "goal": "Ağıza yaxınlaşma addımı, təzyiqsiz.", "materials": ["Yemək nümunələri"], "phases": [{"name": "🔵 Seansın gedişi", "text": [], "dialog": [["T", "Dodağına toxundura bilərsən, udmaq məcburi deyil."], ["K", "(sınayır) Yaxşı, bunu edə bilərəm."]]}], "homework": "Bu həftə öyrənilən addımı evdə 2-3 dəfə təkrarla."}, {"num": 8, "title": "Kiçik dad addımı", "short": "Balaca miqdarda dadmaq, istəsə tüpürmək icazəlidir.", "goal": "İlk 'dadma' təcrübəsini təzyiqsiz yaşamaq.", "materials": ["Yemək nümunələri"], "phases": [{"name": "🔵 Seansın gedişi", "text": [], "dialog": [["T", "Çox balaca bir hissəni dada bilərsən, xoşuna gəlməsə tüpürə bilərsən."], ["K", "(dadır) Elə də pis deyilmiş!"]]}], "homework": "Bu həftə öyrənilən addımı evdə 2-3 dəfə təkrarla."}, {"num": 9, "title": "Müsbət gücləndirmə sistemi", "short": "Yeni yemək cəhdləri üçün mükafat sistemi.", "goal": "Cəhdi (nəticədən asılı olmayaraq) təqdir etmək.", "materials": ["Ulduz cədvəli"], "phases": [{"name": "🔵 Seansın gedişi", "text": [], "dialog": [["T", "Hər dəfə yeni yeməyi sınadığında bir ulduz qazanacaqsan, yesən də yeməsən də."], ["K", "Bu maraqlıdır, sınamaq istəyirəm!"]]}], "homework": "Bu həftə öyrənilən addımı evdə 2-3 dəfə təkrarla."}, {"num": 10, "title": "Ailə ilə birgə yemək seansı", "short": "Ailənin nümunə davranışının gücündən istifadə.", "goal": "Ailə üzvlərinin sakit nümunəsi ilə öyrənməni gücləndirmək.", "materials": ["-"], "phases": [{"name": "🔵 Seansın gedişi", "text": [], "dialog": [["T", "Ailənlə birlikdə yeyəndə necə hiss edirsən?"], ["K", "Daha rahat, çünki tək deyiləm."]]}], "homework": "Bu həftə öyrənilən addımı evdə 2-3 dəfə təkrarla."}, {"num": 11, "title": "Yeni yeməklərin genişləndirilməsi", "short": "Sınanmış yeməklərə bənzər yeni seçimlərin əlavəsi.", "goal": "Yemək repertuarını tədricən genişləndirmək.", "materials": ["Yemək siyahısı"], "phases": [{"name": "🔵 Seansın gedişi", "text": [], "dialog": [["T", "Bu yeməyə bənzər başqa bir şey sınayaq?"], ["K", "Yaxşı, bənzər olduğu üçün bir az az qorxuram."]]}], "homework": "Bu həftə öyrənilən addımı evdə 2-3 dəfə təkrarla."}, {"num": 12, "title": "Çətinliklərin həlli", "short": "Geriləmə anlarında strategiya.", "goal": "Uğursuz günlərin normal olduğunu göstərmək.", "materials": ["-"], "phases": [{"name": "🔵 Seansın gedişi", "text": [], "dialog": [["T", "Bu həftə çətin bir gün oldumu?"], ["K", "Bəli, heç nə yemək istəmədim."], ["T", "Bu normaldır, sabah yenidən sınayarıq."]]}], "homework": "Bu həftə öyrənilən addımı evdə 2-3 dəfə təkrarla."}, {"num": 13, "title": "Məktəb/bağça ilə koordinasiya", "short": "Yemək vərdişlərinin digər mühitlərə köçürülməsi.", "goal": "Ardıcıllığı bütün mühitlərdə təmin etmək.", "materials": ["Koordinasiya vərəqi"], "phases": [{"name": "🔵 Seansın gedişi", "text": [], "dialog": [["T", "Bağçada da bu yeməklərdən sınaya bilərsənmi?"], ["K", "Bəlkə, bir dostumla birlikdə sınaya bilərəm."]]}], "homework": "Bu həftə öyrənilən addımı evdə 2-3 dəfə təkrarla."}, {"num": 14, "title": "İrəliləyişin qeydə alınması", "short": "Proqramın əvvəlindən bəri dəyişikliklər gözdən keçirilir.", "goal": "Motivasiyanı artırmaq üçün irəliləyişi vizuallaşdırmaq.", "materials": ["İrəliləyiş qrafiki"], "phases": [{"name": "🔵 Seansın gedişi", "text": [], "dialog": [["T", "İlk gündən indiyə neçə yeni yemək sınadın?"], ["K", "8 yeni yemək! Özüm də təəccübləndim."]]}], "homework": "Bu həftə öyrənilən addımı evdə 2-3 dəfə təkrarla."}, {"num": 15, "title": "Yekun və davamlılıq planı", "short": "Ailə üçün davamlı strategiya planı hazırlanır.", "goal": "Proqramın nəticələrini uzunmüddətli vərdişə çevirmək.", "materials": ["Davamlılıq planı"], "phases": [{"name": "🔵 Seansın gedişi", "text": [], "dialog": [["T", "Bundan sonra evdə necə davam edəcəksiniz?"], ["K", "Yeni yeməkləri təzyiqsiz təklif etməyə davam edəcəyik."], ["T", "Bu, mükəmməl bir yanaşmadır."]]}], "homework": "Bu həftə öyrənilən addımı evdə 2-3 dəfə təkrarla."}];
+</script>
+<script src="engine.js"></script>
+<script src="protect.js" defer></script>
+</body>
+</html>
