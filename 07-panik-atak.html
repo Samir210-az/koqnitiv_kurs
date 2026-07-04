@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0f172a">
+<title>Modul 7 · Panik Atak</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>:root{ --acc:#60a5fa; --acc-soft:rgba(96,165,250,0.16); --acc-rgb:96,165,250; }</style>
+</head>
+<body>
+
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+
+<div class="topbar">
+  <a class="back" href="index.html">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+    Kurs menyusuna qayıt
+  </a>
+  <span class="progress-pill">Modul 7 / 20</span>
+</div>
+
+<main>
+  <div class="hero">
+    <span class="tag">Modul 07 · Panik Pozuntusu</span>
+    <h1>Panik Atak və CBT</h1>
+    <p>Uşaq, yeniyetmə və böyüklərdə panik atak ilə iş üçün tam CBT proqramı.</p>
+  </div>
+<section>
+  <div class="sec-head"><div class="sec-num">1</div><h2>Panik atak sadə dillə nədir?</h2></div>
+  <div class="simple-box"><b>Sadə dildə deyilsə:</b> Panik atak — bədəninizin "yalan həyəcan zəngi" çalmasıdır. Real təhlükə olmasa da, bədən "döyüş və ya qaç" rejiminə keçir: ürək sürətlənir, nəfəs dayazlaşır, baş gicəllənir. Bu hisslər çox qorxulu olsa da, <b>təhlükəli deyil</b> — bir neçə dəqiqə ərzində öz-özünə keçir.</div>
+</section>
+<section>
+  <div class="sec-head"><div class="sec-num">2</div><h2>Panikin özünü-qidalandıran dövranı</h2></div>
+  <div class="abc-flow">
+    <div class="abc-box a"><span class="letter">1</span><h4>Fiziki simptom</h4><p>Ürək döyüntüsü, baş gicəllənmə</p></div>
+    <div class="abc-box b"><span class="letter">2</span><h4>Katastrofik şərh</h4><p>"İnfarkt keçirirəm!"</p></div>
+    <div class="abc-box c"><span class="letter">3</span><h4>Güclənmiş qorxu</h4><p>Daha güclü fiziki reaksiya</p></div>
+  </div>
+  <div class="example"><b>Əsas müdaxilə:</b> İnteroseptiv məruzəetmə — bədən simptomlarını nəzarətli şəkildə təkrar yaradaraq, onların təhlükəsiz olduğunu təcrübədən keçirmək.</div>
+</section>
+<section>
+  <div class="sec-head"><div class="sec-num">3</div><h2>Seans-seans proqram (10 seanslıq model)</h2></div>
+  <div class="session-plan"><div class="sess-row" onclick="openSession(1)"><div class="sess-num">1</div><div class="sess-txt"><h4>Tanışlıq və qiymətləndirmə</h4><p>Panik atakların tezliyi və tetikləyiciləri.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(2)"><div class="sess-num">2</div><div class="sess-txt"><h4>Psixotəhsil: Panik atak nədir?</h4><p>Bədənin 'yalan həyəcan zəngi' izah edilir.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(3)"><div class="sess-num">3</div><div class="sess-txt"><h4>Panik dövranının anlaşılması</h4><p>Fiziki simptom → katastrofik şərh → daha güclü simptom dövranı.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(4)"><div class="sess-num">4</div><div class="sess-txt"><h4>Nəfəs bacarıqları</h4><p>Hiperventilyasiyanı azaldan nəfəs texnikası.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(5)"><div class="sess-num">5</div><div class="sess-txt"><h4>İnteroseptiv məruzəetmə — giriş</h4><p>Bədən simptomlarını təhlükəsiz şəkildə təkrar yaratmaq.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(6)"><div class="sess-num">6</div><div class="sess-txt"><h4>İnteroseptiv məruzəetmə — davamı</h4><p>Fərqli simptomların təkrar yaradılması.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(7)"><div class="sess-num">7</div><div class="sess-txt"><h4>Koqnitiv restrukturizasiya</h4><p>Katastrofik bədən şərhlərinin sorğulanması.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(8)"><div class="sess-num">8</div><div class="sess-txt"><h4>Situasion məruzəetmə</h4><p>Qaçınılan yerlərlə (market, avtobus) tədrici qarşılaşma.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(9)"><div class="sess-num">9</div><div class="sess-txt"><h4>Müstəqil tətbiq</h4><p>Bacarıqların müstəqil real həyatda sınanması.</p></div><div class="sess-open">Seansı aç ▸</div></div><div class="sess-row" onclick="openSession(10)"><div class="sess-num">10</div><div class="sess-txt"><h4>Yekun və residiv planı</h4><p>Nailiyyətlərin qeydə alınması, gələcək strategiyalar.</p></div><div class="sess-open">Seansı aç ▸</div></div></div>
+</section>
+<div class="quote">"Panik atak ölümcül deyil, sadəcə həddindən artıq həyəcanlı bir yalan zəngdir." <span>— CBT klinik prinsipi</span></div>
+<div class="summary-box"><h3>📌 Modulun xülasəsi</h3><ul>
+ <li>Panik atak bədənin həddindən artıq güclü, lakin təhlükəsiz müdafiə reaksiyasıdır.</li>
+ <li>Fiziki simptom → katastrofik fikir → daha güclü simptom dövranını qırmaq əsas məqsəddir.</li>
+ <li>İnteroseptiv və situasion məruzəetmə ən effektiv müdaxilələrdir.</li>
+</ul></div>
+<div class="nav-bottom"><a class="nav-btn home" href="index.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>Menyuya qayıt</a><a class="nav-btn next" href="08-davranis-pozuntusu.html">Növbəti modul: Davranış Pozuntusu<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+</main>
+
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeSession()">
+  <div class="modal-box">
+    <div class="modal-close" onclick="closeSession()">✕</div>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Koqnitiv Davranış Terapiyası Kursu · Modul 7/20</p>
+  <p style="margin-top:8px;">By <a href="https://instagram.com/s_akhundoff" target="_blank" rel="noopener">@s_akhundoff</a></p>
+</footer>
+
+<script>
+const TOTAL_SESSIONS = 10;
+const SESSIONS = [{"num": 1, "title": "Tanışlıq və qiymətləndirmə", "short": "Panik atakların tezliyi və tetikləyiciləri.", "goal": "Panik ataklarının nə vaxt, harada baş verdiyini və fiziki simptomlarını qiymətləndirmək.", "materials": ["Panik jurnal şablonu"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["Son panik atak hadisəsi addım-addım araşdırılır."], "dialog": [["T", "Son panik atakın zamanı nə hiss etdin?"], ["K", "Ürəyim çox bərk vururdu, nəfəs ala bilmirdim, elə bildim öləcəm."], ["T", "Bu, çox qorxulu olmalıdır. Bu hiss nə qədər davam etdi?"], ["K", "Bəlkə 10 dəqiqə, amma saatlar kimi gəldi."]]}], "homework": "Panik hiss yarananda vaxtı və simptomları qeyd et."}, {"num": 2, "title": "Psixotəhsil: Panik atak nədir?", "short": "Bədənin 'yalan həyəcan zəngi' izah edilir.", "goal": "Panik atakın təhlükəli olmadığını, bədənin həddindən artıq güclü müdafiə reaksiyası olduğunu göstərmək.", "materials": ["Bədən reaksiyası diaqramı"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["'Döyüş və ya qaç' (fight-or-flight) reaksiyası sadə dildə izah olunur."], "dialog": [["T", "Panik atak zamanı bədənin əslində səni qorumaq üçün 'təhlükə rejiminə' keçir — ürək sürətlənir ki, qaçmaq üçün enerji versin. Amma real təhlükə yoxdur, ona görə bu hiss çox qorxulu görünür."], ["K", "Deməli mən ürək tutması keçirmirəm?"], ["T", "Xeyr, bu, bədənin yanlış siqnalıdır — təhlükəli deyil, sadəcə çox narahatedicidir."]]}], "homework": "-"}, {"num": 3, "title": "Panik dövranının anlaşılması", "short": "Fiziki simptom → katastrofik şərh → daha güclü simptom dövranı.", "goal": "Panikin necə 'özünü qidalandırdığını' göstərmək.", "materials": ["Panik dövranı diaqramı"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["Ürək döyüntüsü → 'infarkt keçirirəm' fikri → daha güclü qorxu → daha güclü döyüntü dövranı izah olunur."], "dialog": [["T", "Ürəyin sürətlənəndə hansı fikir gəlir?"], ["K", "'İnfarkt keçirirəm, öləcəm' deyə düşünürəm."], ["T", "Bax bu fikir qorxunu daha da artırır, qorxu isə ürəyi daha sürətli döyündürür — bir dövran yaranır."]]}], "homework": "-"}, {"num": 4, "title": "Nəfəs bacarıqları", "short": "Hiperventilyasiyanı azaldan nəfəs texnikası.", "goal": "Panik zamanı tez-tez, dayaz nəfəs almanın simptomları gücləndirdiyini göstərmək və yavaş nəfəsi öyrətmək.", "materials": ["Nəfəs kartı"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["Yavaş, diafraqmatik nəfəs məşq edilir."], "dialog": [["T", "Panik zamanı sürətli nəfəs almaq bədəndə daha çox oksigen-karbon dioksid balanssızlığı yaradır. Gəl yavaş nəfəsi məşq edək: 4 saniyə al, 6 saniyə ver."], ["K", "(məşqdən sonra) Bir az sakitləşdim."]]}], "homework": "Gündə 3 dəfə yavaş nəfəs məşqi et."}, {"num": 5, "title": "İnteroseptiv məruzəetmə — giriş", "short": "Bədən simptomlarını təhlükəsiz şəkildə təkrar yaratmaq.", "goal": "Fiziki simptomların (ürək döyüntüsü, baş gicəllənmə) təhlükəli olmadığını təcrübədən keçirməklə göstərmək.", "materials": ["Simptom siyahısı"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["Seansda nəzarətli şəkildə (məs. pilləkənlə qaçma, fırlanma) simptomlar yaradılır və müşahidə olunur."], "dialog": [["T", "Gəl 30 saniyə yerində qaçaq — bu, ürəyini sürətləndirəcək, tam panik atakdakı kimi. Hazırsan?"], ["K", "Bir az qorxuram, amma sınayaq."], ["T", "(30 saniyədən sonra) İndi necəsən?"], ["K", "Ürəyim tez döyünür, amma heç nə olmadı!"]]}], "homework": "-"}, {"num": 6, "title": "İnteroseptiv məruzəetmə — davamı", "short": "Fərqli simptomların təkrar yaradılması.", "goal": "Müxtəlif fiziki simptomlarla (nəfəs darlığı, isti hiss) tanışlıq yaratmaq.", "materials": ["Simptom siyahısı"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["Fərqli simptomlar (məs. nazik boru ilə nəfəs alma) sınanılır."], "dialog": [["T", "Bu dəfə nazik boru ilə nəfəs alaq — bu, nəfəs darlığı hissi yaradacaq. Hazırsan?"], ["K", "Yaxşı, keçən dəfə bacardım."]]}], "homework": "Öyrənilən simptomlardan birini evdə təkrarla."}, {"num": 7, "title": "Koqnitiv restrukturizasiya", "short": "Katastrofik bədən şərhlərinin sorğulanması.", "goal": "'Bu simptom = fəlakət' inancını balanslaşdırmaq.", "materials": ["Fikir vərəqi"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["'Ürəyim bərk vurur = infarkt' kimi fikirlər alternativ izahlarla müqayisə olunur."], "dialog": [["K", "Ürəyim bərk vuranda mütləq nəsə pis olur."], ["T", "Keçən 10 dəfə panik atakında infarkt oldumu?"], ["K", "Xeyr, heç vaxt."], ["T", "Deməli bu simptom qorxulu hiss versə də, təhlükəli deyil."]]}], "homework": "Panik anında yaranan fikri yazıb sorğula."}, {"num": 8, "title": "Situasion məruzəetmə", "short": "Qaçınılan yerlərlə (market, avtobus) tədrici qarşılaşma.", "goal": "Panikə görə qaçınılan situasiyaları tədricən bərpa etmək.", "materials": ["Situasiya hiyerarxiyası"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["Qaçınılan yerlər sıralanır və ilk addım planlaşdırılır."], "dialog": [["T", "Marketdən qaçırsan. Ən asan addım nə ola bilər?"], ["K", "Bəlkə qısa müddətə, dostla birlikdə girmək."], ["T", "Əla başlanğıcdır."]]}], "homework": "İlk addımı dəstəklə sına."}, {"num": 9, "title": "Müstəqil tətbiq", "short": "Bacarıqların müstəqil real həyatda sınanması.", "goal": "Terapevt dəstəyi olmadan bacarıqları tətbiq etmək.", "materials": ["-"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["Klient real təcrübəsini paylaşır və çətinliklər həll olunur."], "dialog": [["T", "Bu həftə panik hiss yarananda nə etdin?"], ["K", "Nəfəs texnikasını tətbiq etdim, keçdi, əvvəlki kimi qaçmadım."], ["T", "Bu, böyük irəliləyişdir!"]]}], "homework": "Növbəti addımı planlaşdır."}, {"num": 10, "title": "Yekun və residiv planı", "short": "Nailiyyətlərin qeydə alınması, gələcək strategiyalar.", "goal": "İrəliləyişi gücləndirmək və gələcək epizodlar üçün plan qurmaq.", "materials": ["Residiv planı"], "phases": [{"name": "🔵 Seansın gedişi", "text": ["İlk seansla müqayisədə dəyişiklik nəzərdən keçirilir."], "dialog": [["T", "İlk gəldiyində panik atak həftədə neçə dəfə idi?"], ["K", "4-5 dəfə, indi 1 dəfədən azdır."], ["T", "Sən bunu öz zəhmətinlə bacardın."]]}], "homework": "Bacarıqları müntəzəm xatırla və tətbiq et."}];
+</script>
+<script src="engine.js"></script>
+<script src="protect.js" defer></script>
+</body>
+</html>
