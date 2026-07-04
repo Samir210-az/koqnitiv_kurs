@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0f172a">
+<title>Modul 2 · Postravmatik Stress və CBT</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-1:#0b1224; --bg-2:#101a33;
+    --surface: rgba(255,255,255,0.055);
+    --surface-h: rgba(255,255,255,0.09);
+    --border: rgba(255,255,255,0.10);
+    --teal:#2dd4bf; --teal-soft: rgba(45,212,191,0.16);
+    --violet:#8b5cf6; --violet-soft: rgba(139,92,246,0.16);
+    --amber:#f59e0b; --amber-soft: rgba(245,158,11,0.16);
+    --rose:#fb7185; --rose-soft: rgba(251,113,133,0.16);
+    --sky:#38bdf8; --sky-soft:rgba(56,189,248,.16);
+    --text-1:#eef2ff; --text-2:#a8b3cf; --text-3:#6b7794;
+    --font-d:'Playfair Display', Georgia, serif;
+    --font-b:'Inter', system-ui, sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{-webkit-user-select:none;-moz-user-select:none;user-select:none;}
+  body{
+    font-family:var(--font-b);
+    background:
+      radial-gradient(1100px 750px at 12% -10%, rgba(139,92,246,0.18), transparent 60%),
+      radial-gradient(1000px 700px at 110% 15%, rgba(45,212,191,0.14), transparent 55%),
+      linear-gradient(180deg, var(--bg-1), var(--bg-2));
+    color:var(--text-1);
+    min-height:100vh;
+    line-height:1.65;
+  }
+  .blob{position:fixed;border-radius:50%;filter:blur(80px);opacity:.45;pointer-events:none;z-index:0;}
+  .blob-1{width:400px;height:400px;background:var(--violet-soft);top:-100px;left:-120px;}
+  .blob-2{width:360px;height:360px;background:var(--teal-soft);top:40%;right:-140px;}
+  .blob-3{width:320px;height:320px;background:var(--rose-soft);bottom:-80px;left:30%;}
+
+  .topbar{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px;
+    background:rgba(11,18,36,0.75);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--border);
+  }
+  .topbar a.back{
+    display:inline-flex; align-items:center; gap:8px;
+    color:var(--text-2); text-decoration:none; font-size:.9rem; font-weight:600;
+    transition:color .2s;
+  }
+  .topbar a.back:hover{color:var(--teal);}
+  .progress-pill{
+    font-size:.78rem; color:var(--text-3);
+    border:1px solid var(--border); padding:6px 14px; border-radius:999px;
+    background:var(--surface);
+  }
+
+  main{position:relative; z-index:2; max-width:880px; margin:0 auto; padding:0 24px 100px;}
+
+  .hero{padding:64px 0 40px; text-align:center;}
+  .tag{
+    display:inline-block; font-size:.76rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--rose); background:var(--rose-soft); border:1px solid rgba(251,113,133,.35);
+    padding:6px 16px; border-radius:999px; margin-bottom:22px;
+    animation:fadeDown .7s ease both;
+  }
+  h1{
+    font-family:var(--font-d); font-weight:800; font-size:clamp(1.9rem,4.6vw,3rem); line-height:1.2;
+    background:linear-gradient(90deg,#fff,#cdd8ff 45%, var(--rose));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    animation:fadeUp .8s ease both .1s;
+  }
+  .hero p{color:var(--text-2); max-width:620px; margin:20px auto 0; animation:fadeUp .8s ease both .2s;}
+
+  section{margin-top:64px; animation:fadeUp .8s ease both; opacity:0;}
+  section.show{opacity:1;}
+  .sec-head{display:flex; align-items:center; gap:14px; margin-bottom:24px;}
+  .sec-num{
+    font-family:var(--font-d); font-size:1.4rem; font-weight:800; color:var(--bg-1);
+    background:linear-gradient(135deg,var(--rose),var(--violet));
+    width:44px;height:44px; border-radius:13px; display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  h2{font-family:var(--font-d); font-size:clamp(1.35rem,3vw,1.7rem); font-weight:700;}
+  .lead{color:var(--text-2); margin-bottom:22px;}
+
+  .card{
+    background:var(--surface); border:1px solid var(--border); border-radius:18px;
+    padding:24px 26px; margin-bottom:18px; backdrop-filter:blur(10px);
+  }
+  .card h3{font-size:1.05rem; margin-bottom:10px; color:var(--text-1); display:flex; align-items:center; gap:10px;}
+  .card p{color:var(--text-2); font-size:.95rem;}
+  .card p + p{margin-top:10px;}
+
+  .simple-box{
+    border-left:3px solid var(--sky);
+    background:var(--sky-soft);
+    border-radius:0 14px 14px 0;
+    padding:18px 22px;
+    margin:18px 0;
+    font-size:.94rem;
+  }
+  .simple-box b{color:var(--sky);}
+
+  .example{
+    border-left:3px solid var(--amber);
+    background:var(--amber-soft);
+    border-radius:0 14px 14px 0;
+    padding:16px 20px;
+    margin:16px 0;
+    font-size:.92rem;
+  }
+  .example b{color:var(--amber);}
+
+  .dialog{
+    background:rgba(255,255,255,.03);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:20px 22px;
+    margin:18px 0;
+    font-size:.92rem;
+  }
+  .dialog .line{display:flex; gap:12px; margin-bottom:14px;}
+  .dialog .line:last-child{margin-bottom:0;}
+  .dialog .who{flex-shrink:0; width:78px; font-weight:700; font-size:.8rem; padding-top:2px;}
+  .dialog .who.t{color:var(--teal);}
+  .dialog .who.k{color:var(--rose);}
+  .dialog .txt{color:var(--text-2);}
+
+  /* Symptom groups grid */
+  .symptom-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; margin:26px 0;}
+  .symptom-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:18px; padding:20px 22px;
+    transition:transform .3s, border-color .3s;
+  }
+  .symptom-card:hover{transform:translateY(-4px); border-color:rgba(251,113,133,.4);}
+  .symptom-card .ico{font-size:1.6rem; margin-bottom:10px; display:block;}
+  .symptom-card h4{font-size:.98rem; margin-bottom:8px;}
+  .symptom-card p{font-size:.85rem; color:var(--text-2);}
+  .symptom-card .ex-line{font-size:.8rem; color:var(--text-3); font-style:italic; margin-top:8px;}
+
+  /* Age comparison */
+  .age-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; margin:26px 0;}
+  .age-card{border-radius:18px; padding:20px; border:1px solid var(--border);}
+  .age-card.child{background:var(--teal-soft);}
+  .age-card.teen{background:var(--violet-soft);}
+  .age-card.adult{background:var(--amber-soft);}
+  .age-card h4{font-size:1rem; margin-bottom:10px;}
+  .age-card ul{padding-left:18px; font-size:.85rem; color:var(--text-2);}
+  .age-card li{margin-bottom:6px;}
+
+  /* PRACTICE model */
+  .practice-list{margin:26px 0;}
+  .practice-item{
+    display:flex; gap:16px; padding:16px 0; border-bottom:1px solid var(--border); align-items:flex-start;
+  }
+  .practice-item:last-child{border-bottom:none;}
+  .practice-letter{
+    flex-shrink:0; width:40px;height:40px; border-radius:11px;
+    background:linear-gradient(135deg,var(--rose),var(--violet));
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-d); font-weight:800; color:#0b1224; font-size:1.1rem;
+  }
+  .practice-item h4{font-size:.96rem; margin-bottom:4px;}
+  .practice-item p{font-size:.86rem; color:var(--text-2);}
+
+  /* Session plan timeline */
+  .session-plan{margin:26px 0;}
+  .sess-row{
+    display:grid; grid-template-columns:64px 1fr; gap:16px;
+    padding:14px 0; border-bottom:1px solid var(--border);
+  }
+  .sess-row:last-child{border-bottom:none;}
+  .sess-num{
+    font-family:var(--font-d); font-weight:800; color:var(--rose); font-size:1rem;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--rose-soft); border-radius:12px; height:40px;
+  }
+  .sess-txt h4{font-size:.94rem; margin-bottom:3px;}
+  .sess-txt p{font-size:.83rem; color:var(--text-2);}
+
+  /* Fear thermometer */
+  .thermo-wrap{display:flex; justify-content:center; margin:30px 0;}
+  .thermo{display:flex; align-items:flex-end; gap:8px;}
+  .thermo-bar{width:34px; border-radius:8px 8px 0 0; display:flex; align-items:flex-end; justify-content:center; color:#0b1224; font-weight:800; font-size:.72rem; padding-bottom:4px;}
+
+  /* Breathing animation */
+  .breathe-wrap{display:flex; flex-direction:column; align-items:center; gap:16px; margin:30px 0;}
+  .breathe-circle{
+    width:140px;height:140px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, rgba(56,189,248,.55), rgba(139,92,246,.35));
+    border:1px solid rgba(56,189,248,.4);
+    display:flex;align-items:center;justify-content:center;
+    font-size:.85rem; font-weight:700; color:var(--text-1);
+    animation:breathe 8s ease-in-out infinite;
+  }
+  @keyframes breathe{
+    0%{transform:scale(0.75);} 
+    35%{transform:scale(1.15);} 
+    50%{transform:scale(1.15);}
+    85%{transform:scale(0.75);}
+    100%{transform:scale(0.75);}
+  }
+  .breathe-label{font-size:.82rem; color:var(--text-3);}
+
+  /* Grounding 5-4-3-2-1 */
+  .ground-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:12px; margin:26px 0;}
+  .ground-card{
+    text-align:center; padding:18px 10px; border-radius:16px;
+    background:var(--surface); border:1px solid var(--border);
+  }
+  .ground-card .big{font-family:var(--font-d); font-size:1.8rem; font-weight:800; color:var(--sky); display:block;}
+  .ground-card p{font-size:.78rem; color:var(--text-2); margin-top:6px;}
+
+  .worksheet{overflow-x:auto; margin:24px 0; border-radius:16px; border:1px solid var(--border);}
+  table{width:100%; border-collapse:collapse; font-size:.84rem; min-width:600px;}
+  thead th{
+    background:rgba(255,255,255,.05); color:var(--rose); text-align:left;
+    padding:12px 14px; font-size:.78rem; letter-spacing:.03em; text-transform:uppercase;
+    border-bottom:1px solid var(--border);
+  }
+  tbody td{padding:13px 14px; color:var(--text-2); border-bottom:1px solid rgba(255,255,255,.06); vertical-align:top;}
+  tbody tr:last-child td{border-bottom:none;}
+
+  .parent-tips{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin:26px 0;}
+  .tip-card{background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:18px 20px;}
+  .tip-card h4{font-size:.9rem; margin-bottom:6px; color:var(--teal);}
+  .tip-card p{font-size:.83rem; color:var(--text-2);}
+
+  .quote{
+    border-left:3px solid var(--violet);
+    padding:18px 22px; margin:26px 0; font-family:var(--font-d); font-style:italic;
+    font-size:1.05rem; color:var(--text-1); background:var(--violet-soft); border-radius:0 14px 14px 0;
+  }
+  .quote span{display:block; margin-top:10px; font-family:var(--font-b); font-style:normal; font-size:.8rem; color:var(--text-3);}
+
+  .summary-box{
+    background:linear-gradient(135deg, var(--rose-soft), var(--violet-soft));
+    border:1px solid rgba(251,113,133,.3);
+    border-radius:20px; padding:28px 26px; margin-top:60px;
+  }
+  .summary-box h3{font-family:var(--font-d); font-size:1.25rem; margin-bottom:14px;}
+  .summary-box ul{padding-left:20px; color:var(--text-2); font-size:.92rem;}
+  .summary-box li{margin-bottom:8px;}
+
+  .nav-bottom{display:flex; justify-content:space-between; align-items:center; gap:16px; margin-top:40px; flex-wrap:wrap;}
+  .nav-btn{display:inline-flex; align-items:center; gap:8px; padding:13px 22px; border-radius:14px; text-decoration:none; font-weight:600; font-size:.9rem; transition:transform .25s, box-shadow .25s;}
+  .nav-btn.home{background:var(--surface); border:1px solid var(--border); color:var(--text-1);}
+  .nav-btn.next{background:linear-gradient(135deg,var(--rose),var(--violet)); color:#0b1224;}
+  .nav-btn:hover{transform:translateY(-3px);}
+  .nav-btn.disabled{opacity:.5; pointer-events:none;}
+
+  footer{position:relative; z-index:2; text-align:center; padding:44px 24px 60px; border-top:1px solid var(--border); color:var(--text-3); font-size:.88rem; margin-top:40px;}
+  footer a{color:var(--teal); text-decoration:none; font-weight:600;}
+
+  @keyframes fadeDown{from{opacity:0;transform:translateY(-14px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+
+  @media(max-width:640px){
+    .dialog .who{width:60px; font-size:.72rem;}
+  }
+</style>
+</head>
+<body>
+
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+
+<div class="topbar">
+  <a class="back" href="index.html">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+    Kurs menyusuna qayıt
+  </a>
+  <span class="progress-pill">Modul 2 / 20</span>
+</div>
+
+<main>
+
+  <div class="hero">
+    <span class="tag">Modul 02 · Travma ilə İş</span>
+    <h1>Postravmatik Stress və CBT</h1>
+    <p>Uşaq, yeniyetmə və böyüklərlə travma sonrası iş üçün tam proqram: nəzəri baza, seans-seans plan və praktik iş dəftəri materialları.</p>
+  </div>
+
+  <!-- 1. Sadə dildə PTSD -->
+  <section>
+    <div class="sec-head"><div class="sec-num">1</div><h2>PTSD sadə dillə nədir?</h2></div>
+    <div class="simple-box">
+      <b>Sadə dildə deyilsə:</b> Təsəvvür edin ki, evinizdəki yanğın siqnalizasiyası o qədər həssasdır ki, hətta çörək qızardanda belə səslənir. Beyin təhlükəni tanımaq üçün var — amma travmadan sonra bu "siqnalizasiya sistemi" çox həssaslaşır və artıq təhlükə olmadığı anlarda belə işə düşür. PTSD məhz budur: beyin və bədən, artıq keçmişdə qalan təhlükəyə hələ də "indi baş verirmiş kimi" reaksiya verir.
+    </div>
+    <p class="lead">Bu, iradə zəifliyi deyil — beynin sağ qalmaq üçün inkişaf etdirdiyi tam təbii, lakin artıq lazım olmayan bir müdafiə reaksiyasıdır.</p>
+  </section>
+
+  <!-- 2. Elmi tərif - simptom qrupları -->
+  <section>
+    <div class="sec-head"><div class="sec-num">2</div><h2>Elmi baxış: 4 əsas simptom qrupu (DSM-5)</h2></div>
+    <p class="lead">Klinik olaraq PTSD dörd əsas qrup əlamətlə xarakterizə olunur. Diaqnoz üçün bu əlamətlər 1 aydan çox davam etməli və gündəlik həyatı əhəmiyyətli dərəcədə pozmalıdır.</p>
+    <div class="symptom-grid">
+      <div class="symptom-card">
+        <span class="ico">🔄</span>
+        <h4>1. Yenidən yaşama (İntruziya)</h4>
+        <p>Hadisə istənilmədən yenidən "canlanır" — flashback, kabus, narahatedici xatirələr.</p>
+        <div class="ex-line">Nümunə: Uşaq maşın qəzasından sonra hər maşın səsi eşidəndə hadisəni yenidən "görür".</div>
+      </div>
+      <div class="symptom-card">
+        <span class="ico">🚪</span>
+        <h4>2. Qaçınma</h4>
+        <p>Xatırladan yer, insan və ya mövzudan hər vasitə ilə uzaq durma.</p>
+        <div class="ex-line">Nümunə: Qəza yaşamış yeniyetmə artıq həmin yolla getmək istəmir.</div>
+      </div>
+      <div class="symptom-card">
+        <span class="ico">☁️</span>
+        <h4>3. Mənfi düşüncə və əhval dəyişikliyi</h4>
+        <p>Özü, başqaları və dünya haqqında mənfi inanclar; hissiz olma, sevincdən uzaqlaşma.</p>
+        <div class="ex-line">Nümunə: "Dünya təhlükəlidir", "Heç kimə güvənmək olmaz".</div>
+      </div>
+      <div class="symptom-card">
+        <span class="ico">⚡</span>
+        <h4>4. Hədsiz oyanıqlıq</h4>
+        <p>Daim təhlükə gözləmə, asan qorxma, yuxu problemləri, əsəbilik, konsentrasiya çətinliyi.</p>
+        <div class="ex-line">Nümunə: Kiçik səsdən belə diksinmə, davamlı "ayıq-sayıq" olma hissi.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Yaş qrupları -->
+  <section>
+    <div class="sec-head"><div class="sec-num">3</div><h2>Yaş qruplarına görə fərqli təzahürlər</h2></div>
+    <p class="lead">Eyni travma müxtəlif yaşlarda çox fərqli şəkildə özünü göstərə bilər — bu, düzgün proqram seçimi üçün vacibdir.</p>
+    <div class="age-grid">
+      <div class="age-card child">
+        <h4>👶 Uşaqlar (3-10 yaş)</h4>
+        <ul>
+          <li>Oyunda travmanı təkrar-təkrar canlandırma</li>
+          <li>Regressiya (yenidən yaş tutma, barmaq əmmə)</li>
+          <li>Ayrılıq qorxusu, yuxu problemləri</li>
+          <li>Bədən şikayətləri (qarın ağrısı, baş ağrısı)</li>
+        </ul>
+      </div>
+      <div class="age-card teen">
+        <h4>🧑 Yeniyetmələr (11-17 yaş)</h4>
+        <ul>
+          <li>Riskli davranışlar, aqressiya</li>
+          <li>Sosial təcridolma, məktəbdən yayınma</li>
+          <li>Özünə zərər vermə riski</li>
+          <li>Utanc və günah hissi güclənə bilər</li>
+        </ul>
+      </div>
+      <div class="age-card adult">
+        <h4>🧑‍🦱 Böyüklər</h4>
+        <ul>
+          <li>Emosional donma, əlaqələrdən uzaqlaşma</li>
+          <li>İş və gündəlik funksionallıqda azalma</li>
+          <li>Yuxu pozuntuları, davamlı gərginlik</li>
+          <li>Özünütənqid və özünə güvənin azalması</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. TF-CBT modeli -->
+  <section>
+    <div class="sec-head"><div class="sec-num">4</div><h2>TF-CBT modeli — PRACTICE komponentləri</h2></div>
+    <p class="lead">Travma-Fokuslu CBT (TF-CBT) dünyada ən çox tədqiq olunmuş, sübuta əsaslanan travma müalicə modelidir. "PRACTICE" abreviaturası əsas addımları xatırlamağa kömək edir.</p>
+    <div class="practice-list">
+      <div class="practice-item"><div class="practice-letter">P</div><div><h4>Psixotəhsil və valideyn bacarıqları</h4><p>Travma və onun təsirləri haqqında sadə dildə məlumat, valideynə dəstək bacarıqları.</p></div></div>
+      <div class="practice-item"><div class="practice-letter">R</div><div><h4>Relaksasiya bacarıqları</h4><p>Nəfəs texnikaları, əzələ boşaltma — bədəni sakitləşdirmək üçün alətlər.</p></div></div>
+      <div class="practice-item"><div class="practice-letter">A</div><div><h4>Emosiyaların tənzimlənməsi (Affect)</h4><p>Hissləri tanımaq, adlandırmaq və idarə etmək bacarığı.</p></div></div>
+      <div class="practice-item"><div class="practice-letter">C</div><div><h4>Koqnitiv baş etmə (Cognitive coping)</h4><p>Düşüncə-hiss-davranış əlaqəsini anlamaq və faydasız fikirləri sorğulamaq.</p></div></div>
+      <div class="practice-item"><div class="practice-letter">T</div><div><h4>Trauma hekayəsi (Trauma narrative)</h4><p>Travmatik hadisənin təhlükəsiz mühitdə, tədricən sözlə ifadə edilməsi.</p></div></div>
+      <div class="practice-item"><div class="practice-letter">I</div><div><h4>İn-vivo məruzəetmə</h4><p>Real həyatda təhlükəsiz, lakin qaçınılan situasiyalarla tədrici, nəzarətli qarşılaşma.</p></div></div>
+      <div class="practice-item"><div class="practice-letter">C</div><div><h4>Birgə valideyn-uşaq seansları (Conjoint)</h4><p>Uşağın hekayəsinin valideynlə paylaşılması, ailə əlaqəsinin gücləndirilməsi.</p></div></div>
+      <div class="practice-item"><div class="practice-letter">E</div><div><h4>Təhlükəsizliyin gücləndirilməsi (Enhancing safety)</h4><p>Gələcək üçün təhlükəsizlik planı və inkişaf perspektivi.</p></div></div>
+    </div>
+  </section>
+
+  <!-- 5. Seans proqramı -->
+  <section>
+    <div class="sec-head"><div class="sec-num">5</div><h2>Seans-seans proqram (12 seanslıq model)</h2></div>
+    <p class="lead">Aşağıdakı struktur fərdi ehtiyaca görə uzadıla və ya qısaldıla bilər — bu, orta göstərici olaraq nəzərdə tutulur.</p>
+    <div class="session-plan">
+      <div class="sess-row"><div class="sess-num">1</div><div class="sess-txt"><h4>Tanışlıq və qiymətləndirmə</h4><p>Etibar əlaqəsinin qurulması, simptomların qiymətləndirilməsi, məqsədlərin müəyyənləşdirilməsi.</p></div></div>
+      <div class="sess-row"><div class="sess-num">2</div><div class="sess-txt"><h4>Psixotəhsil</h4><p>Travma və beyin haqqında sadə izah — "niyə belə hiss edirəm" sualına cavab.</p></div></div>
+      <div class="sess-row"><div class="sess-num">3</div><div class="sess-txt"><h4>Nəfəs və relaksasiya bacarıqları</h4><p>Qutu nəfəsi, əzələ boşaltma texnikaları öyrədilir və məşq edilir.</p></div></div>
+      <div class="sess-row"><div class="sess-num">4</div><div class="sess-txt"><h4>Emosiyaların tanınması</h4><p>Hiss lüğəti, "Qorxu termometri" ilə emosiya intensivliyinin ölçülməsi.</p></div></div>
+      <div class="sess-row"><div class="sess-num">5</div><div class="sess-txt"><h4>Koqnitiv baş etmə bacarıqları</h4><p>Düşüncə-hiss-davranış üçbucağı, faydasız fikirlərin tanınması.</p></div></div>
+      <div class="sess-row"><div class="sess-num">6-8</div><div class="sess-txt"><h4>Trauma hekayəsinin yaradılması</h4><p>Hadisənin tədricən, kiçik hissələrlə şəkil, yazı və ya söhbət vasitəsilə ifadəsi.</p></div></div>
+      <div class="sess-row"><div class="sess-num">9</div><div class="sess-txt"><h4>Koqnitiv emal</h4><p>Trauma ilə bağlı təhrif olunmuş inancların (məs. özünü günahlandırma) işlənməsi.</p></div></div>
+      <div class="sess-row"><div class="sess-num">10</div><div class="sess-txt"><h4>İn-vivo məruzəetmə</h4><p>Qaçınılan, lakin real təhlükəsiz situasiyalarla tədrici qarşılaşma planı.</p></div></div>
+      <div class="sess-row"><div class="sess-num">11</div><div class="sess-txt"><h4>Birgə valideyn-uşaq seansı</h4><p>Hekayənin paylaşılması, ailəvi dəstəyin gücləndirilməsi.</p></div></div>
+      <div class="sess-row"><div class="sess-num">12</div><div class="sess-txt"><h4>Təhlükəsizlik planı və yekun</h4><p>Gələcək üçün bacarıqların ümumiləşdirilməsi, irəliləyişin qeyd edilməsi.</p></div></div>
+    </div>
+  </section>
+
+  <!-- 6. Nümunə dialoq -->
+  <section>
+    <div class="sec-head"><div class="sec-num">6</div><h2>Nümunə dialoq (8 yaşlı uşaqla)</h2></div>
+    <div class="dialog">
+      <div class="line"><span class="who t">Terapevt:</span><span class="txt">Bilirsən, bizim beynimizdə balaca bir "təhlükə zəngi" var. O, bizi qorumaq üçün var. Amma bəzən, qorxulu bir şey olandan sonra, həmin zəng çox həssaslaşır və lazım olmayanda da çalır. Sənin zəngin necədir?</span></div>
+      <div class="line"><span class="who k">Uşaq:</span><span class="txt">Mənim zəngim həmişə çalır! Hətta yatanda da.</span></div>
+      <div class="line"><span class="who t">Terapevt:</span><span class="txt">Anlayıram, bu çox yorucu olmalıdır. Gəl birlikdə o zəngi bir az sakitləşdirməyi öyrənək — necə, razısan?</span></div>
+      <div class="line"><span class="who k">Uşaq:</span><span class="txt">Bəli, istəyirəm ki, zəng bir az sakit olsun.</span></div>
+    </div>
+    <div class="example"><b>Nəzərə alın:</b> Uşaqlarla işdə metafora, oyun və rəsm əsas alətlərdir — birbaşa "PTSD" termini deyil, uşağın anlaya biləcəyi obrazlar istifadə olunur.</div>
+  </section>
+
+  <!-- 7. Nəfəs bacarığı -->
+  <section>
+    <div class="sec-head"><div class="sec-num">7</div><h2>İş dəftəri materialı: Qutu nəfəsi (Box Breathing)</h2></div>
+    <p class="lead">Ən sadə, effektiv sakitləşdirmə bacarıqlarından biri. Dairə böyüyəndə nəfəs alın, kiçiləndə buraxın.</p>
+    <div class="breathe-wrap">
+      <div class="breathe-circle">Nəfəs al / ver</div>
+      <div class="breathe-label">4 saniyə al → 4 saniyə saxla → 4 saniyə ver → 4 saniyə saxla</div>
+    </div>
+  </section>
+
+  <!-- 8. Qorxu termometri -->
+  <section>
+    <div class="sec-head"><div class="sec-num">8</div><h2>İş dəftəri materialı: Qorxu Termometri</h2></div>
+    <p class="lead">Klientə (xüsusən uşaqlara) hisslərini rəqəmlə ifadə etməyi öyrətmək üçün vizual alət.</p>
+    <div class="thermo-wrap">
+      <div class="thermo">
+        <div class="thermo-bar" style="height:30px;background:#4ade80;">1-2</div>
+        <div class="thermo-bar" style="height:55px;background:#a3e635;">3-4</div>
+        <div class="thermo-bar" style="height:80px;background:#facc15;">5-6</div>
+        <div class="thermo-bar" style="height:105px;background:#fb923c;">7-8</div>
+        <div class="thermo-bar" style="height:130px;background:#f87171;">9-10</div>
+      </div>
+    </div>
+    <div class="example"><b>İstifadə qaydası:</b> "İndi qorxun 1-dən 10-a qədər neçədir?" — bu, həm terapevtə, həm klientə emosiyanın intensivliyini izləməyə imkan verir.</div>
+  </section>
+
+  <!-- 9. Grounding -->
+  <section>
+    <div class="sec-head"><div class="sec-num">9</div><h2>İş dəftəri materialı: 5-4-3-2-1 Torpaqlanma Texnikası</h2></div>
+    <p class="lead">Flashback və ya güclü narahatlıq anında "indiyə" qayıtmaq üçün hisslərə əsaslanan sadə texnika.</p>
+    <div class="ground-grid">
+      <div class="ground-card"><span class="big">5</span><p>Gördüyün şey</p></div>
+      <div class="ground-card"><span class="big">4</span><p>Toxunduğun şey</p></div>
+      <div class="ground-card"><span class="big">3</span><p>Eşitdiyin səs</p></div>
+      <div class="ground-card"><span class="big">2</span><p>Hiss etdiyin qoxu</p></div>
+      <div class="ground-card"><span class="big">1</span><p>Daddığın dad</p></div>
+    </div>
+  </section>
+
+  <!-- 10. Valideyn tövsiyələri -->
+  <section>
+    <div class="sec-head"><div class="sec-num">10</div><h2>Valideynlər üçün tövsiyələr</h2></div>
+    <div class="parent-tips">
+      <div class="tip-card"><h4>🗣️ Danışmağa məcbur etməyin</h4><p>Uşaq hazır olduqda danışacaq — ona vaxt verin, sual yağdırmayın.</p></div>
+      <div class="tip-card"><h4>🛏️ Rutini qoruyun</h4><p>Nizamlı yuxu, yemək və gündəlik fəaliyyət uşağa təhlükəsizlik hissi verir.</p></div>
+      <div class="tip-card"><h4>💬 Hissləri qəbul edin</h4><p>"Qorxma" demək əvəzinə "Anlayıram ki, qorxursan, mən yanındayam" deyin.</p></div>
+      <div class="tip-card"><h4>🚫 Yenidən travmatikləşdirməyin</h4><p>Hadisəni təfərrüatı ilə təkrar-təkrar soruşmaqdan çəkinin.</p></div>
+    </div>
+  </section>
+
+  <div class="quote">
+    "Travma bir hadisə deyil — bədənin həmin hadisəyə verdiyi davamlı reaksiyadır."
+    <span>— Bessel van der Kolk, "The Body Keeps the Score" kitabının müəllifi</span>
+  </div>
+
+  <div class="summary-box">
+    <h3>📌 Modulun xülasəsi</h3>
+    <ul>
+      <li>PTSD — beynin təhlükə siqnalizasiyasının travmadan sonra həddindən artıq həssaslaşmasıdır.</li>
+      <li>4 əsas simptom qrupu: yenidən yaşama, qaçınma, mənfi düşüncə/əhval, hədsiz oyanıqlıq.</li>
+      <li>Yaş qrupuna görə təzahürlər fərqlidir — proqram buna uyğunlaşdırılmalıdır.</li>
+      <li>TF-CBT (PRACTICE modeli) — dünyada ən çox sübut bazasına malik travma müalicə yanaşmasıdır.</li>
+      <li>Nəfəs texnikaları, Qorxu termometri və Torpaqlanma bacarığı — praktik iş dəftəri alətləridir.</li>
+      <li>Valideyn dəstəyi uşaqla işdə uğurun açar amillərindən biridir.</li>
+    </ul>
+  </div>
+
+  <div class="nav-bottom">
+    <a class="nav-btn home" href="index.html">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>
+      Menyuya qayıt
+    </a>
+    <a class="nav-btn next disabled" href="#">
+      Növbəti modul: Aqressiya və CBT
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 Koqnitiv Davranış Terapiyası Kursu · Modul 2/20</p>
+  <p style="margin-top:8px;">By <a href="https://instagram.com/s_akhundoff" target="_blank" rel="noopener">@s_akhundoff</a></p>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target);} });
+},{threshold:0.1});
+document.querySelectorAll('section').forEach(s=>io.observe(s));
+
+window.addEventListener('mousemove', e=>{
+  const mx = (e.clientX/window.innerWidth - 0.5);
+  const my = (e.clientY/window.innerHeight - 0.5);
+  document.querySelectorAll('.blob').forEach((b,i)=>{
+    const speed = (i+1)*16;
+    b.style.transform = `translate(${mx*speed}px, ${my*speed}px)`;
+  });
+});
+</script>
+<script src="protect.js" defer></script>
+</body>
+</html>
