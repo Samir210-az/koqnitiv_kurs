@@ -22,6 +22,7 @@
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
+  body{-webkit-user-select:none;-moz-user-select:none;user-select:none;}
   body{
     font-family:var(--font-b);
     background:
@@ -472,7 +473,7 @@
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>
       Menyuya qayıt
     </a>
-    <a class="nav-btn next disabled" href="#">
+    <a class="nav-btn next" href="02-ptsd.html">
       Növbəti modul: PTSD və CBT
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>
@@ -500,5 +501,6 @@ window.addEventListener('mousemove', e=>{
   });
 });
 </script>
+<script src="protect.js" defer></script>
 </body>
 </html>
