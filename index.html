@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#0f172a">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Koqnitiv Davranış Terapiyası Kursu</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -102,6 +107,12 @@
     background-clip:text;
     color:transparent;
     animation:fadeUp .9s ease both .1s;
+  }
+  h1 .kurs-word{
+    display:inline-block;
+    letter-spacing:.08em;
+    font-size:1.08em;
+    margin-top:6px;
   }
   header p.sub{
     max-width:640px;
@@ -267,7 +278,7 @@
       <span class="brand-text">AN Psixoloji Dəstək və Reabilitasiya Mərkəzi</span>
     </div>
     <span class="eyebrow">Peşəkar İnkişaf Proqramı</span>
-    <h1>Koqnitiv Davranış<br>Terapiyası Kursu</h1>
+    <h1>Koqnitiv Davranış Terapiyası<br><span class="kurs-word">KURSU</span></h1>
     <p class="sub">Uşaq, yeniyetmə və böyüklərlə iş üçün klinik əsaslı, seans-seans strukturlaşdırılmış 20 tam proqram — nəzəriyyədən praktik iş dəftərlərinə qədər.</p>
     <div class="stats">
       <div class="stat"><b>20</b><span>MODUL</span></div>
@@ -364,5 +375,6 @@ window.addEventListener('scroll', ()=>{
 });
 </script>
 <script src="protect.js" defer></script>
+<script src="pwa.js" defer></script>
 </body>
 </html>
