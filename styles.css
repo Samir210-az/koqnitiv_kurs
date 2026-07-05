@@ -215,3 +215,8 @@ footer a{color:var(--teal); text-decoration:none; font-weight:600;}
   .sta-flow{grid-template-columns:1fr;}
   .dialog .who{width:60px; font-size:.72rem;}
 }
+
+/* ==== Proqram/Texnika lüğəti klik-linki və modalı — By s_akhundoff ==== */
+.prog-link{color:var(--acc); text-decoration:underline dotted; text-underline-offset:3px; cursor:pointer; font-weight:600;}
+.prog-link:hover{opacity:.8;}
+#programModalOverlay.modal-overlay{z-index:210;}
