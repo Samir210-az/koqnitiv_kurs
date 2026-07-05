@@ -72,11 +72,11 @@
 </div>
 <div class="sec-head" style="margin-top:44px;"><h2>🧘 Relaksasiya və Bədən Bacarıqları</h2></div>
 <div class="grid-2">
-<div class="lens-card"><span class="ico">021</span><h4>Qutu nəfəsi</h4><p>4-4-4-4 saniyəlik nəfəs dövrü ilə sinir sistemini sakitləşdirmək.</p></div>
+<div class="lens-card"><span class="ico">021</span><h4><span class="prog-link" onclick="openProgram('qutu-nefesi')">Qutu nəfəsi</span></h4><p>4-4-4-4 saniyəlik nəfəs dövrü ilə sinir sistemini sakitləşdirmək.</p></div>
 <div class="lens-card"><span class="ico">022</span><h4>Diafraqmatik nəfəs</h4><p>Dərin, qarından nəfəs alma texnikası.</p></div>
-<div class="lens-card"><span class="ico">023</span><h4>Proqressiv əzələ boşaltma</h4><p>Əzələ qruplarını ardıcıl sıxıb-boşaltmaq.</p></div>
+<div class="lens-card"><span class="ico">023</span><h4>Proqressiv <span class="prog-link" onclick="openProgram('ezele-bosaltma')">əzələ boşaltma</span></h4><p>Əzələ qruplarını ardıcıl sıxıb-boşaltmaq.</p></div>
 <div class="lens-card"><span class="ico">024</span><h4>Body scan (bədən skaneri)</h4><p>Diqqəti bədən hissələri üzrə ardıcıl yönləndirmək.</p></div>
-<div class="lens-card"><span class="ico">025</span><h4>5-4-3-2-1 Torpaqlanma</h4><p>5 hiss orqanı vasitəsilə 'indiyə' qayıtmaq.</p></div>
+<div class="lens-card"><span class="ico">025</span><h4><span class="prog-link" onclick="openProgram('5-4-3-2-1')">5-4-3-2-1</span> Torpaqlanma</h4><p>5 hiss orqanı vasitəsilə 'indiyə' qayıtmaq.</p></div>
 <div class="lens-card"><span class="ico">026</span><h4>Təhlükəsiz yer vizuallaşdırması</h4><p>Zehində sakit, təhlükəsiz bir yer canlandırmaq.</p></div>
 <div class="lens-card"><span class="ico">027</span><h4>Sayma texnikası</h4><p>Diqqəti yayındırmaq üçün geriyə sayma (100-dən 7-7 çıxaraq və s.).</p></div>
 <div class="lens-card"><span class="ico">028</span><h4>Soyuq su/temperatur texnikası</h4><p>Üzə soyuq su ilə sinir sistemini tənzimləmək.</p></div>
@@ -135,5 +135,13 @@
 <script src="engine.js"></script>
 <script src="protect.js" defer></script>
 <script src="pwa.js" defer></script>
+
+<div class="modal-overlay" id="programModalOverlay" onclick="if(event.target===this)closeProgram()">
+  <div class="modal-box">
+    <div class="modal-close" onclick="closeProgram()">✕</div>
+    <div id="programModalContent"></div>
+  </div>
+</div>
+
 </body>
 </html>
