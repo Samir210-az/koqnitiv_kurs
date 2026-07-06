@@ -1,4 +1,4 @@
-const CACHE_NAME = "kbt-kurs-v1";
+const CACHE_NAME = "kbt-kurs-v2";
 const CORE_ASSETS = [
   "./index.html",
   "./styles.css",
@@ -26,8 +26,34 @@ self.addEventListener("activate", (event) => {
   self.clients.claim();
 });
 
+function isHTML(request) {
+  return request.mode === "navigate" ||
+    (request.headers.get("accept") || "").includes("text/html") ||
+    request.url.endsWith(".html") ||
+    request.url.endsWith("/");
+}
+
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
+
+  // HTML: NETWORK-FIRST — həmişə serverdəki ən son versiyanı göstər,
+  // yalnız internet olmadıqda köhnə keşə keç.
+  if (isHTML(event.request)) {
+    event.respondWith(
+      fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const clone = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+          }
+          return networkResponse;
+        })
+        .catch(() => caches.match(event.request))
+    );
+    return;
+  }
+
+  // CSS/JS/Şəkillər: STALE-WHILE-REVALIDATE — sürətli göstər, arxada yenilə.
   event.respondWith(
     caches.match(event.request).then((cached) => {
       const fetchPromise = fetch(event.request)
