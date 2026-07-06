@@ -24,9 +24,15 @@ window.addEventListener('mousemove', e=>{
 function renderSession(s){
   const total = (typeof TOTAL_SESSIONS !== 'undefined') ? TOTAL_SESSIONS : s.num;
   let html = `<span class="m-tag">Seans ${s.num} / ${total}</span><h3 class="m-title">${s.title}</h3>`;
-  html += `<div class="m-block"><h5>🎯 Seansın məqsədi</h5><div class="m-goal">${s.goal}</div></div>`;
+  if(s.about){
+    html += `<div class="m-block"><h5>📖 Seans haqqında</h5><div class="m-goal">${s.about}</div></div>`;
+  }
+  html += `<div class="m-block"><h5>🎯 Məqsəd</h5><div class="m-goal">${s.goal}</div></div>`;
+  if(s.specialists && s.specialists.length){
+    html += `<div class="m-block"><h5>🩺 Kimlər tətbiq edə bilər</h5><div class="m-materials">${s.specialists.map(m=>`<span>${m}</span>`).join('')}</div></div>`;
+  }
   if(s.materials && s.materials.length){
-    html += `<div class="m-block"><h5>🧰 Lazım olan materiallar</h5><div class="m-materials">${s.materials.map(m=>`<span>${m}</span>`).join('')}</div></div>`;
+    html += `<div class="m-block"><h5>🧰 İstifadə olunan ləvazimatlar</h5><div class="m-materials">${s.materials.map(m=>`<span>${m}</span>`).join('')}</div></div>`;
   }
   html += `<div class="m-block"><h5>📋 Seansın gedişi</h5>`;
   s.phases.forEach(ph=>{
