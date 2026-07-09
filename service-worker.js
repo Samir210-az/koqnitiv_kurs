@@ -1,9 +1,10 @@
-const CACHE_NAME = "kbt-kurs-v2";
+const CACHE_NAME = "kbt-kurs-v2-guard1";
 const CORE_ASSETS = [
   "./index.html",
   "./styles.css",
   "./engine.js",
   "./protect.js",
+  "./guard.js",
   "./logo.png",
   "./icon-192.png",
   "./icon-512.png",
