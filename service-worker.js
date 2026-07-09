@@ -1,10 +1,9 @@
-const CACHE_NAME = "kbt-kurs-v2-guard1-fbauth2";
+const CACHE_NAME = "kbt-kurs-v2-guard1-fbauth2-net1";
 const CORE_ASSETS = [
   "./index.html",
   "./styles.css",
   "./engine.js",
   "./protect.js",
-  "./guard.js",
   "./logo.png",
   "./icon-192.png",
   "./icon-512.png",
@@ -33,13 +32,17 @@ function isHTML(request) {
     request.url.endsWith(".html") ||
     request.url.endsWith("/");
 }
+function isNetworkFirst(request) {
+  // guard.js təhlükəsizlik üçün kritikdir - HEÇ VAXT köhnəlmiş keşdən verilməməlidir
+  return isHTML(request) || request.url.endsWith("/guard.js");
+}
 
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
 
   // HTML: NETWORK-FIRST — həmişə serverdəki ən son versiyanı göstər,
   // yalnız internet olmadıqda köhnə keşə keç.
-  if (isHTML(event.request)) {
+  if (isNetworkFirst(event.request)) {
     event.respondWith(
       fetch(event.request)
         .then((networkResponse) => {
