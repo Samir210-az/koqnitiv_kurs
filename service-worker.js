@@ -1,4 +1,4 @@
-const CACHE_NAME = "kbt-kurs-v2-guard1-fbauth2-net1";
+const CACHE_NAME = "kbt-kurs-v2-guard1-fbauth2-net1-debug3";
 const CORE_ASSETS = [
   "./index.html",
   "./styles.css",
