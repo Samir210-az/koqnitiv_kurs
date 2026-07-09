@@ -26,17 +26,22 @@ import("https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js").then(functi
 
   authMod.onAuthStateChanged(auth, function(user){
     if(!user){ deny(); return; }
-    dbMod.get(dbMod.ref(db, "portal/customers/" + user.uid)).then(function(snap){
-      var cust = snap.val();
-      if(!cust){ deny(); return; }
-      dbMod.get(dbMod.ref(db, "portal/courses")).then(function(csnap){
-        var courses = csnap.val() || {};
-        var allowed = cust.allowedCourses || [];
-        var ok = allowed.some(function(cid){
-          var c = courses[cid];
-          return c && c.url && c.url.indexOf(COURSE_KEY) !== -1;
-        });
-        if(ok){ grant(); } else { deny(); }
+    // Əvvəlcə admin olub-olmadığını yoxla - admin bütün kurslara baxa bilər
+    dbMod.get(dbMod.ref(db, "portal/admins/" + user.uid)).then(function(adminSnap){
+      if(adminSnap.val() === true){ grant(); return; }
+      // Admin deyilsə, adi müştəri kimi icazəsini yoxla
+      dbMod.get(dbMod.ref(db, "portal/customers/" + user.uid)).then(function(snap){
+        var cust = snap.val();
+        if(!cust){ deny(); return; }
+        dbMod.get(dbMod.ref(db, "portal/courses")).then(function(csnap){
+          var courses = csnap.val() || {};
+          var allowed = cust.allowedCourses || [];
+          var ok = allowed.some(function(cid){
+            var c = courses[cid];
+            return c && c.url && c.url.indexOf(COURSE_KEY) !== -1;
+          });
+          if(ok){ grant(); } else { deny(); }
+        }).catch(deny);
       }).catch(deny);
     }).catch(deny);
   });
