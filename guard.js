@@ -1,5 +1,5 @@
 (function(){"use strict";
-/* AN Kurs Portalı - Sessiya Qoruyucusu (Firebase Auth əsaslı) */
+/* AN Kurs Portalı - Sessiya Qoruyucusu (Firebase Auth əsaslı, v3) */
 var COURSE_KEY = "koqnitiv_kurs";
 var PORTAL_URL = "https://samir210-az.github.io/an-kurs-portali/";
 var FB_CONFIG = {
@@ -24,12 +24,16 @@ import("https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js").then(functi
   var auth = authMod.getAuth(app);
   var db = dbMod.getDatabase(app);
 
-  authMod.onAuthStateChanged(auth, function(user){
+  // KRİTİK: authStateReady() Firebase-in yaddaşdan (IndexedDB) sessiyanı
+  // TAM bərpa etməsini gözləyir. onAuthStateChanged-in İLK çağırışına etibar etmək
+  // səhv idi, çünki o, hələ sessiya bərpa olunmamış "boş" vəziyyətlə tez tetiklənə bilirdi
+  // və istifadəçi hələ tanınmamış geri atılırdı.
+  auth.authStateReady().then(function(){
+    var user = auth.currentUser;
     if(!user){ deny(); return; }
-    // Əvvəlcə admin olub-olmadığını yoxla - admin bütün kurslara baxa bilər
+
     dbMod.get(dbMod.ref(db, "portal/admins/" + user.uid)).then(function(adminSnap){
       if(adminSnap.val() === true){ grant(); return; }
-      // Admin deyilsə, adi müştəri kimi icazəsini yoxla
       dbMod.get(dbMod.ref(db, "portal/customers/" + user.uid)).then(function(snap){
         var cust = snap.val();
         if(!cust){ deny(); return; }
