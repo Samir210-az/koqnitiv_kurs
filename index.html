@@ -9,11 +9,27 @@ document.documentElement.style.visibility = 'hidden';
 (async function(){
   var PORTAL_URL = "https://samir210-az.github.io/an-kurs-portali/";
   function redirect(){ location.href = PORTAL_URL + '#giris'; }
+
+  // admin bypass check (no Firebase needed)
+  var ADMIN_BYPASS_VALUE = 'AN_ADMIN_' + btoa('AN2026EA');
+  if(localStorage.getItem('an_admin_bypass') === ADMIN_BYPASS_VALUE){
+    document.documentElement.style.visibility = 'visible';
+    return;
+  }
+
   try{
     var raw = localStorage.getItem('an_session');
     if(!raw){ redirect(); return; }
     var session; try{ session = JSON.parse(raw); }catch(e){ redirect(); return; }
-    if(!session.username || !session.token){ redirect(); return; }
+    if(!session.username || !session.token || !session.allowedUrls){ redirect(); return; }
+
+    var isAllowedHere = session.allowedUrls.some(function(u){
+      try{
+        var p = new URL(u).pathname;
+        return location.pathname.indexOf(p) === 0;
+      }catch(e){ return false; }
+    });
+    if(!isAllowedHere){ redirect(); return; }
 
     var fbMod = await import("https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js");
     var dbMod = await import("https://www.gstatic.com/firebasejs/12.14.0/firebase-database.js");
@@ -34,17 +50,6 @@ document.documentElement.style.visibility = 'hidden';
     var entry = Object.values(customers).find(function(c){ return c.username === session.username; });
     if(!entry || entry.activeToken !== session.token){ redirect(); return; }
 
-    var coursesSnap = await dbMod.get(dbMod.ref(db, 'portal/courses'));
-    var courses = coursesSnap.val() || {};
-    var allowed = entry.allowedCourses || [];
-    var matchedId = Object.keys(courses).find(function(id){
-      try{
-        var coursePath = new URL(courses[id].url).pathname;
-        return location.pathname.indexOf(coursePath) === 0;
-      }catch(e){ return false; }
-    });
-    if(matchedId && allowed.indexOf(matchedId) === -1){ redirect(); return; }
-
     document.documentElement.style.visibility = 'visible';
   }catch(e){
     console.error('Auth guard xetasi:', e);
@@ -52,7 +57,6 @@ document.documentElement.style.visibility = 'hidden';
   }
 })();
 </script>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#0f172a">
