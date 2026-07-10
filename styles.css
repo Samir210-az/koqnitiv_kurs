@@ -220,3 +220,19 @@ footer a{color:var(--teal); text-decoration:none; font-weight:600;}
 .prog-link{color:var(--acc); text-decoration:underline dotted; text-underline-offset:3px; cursor:pointer; font-weight:600;}
 .prog-link:hover{opacity:.8;}
 #programModalOverlay.modal-overlay{z-index:210;}
+
+/* ===== Böhran Protokolu & Biblioqrafiya (əlavə blok, 10 iyul 2026) ===== */
+.crisis-box{border:1px solid rgba(220,38,38,.38); border-left:4px solid #dc2626; background:rgba(220,38,38,.10); border-radius:0 16px 16px 0; padding:22px 26px; margin:20px 0;}
+.crisis-box h4{color:#f87171; font-size:1rem; margin-bottom:8px; display:flex; align-items:center; gap:8px;}
+.crisis-box p{color:var(--text-2); font-size:.92rem; margin-top:6px;}
+.crisis-box ul{margin:10px 0 4px 20px; color:var(--text-2); font-size:.92rem;}
+.crisis-box li{margin-bottom:6px;}
+.crisis-steps{counter-reset:step; margin:14px 0 4px;}
+.crisis-steps li{list-style:none; counter-increment:step; position:relative; padding-left:34px; margin-bottom:12px; font-size:.92rem; color:var(--text-1);}
+.crisis-steps li::before{content:counter(step); position:absolute; left:0; top:0; width:24px;height:24px; background:#dc2626; color:#fff; border-radius:8px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.8rem;}
+.biblio-box{background:var(--surface); border:1px solid var(--border); border-radius:18px; padding:24px 26px; margin:20px 0;}
+.biblio-box h4{color:var(--acc); font-size:.95rem; margin-bottom:12px;}
+.biblio-list{list-style:none;}
+.biblio-list li{padding:9px 0; border-bottom:1px solid var(--border); font-size:.85rem; color:var(--text-2); line-height:1.5;}
+.biblio-list li:last-child{border-bottom:none;}
+.biblio-list b{color:var(--text-1);}
