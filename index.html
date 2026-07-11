@@ -266,9 +266,18 @@
     .stats{gap:26px;}
     header{padding:64px 18px 34px;}
   }
+
+  .lang-switch{position:fixed; top:16px; right:16px; z-index:50; display:flex; gap:6px; background:rgba(18,48,44,0.7); border:1px solid var(--border); border-radius:999px; padding:5px; backdrop-filter:blur(10px);}
+  .lang-switch a{padding:5px 11px; border-radius:999px; font-size:.72rem; font-weight:700; letter-spacing:.03em; text-decoration:none; color:var(--text-3);}
+  .lang-switch a.active{background:var(--amber); color:#2a1d09;}
 </style>
 </head>
 <body>
+
+  <div class="lang-switch">
+    <a href="#" class="active">AZ</a>
+    <a href="en/index.html">EN</a>
+  </div>
 
   <div class="blob blob-1" data-speed="0.04"></div>
   <div class="blob blob-2" data-speed="0.07"></div>
