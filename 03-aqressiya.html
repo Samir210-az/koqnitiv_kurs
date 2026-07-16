@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="az">
 <head>
 <script>document.documentElement.style.visibility='hidden';</script>
@@ -61,6 +61,8 @@
   main{position:relative; z-index:2; max-width:880px; margin:0 auto; padding:0 24px 100px;}
 
   .hero{padding:64px 0 40px; text-align:center;}
+  .hero-illus{display:flex; justify-content:center; margin-bottom:28px;}
+  .hero-illus svg{max-width:100%; height:auto;}
   .tag{display:inline-block; font-size:.76rem; letter-spacing:.14em; text-transform:uppercase; color:var(--flame); background:var(--flame-soft); border:1px solid rgba(251,146,60,.35); padding:6px 16px; border-radius:999px; margin-bottom:22px; animation:fadeDown .7s ease both;}
   h1{font-family:var(--font-d); font-weight:800; font-size:clamp(1.9rem,4.6vw,3rem); line-height:1.2; background:linear-gradient(90deg,#fff,#ffd8c2 45%, var(--flame)); -webkit-background-clip:text;background-clip:text;color:transparent; animation:fadeUp .8s ease both .1s;}
   .hero p{color:var(--text-2); max-width:620px; margin:20px auto 0; animation:fadeUp .8s ease both .2s;}
@@ -238,6 +240,31 @@
 <main>
 
     <div class="hero">
+    <div class="hero-illus">
+      <svg width="360" height="170" viewBox="0 0 360 170" fill="none">
+        <defs>
+          <linearGradient id="flameGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#d9705a"/>
+            <stop offset="55%" stop-color="#d9a85a"/>
+            <stop offset="100%" stop-color="#7ba098"/>
+          </linearGradient>
+        </defs>
+        <circle cx="180" cy="88" r="78" fill="none" stroke="#d9a85a" stroke-width="1.4" stroke-dasharray="3 7" opacity=".5"/>
+        <path d="M180 32c14 18 26 30 26 50a26 26 0 0 1-52 0c0-10 6-18 12-26-2 10 2 14 6 16-2-16 2-28 8-40z" fill="url(#flameGrad)" opacity=".92"/>
+        <g stroke="#7ba098" stroke-width="1.6" opacity=".55" stroke-linecap="round">
+          <path d="M120 60 Q100 88 112 118"/>
+          <path d="M240 60 Q260 88 248 118"/>
+        </g>
+        <g transform="translate(70,135)">
+          <circle r="18" fill="#7ba098" opacity=".85"/>
+          <path d="M-6 1c0-5 4-8 6-8s6 3 6 8c0 4-6 7-6 7s-6-3-6-7z" fill="#0c211f"/>
+        </g>
+        <g transform="translate(290,135)">
+          <circle r="18" fill="#8a6a3a" opacity=".85"/>
+          <path d="M-6-4a8 8 0 1 0 12 0" stroke="#f3eee1" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        </g>
+      </svg>
+    </div>
     <span class="tag">Modul 03 · Emosiya Tənzimlənməsi</span>
     <h1>Aqressiya və CBT</h1>
     <p>"Uşağım pisdirmi?" Bu sualı ilk seansda demək olar hər ailədən eşidirəm. Cavabım dəyişmir — yox. Aşağıda illər ərzində qurduğum 10 seanslıq yol xəritəsi var: psixoloji, sensor-inteqrasiya, pedaqoji və kommunikativ baxış bucaqları ilə, hər biri öz yerində.</p>
@@ -634,59 +661,59 @@ const SESSIONS = [
         "dialog": [
           [
             "T",
-            "Kamran, bu həftə özünü necə hiss etdin?"
+            "Kamran, xoş gəlmisiniz. Bu, ilk görüşümüzdür — özünüzü tanıtmaqdan başlaya bilərik."
           ],
           [
             "K",
-            "Bir az yaxşı, əvvəlkindən sakit idim, açığı."
+            "Sağ olun. Açığı, bura necə gələcəyimi tam bilmirdim."
           ],
           [
             "T",
-            "Bura gəlməzdən əvvəl bu gün necə keçdi?"
+            "Bu normaldır. Sizi bura gətirən nədir, qısaca?"
           ],
           [
             "K",
-            "Normal, bir az yorğunam sadəcə."
+            "Son aylarda özümü idarə edə bilmədiyim anlar oldu, ailəmlə, işdə."
           ],
           [
             "T",
-            "Kamran, danışmaq istədiyin başqa bir şey var mı bu gün?"
+            "Bunu bölüşdüyünüz üçün sağ olun. Bu, nə vaxtdan davam edir?"
+          ],
+          [
+            "K",
+            "Bir neçə aydır, amma son həftələr daha pisləşdi."
+          ],
+          [
+            "T",
+            "Bu barədə danışmaq çətindirmi sizin üçün?"
+          ],
+          [
+            "K",
+            "Bir az, açığı — utanc hissi var."
+          ],
+          [
+            "T",
+            "Bunu anlayıram, çoxları belə hiss edir bura ilk gələndə."
+          ],
+          [
+            "K",
+            "Yaxşı, bu məni bir az rahatladır."
+          ],
+          [
+            "T",
+            "Burada mühakimə olunmayacaqsınız, sadəcə birlikdə baxacağıq."
+          ],
+          [
+            "K",
+            "Sağ olun, buna ehtiyacım var idi."
+          ],
+          [
+            "T",
+            "Başlamazdan əvvəl sualınız var mı?"
           ],
           [
             "K",
             "Yox, hazıram başlamağa."
-          ],
-          [
-            "T",
-            "Keçən seansdan sonra nə düşündün?"
-          ],
-          [
-            "K",
-            "Bir az fikirləşdim, amma tam əmin deyiləm nəyi."
-          ],
-          [
-            "K",
-            "Açığı bu gün bir az narahatam."
-          ],
-          [
-            "T",
-            "Bu barədə bir az danışa bilərikmi?"
-          ],
-          [
-            "T",
-            "Bu həftə tapşırığı sınadınmı?"
-          ],
-          [
-            "K",
-            "Bir dəfə, sonra unutdum, açığı."
-          ],
-          [
-            "K",
-            "Bilmirəm bu gün nə deyəcəm."
-          ],
-          [
-            "T",
-            "Bu, normaldır, birlikdə tapa bilərik."
           ]
         ]
       },
@@ -786,43 +813,43 @@ const SESSIONS = [
         "dialog": [
           [
             "T",
-            "Bu gün öyrəndiklərini necə xatırlayacaqsan?"
+            "Bu ilk görüş sizin üçün necə keçdi?"
           ],
           [
             "K",
-            "Bilmirəm dəqiq, cəhd edərəm xatırlamağa."
+            "Düşündüyümdən asan oldu, açığı."
           ],
           [
             "T",
-            "Növbəti həftəyə qədər bunu sınayacaqsanmı?"
+            "Bunu eşitmək məni sevindirir."
           ],
           [
             "K",
-            "Bəli, çalışacam."
+            "Növbəti həftə də gələcəyəm?"
           ],
           [
             "T",
-            "Kamran, bu gün özünü necə hiss edirsən görüşdən sonra?"
+            "Bəli, birlikdə 10 seanslıq bir yol xəritəmiz olacaq."
           ],
           [
             "K",
-            "Yorğun, amma danışmaq kömək etdi bir az."
-          ],
-          [
-            "K",
-            "Bu, çətin bir seans idi bu gün."
+            "Yaxşı, bu mənə struktur hissi verir."
           ],
           [
             "T",
-            "Bunu bölüşdüyün üçün sağ ol."
-          ],
-          [
-            "T",
-            "Bu barədə düşünməyə davam edə bilərsən istəsən."
+            "Evə gedərkən bu barədə düşünmək istəsəniz, kiçik qeydlər tuta bilərsiniz."
           ],
           [
             "K",
-            "Yaxşı, düşünərəm."
+            "Cəhd edərəm."
+          ],
+          [
+            "T",
+            "Bu addımı atdığınız üçün təbrik edirəm."
+          ],
+          [
+            "K",
+            "Sağ olun."
           ]
         ]
       }
@@ -852,59 +879,59 @@ const SESSIONS = [
         "dialog": [
           [
             "T",
-            "Kamran, bu həftə özünü necə hiss etdin?"
+            "Kamran, keçən görüşümüzdən sonra necə keçdi?"
           ],
           [
             "K",
-            "Bir az yaxşı, əvvəlkindən sakit idim, açığı."
+            "Normal, bir-iki dəfə yenə qəzəbləndim, amma az."
           ],
           [
             "T",
-            "Bura gəlməzdən əvvəl bu gün necə keçdi?"
+            "Bunu qeyd etdiyiniz üçün sağ olun. Bu barədə sual yarandımı?"
           ],
           [
             "K",
-            "Normal, bir az yorğunam sadəcə."
+            "Bəzən düşünürəm ki, qəzəb pis bir şeydir, ondan tam qurtulmalıyam."
           ],
           [
             "T",
-            "Kamran, danışmaq istədiyin başqa bir şey var mı bu gün?"
+            "Bu, çox rast gəlinən bir fikirdir. Bu gün elə bunu araşdıracağıq."
           ],
           [
             "K",
-            "Yox, hazıram başlamağa."
+            "Maraqlıdır, dinləyirəm."
           ],
           [
             "T",
-            "Keçən seansdan sonra nə düşündün?"
+            "Özünüzü necə hiss edirsiniz bu gün, sakitsinizmi?"
           ],
           [
             "K",
-            "Bir az fikirləşdim, amma tam əmin deyiləm nəyi."
-          ],
-          [
-            "K",
-            "Açığı bu gün bir az narahatam."
+            "Nisbətən, bir az yorğunam işdən sonra."
           ],
           [
             "T",
-            "Bu barədə bir az danışa bilərikmi?"
-          ],
-          [
-            "T",
-            "Bu həftə tapşırığı sınadınmı?"
+            "Bu həftə yuxu necə idi?"
           ],
           [
             "K",
-            "Bir dəfə, sonra unutdum, açığı."
-          ],
-          [
-            "K",
-            "Bilmirəm bu gün nə deyəcəm."
+            "Orta, iki gecə pis yatdım."
           ],
           [
             "T",
-            "Bu, normaldır, birlikdə tapa bilərik."
+            "Qeyd etdiyiniz üçün sağ olun, bunu nəzərə alacağıq."
+          ],
+          [
+            "K",
+            "Yaxşı."
+          ],
+          [
+            "T",
+            "Başlamazdan əvvəl bir şey soruşmaq istəyirsiniz?"
+          ],
+          [
+            "K",
+            "Yox, hazıram."
           ]
         ]
       },
@@ -1004,43 +1031,43 @@ const SESSIONS = [
         "dialog": [
           [
             "T",
-            "Bu gün öyrəndiklərini necə xatırlayacaqsan?"
+            "Bu gün qəzəb haqqında öyrəndiklərinizi necə xülasə edərdiniz?"
           ],
           [
             "K",
-            "Bilmirəm dəqiq, cəhd edərəm xatırlamağa."
+            "Qəzəb özü pis deyil, onu necə ifadə etdiyim önəmlidir."
           ],
           [
             "T",
-            "Növbəti həftəyə qədər bunu sınayacaqsanmı?"
+            "Tam doğrudur."
           ],
           [
             "K",
-            "Bəli, çalışacam."
+            "Bunu bilmək məni bir az rahatlatdı."
           ],
           [
             "T",
-            "Kamran, bu gün özünü necə hiss edirsən görüşdən sonra?"
+            "Bu həftə qəzəbin sizə nə demək istədiyini bir dəfə düşünə bilərsinizmi?"
           ],
           [
             "K",
-            "Yorğun, amma danışmaq kömək etdi bir az."
-          ],
-          [
-            "K",
-            "Bu, çətin bir seans idi bu gün."
+            "Cəhd edərəm."
           ],
           [
             "T",
-            "Bunu bölüşdüyün üçün sağ ol."
-          ],
-          [
-            "T",
-            "Bu barədə düşünməyə davam edə bilərsən istəsən."
+            "Özünüzü necə hiss edirsiniz gedərkən?"
           ],
           [
             "K",
-            "Yaxşı, düşünərəm."
+            "Daha sakin, açığı gözləmirdim belə."
+          ],
+          [
+            "T",
+            "Bu, çox gözəl bir başlanğıcdır."
+          ],
+          [
+            "K",
+            "Sağ olun, görüşənədək."
           ]
         ]
       }
@@ -1069,59 +1096,59 @@ const SESSIONS = [
         "dialog": [
           [
             "T",
-            "Kamran, bu həftə özünü necə hiss etdin?"
+            "Kamran, bu gün qəzəbin bədəndə necə göründüyünə baxacağıq."
           ],
           [
             "K",
-            "Bir az yaxşı, əvvəlkindən sakit idim, açığı."
+            "Maraqlıdır, açığı heç düşünməmişəm bu barədə."
           ],
           [
             "T",
-            "Bura gəlməzdən əvvəl bu gün necə keçdi?"
+            "Son dəfə əsəbləşəndə bədəninizdə nə hiss etdiniz?"
           ],
           [
             "K",
-            "Normal, bir az yorğunam sadəcə."
+            "Ürəyim sürətləndi, yumruqlarım sıxıldı sanki özbaşına."
           ],
           [
             "T",
-            "Kamran, danışmaq istədiyin başqa bir şey var mı bu gün?"
+            "Başqa nə var idi — nəfəs, çənə, çiyinlər?"
           ],
           [
             "K",
-            "Yox, hazıram başlamağa."
+            "Çənəm gərginləşdi, nəfəsim də sürətləndi bir az."
           ],
           [
             "T",
-            "Keçən seansdan sonra nə düşündün?"
+            "Bunlar qəzəbin erkən siqnallarıdır — bədən sözdən əvvəl xəbərdarlıq edir."
           ],
           [
             "K",
-            "Bir az fikirləşdim, amma tam əmin deyiləm nəyi."
-          ],
-          [
-            "K",
-            "Açığı bu gün bir az narahatam."
+            "İndi bunu bilmək faydalı olacaq deyəsən."
           ],
           [
             "T",
-            "Bu barədə bir az danışa bilərikmi?"
-          ],
-          [
-            "T",
-            "Bu həftə tapşırığı sınadınmı?"
+            "Bu həftə bu siqnalları izləyə bilərsinizmi?"
           ],
           [
             "K",
-            "Bir dəfə, sonra unutdum, açığı."
-          ],
-          [
-            "K",
-            "Bilmirəm bu gün nə deyəcəm."
+            "Cəhd edərəm, maraqlı gəlir açığı."
           ],
           [
             "T",
-            "Bu, normaldır, birlikdə tapa bilərik."
+            "Kiçik qeydlər kifayətdir, mükəmməl olmasın."
+          ],
+          [
+            "K",
+            "Yaxşı, sınayacam."
+          ],
+          [
+            "T",
+            "Başlamazdan əvvəl bir sualınız var mı?"
+          ],
+          [
+            "K",
+            "Yox, hazıram."
           ]
         ]
       },
@@ -1133,83 +1160,83 @@ const SESSIONS = [
         "dialog": [
           [
             "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Kamran, bu gün qəzəbin bədəndə necə göründüyünə baxacağıq."
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "Maraqlıdır, açığı heç düşünməmişəm bu barədə."
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "Son dəfə əsəbləşəndə bədəninizdə nə hiss etdiniz?"
           ],
           [
             "K",
-            "Bir az qarışıq, açığı."
+            "Ürəyim sürətləndi, yumruqlarım sıxıldı sanki özbaşına."
           ],
           [
             "T",
-            "Bu təcrübədən nə öyrəndin?"
+            "Başqa nə var idi — nəfəs, çənə, çiyinlər?"
           ],
           [
             "K",
-            "Bilmirəm hələ, düşünməyə davam edəcəm."
+            "Çənəm gərginləşdi, nəfəsim də sürətləndi bir az."
           ],
           [
             "T",
-            "Kamran, bu bacarığı necə tətbiq edəcəksən?"
+            "Bunlar qəzəbin erkən siqnallarıdır — bədən sözdən əvvəl xəbərdarlıq edir."
           ],
           [
             "K",
-            "Çətinlik yarananda xatırlamağa çalışaram."
-          ],
-          [
-            "K",
-            "Bu, kömək edə bilər mənə görə, amma tam əmin deyiləm."
+            "İndi bunu bilmək faydalı olacaq deyəsən."
           ],
           [
             "T",
-            "Bu şübhə normaldır, sınayaraq görəcəyik."
-          ],
-          [
-            "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Gəl bir Qəzəb Termometri düzəldək, bu siqnalları rəqəmlərlə əlaqələndirək."
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "Yaxşı, necə işləyir bu?"
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "1-dən 10-a qədər, hansı səviyyədə hansı bədən siqnalı gəlir, qeyd edirik."
           ],
           [
             "K",
-            "Bir az qarışıq, açığı."
+            "Anladım, 3-4-də çənə gərginləşir deyəsən mənə görə."
           ],
           [
             "T",
-            "Bu təcrübədən nə öyrəndin?"
+            "7-8-də nə olur sizcə?"
           ],
           [
             "K",
-            "Bilmirəm hələ, düşünməyə davam edəcəm."
+            "Yumruqlar tam sıxılır, səs ucalır."
           ],
           [
             "T",
-            "Kamran, bu bacarığı necə tətbiq edəcəksən?"
+            "Bu fərqindəlik, qəzəb partlamadan əvvəl dayanmaq üçün ən vacib alətdir."
           ],
           [
             "K",
-            "Çətinlik yarananda xatırlamağa çalışaram."
-          ],
-          [
-            "K",
-            "Bu, kömək edə bilər mənə görə, amma tam əmin deyiləm."
+            "İndi başa düşdüm niyə bunu öyrədirsiniz əvvəlcə."
           ],
           [
             "T",
-            "Bu şübhə normaldır, sınayaraq görəcəyik."
+            "Bu həftə bu siqnalları izləyə bilərsinizmi?"
+          ],
+          [
+            "K",
+            "Cəhd edərəm, maraqlı gəlir açığı."
+          ],
+          [
+            "T",
+            "Kiçik qeydlər kifayətdir, mükəmməl olmasın."
+          ],
+          [
+            "K",
+            "Yaxşı, sınayacam."
           ]
         ]
       },
@@ -1221,43 +1248,43 @@ const SESSIONS = [
         "dialog": [
           [
             "T",
-            "Bu gün öyrəndiklərini necə xatırlayacaqsan?"
+            "Bu gün öyrəndiyiniz bədən siqnallarını xatırlayırsınızmı?"
           ],
           [
             "K",
-            "Bilmirəm dəqiq, cəhd edərəm xatırlamağa."
+            "Ürək döyüntüsü, çənə gərginliyi, yumruq sıxma — erkən xəbərdarlıqlar."
           ],
           [
             "T",
-            "Növbəti həftəyə qədər bunu sınayacaqsanmı?"
+            "Tam belədir. Bu həftə bunları izləyə bilərsinizmi?"
           ],
           [
             "K",
-            "Bəli, çalışacam."
+            "Bəli, dəftərimə qeyd edərəm."
           ],
           [
             "T",
-            "Kamran, bu gün özünü necə hiss edirsən görüşdən sonra?"
+            "Kiçik qeydlər kifayətdir."
           ],
           [
             "K",
-            "Yorğun, amma danışmaq kömək etdi bir az."
-          ],
-          [
-            "K",
-            "Bu, çətin bir seans idi bu gün."
+            "Yaxşı."
           ],
           [
             "T",
-            "Bunu bölüşdüyün üçün sağ ol."
-          ],
-          [
-            "T",
-            "Bu barədə düşünməyə davam edə bilərsən istəsən."
+            "Bu fərqindəlik sizə necə hiss etdirdi?"
           ],
           [
             "K",
-            "Yaxşı, düşünərəm."
+            "Bir az güc verdi, deyəsən artıq nəzarətdə bir şey var."
+          ],
+          [
+            "T",
+            "Bu, çox dəyərli bir müşahidə."
+          ],
+          [
+            "K",
+            "Sağ olun, görüşənədək."
           ]
         ]
       }
@@ -1286,59 +1313,59 @@ const SESSIONS = [
         "dialog": [
           [
             "T",
-            "Kamran, bu həftə özünü necə hiss etdin?"
+            "Kamran, keçən seansdan sonra bədən siqnallarını izlədinizmi?"
           ],
           [
             "K",
-            "Bir az yaxşı, əvvəlkindən sakit idim, açığı."
+            "Bəli, iki dəfə qeyd etdim, faydalı idi."
           ],
           [
             "T",
-            "Bura gəlməzdən əvvəl bu gün necə keçdi?"
+            "Bu, çox yaxşı bir başlanğıcdır. Bu gün özünüzü necə hiss edirsiniz?"
           ],
           [
             "K",
-            "Normal, bir az yorğunam sadəcə."
+            "Nisbətən sakit, amma iş günü yorucu idi."
           ],
           [
             "T",
-            "Kamran, danışmaq istədiyin başqa bir şey var mı bu gün?"
+            "Bu həftə əsəbləşdiyiniz bir an oldu mu?"
           ],
           [
             "K",
-            "Yox, hazıram başlamağa."
+            "Bir dəfə, amma keçən dəfəki qədər şiddətli deyildi."
           ],
           [
             "T",
-            "Keçən seansdan sonra nə düşündün?"
+            "Bu, özü bir irəliləyişdir."
           ],
           [
             "K",
-            "Bir az fikirləşdim, amma tam əmin deyiləm nəyi."
-          ],
-          [
-            "K",
-            "Açığı bu gün bir az narahatam."
+            "Mən də belə düşünürəm, açığı."
           ],
           [
             "T",
-            "Bu barədə bir az danışa bilərikmi?"
-          ],
-          [
-            "T",
-            "Bu həftə tapşırığı sınadınmı?"
+            "Bu gün bədəni sürətlə sakitləşdirən konkret alətlərə baxacağıq."
           ],
           [
             "K",
-            "Bir dəfə, sonra unutdum, açığı."
-          ],
-          [
-            "K",
-            "Bilmirəm bu gün nə deyəcəm."
+            "Buna ehtiyacım var, real vaxtda nə edəcəyimi bilmirəm həmişə."
           ],
           [
             "T",
-            "Bu, normaldır, birlikdə tapa bilərik."
+            "Elə bu boşluğu dolduracağıq bu gün."
+          ],
+          [
+            "K",
+            "Yaxşı, hazıram."
+          ],
+          [
+            "T",
+            "Başlamazdan əvvəl sualınız var mı?"
+          ],
+          [
+            "K",
+            "Yox, başlayaq."
           ]
         ]
       },
@@ -1366,67 +1393,67 @@ const SESSIONS = [
           ],
           [
             "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Gəl indi geriyə saymanı da əlavə edək — 10-dan aşağı sayaq nəfəslə birgə."
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "Yaxşı, sınayaq."
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "10, nəfəs al... 9, ver..."
           ],
           [
             "K",
-            "Bir az qarışıq, açığı."
+            "(sayır) Bu, diqqətimi yayındırır bir az, yaxşı mənada."
           ],
           [
             "T",
-            "Bu təcrübədən nə öyrəndin?"
+            "Tam belədir, məqsəd də budur — beyni başqa bir işə yönəltmək."
           ],
           [
             "K",
-            "Bilmirəm hələ, düşünməyə davam edəcəm."
+            "İndi bədənim bir az daha sakit."
           ],
           [
             "T",
-            "Kamran, bu bacarığı necə tətbiq edəcəksən?"
+            "Sensor alətlərdən — soyuq su, sərt bir əşya sıxmaq kimi — hansı sizə uyğun gələ bilər?"
           ],
           [
             "K",
-            "Çətinlik yarananda xatırlamağa çalışaram."
-          ],
-          [
-            "K",
-            "Bu, kömək edə bilər mənə görə, amma tam əmin deyiləm."
+            "Soyuq su üzümə çox işə yarayır həmişə."
           ],
           [
             "T",
-            "Bu şübhə normaldır, sınayaraq görəcəyik."
-          ],
-          [
-            "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Əla, bunu da alət qutunuza əlavə edək."
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "Yaxşı fikirdir."
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "Bu üç alətdən — nəfəs, geriyə sayma, soyuq su — hansını daha çox işlədəcəksiniz?"
           ],
           [
             "K",
-            "Bir az qarışıq, açığı."
+            "Sanırım nəfəs və soyuq su, ikisi də sadədir."
           ],
           [
             "T",
-            "Bu təcrübədən nə öyrəndin?"
+            "Bu həftə əsəbləşən kimi birini dərhal sınayın."
           ],
           [
             "K",
-            "Bilmirəm hələ, düşünməyə davam edəcəm."
+            "Cəhd edərəm, söz verirəm."
+          ],
+          [
+            "T",
+            "Nəticəni növbəti seansda müzakirə edərik."
+          ],
+          [
+            "K",
+            "Yaxşı, gözləyirəm."
           ]
         ]
       },
@@ -1438,43 +1465,43 @@ const SESSIONS = [
         "dialog": [
           [
             "T",
-            "Bu gün öyrəndiklərini necə xatırlayacaqsan?"
+            "Bu gün öyrəndiyiniz alətlərdən hansı sizə ən uyğun gəldi?"
           ],
           [
             "K",
-            "Bilmirəm dəqiq, cəhd edərəm xatırlamağa."
+            "Nəfəs və soyuq su, ikisi də sadə görünür."
           ],
           [
             "T",
-            "Növbəti həftəyə qədər bunu sınayacaqsanmı?"
+            "Bu həftə bunları sınamağa hazırsınızmı?"
           ],
           [
             "K",
-            "Bəli, çalışacam."
+            "Bəli, hazıram."
           ],
           [
             "T",
-            "Kamran, bu gün özünü necə hiss edirsən görüşdən sonra?"
+            "Nəticəni növbəti seansda paylaşarsınız."
           ],
           [
             "K",
-            "Yorğun, amma danışmaq kömək etdi bir az."
-          ],
-          [
-            "K",
-            "Bu, çətin bir seans idi bu gün."
+            "Yaxşı, edərəm."
           ],
           [
             "T",
-            "Bunu bölüşdüyün üçün sağ ol."
-          ],
-          [
-            "T",
-            "Bu barədə düşünməyə davam edə bilərsən istəsən."
+            "Özünüzü necə hiss edirsiniz bu gün gedərkən?"
           ],
           [
             "K",
-            "Yaxşı, düşünərəm."
+            "Daha güclü, əlimdə real alətlər var indi."
+          ],
+          [
+            "T",
+            "Bu, çox gözəl bir irəliləyişdir."
+          ],
+          [
+            "K",
+            "Sağ olun."
           ]
         ]
       }
@@ -1503,59 +1530,59 @@ const SESSIONS = [
         "dialog": [
           [
             "T",
-            "Kamran, bu həftə özünü necə hiss etdin?"
+            "Kamran, bu gün üç addımlı bir strategiya öyrənəcəyik. Hazır hiss edirsinizmi?"
           ],
           [
             "K",
-            "Bir az yaxşı, əvvəlkindən sakit idim, açığı."
+            "Hazıram, maraqlıdır."
           ],
           [
             "T",
-            "Bura gəlməzdən əvvəl bu gün necə keçdi?"
+            "Keçən həftə nəfəs alətlərini sınadınızmı?"
           ],
           [
             "K",
-            "Normal, bir az yorğunam sadəcə."
+            "Bəli, soyuq su xüsusilə işə yaradı."
           ],
           [
             "T",
-            "Kamran, danışmaq istədiyin başqa bir şey var mı bu gün?"
+            "Bu, çox gözəl bir seçim oldu."
           ],
           [
             "K",
-            "Yox, hazıram başlamağa."
+            "Bir neçə dəfə istifadə etdim, kömək etdi."
           ],
           [
             "T",
-            "Keçən seansdan sonra nə düşündün?"
+            "Bu gün özünüzü necə hiss edirsiniz?"
           ],
           [
             "K",
-            "Bir az fikirləşdim, amma tam əmin deyiləm nəyi."
-          ],
-          [
-            "K",
-            "Açığı bu gün bir az narahatam."
+            "Nisbətən rahat, bu gün iş sakit keçdi."
           ],
           [
             "T",
-            "Bu barədə bir az danışa bilərikmi?"
-          ],
-          [
-            "T",
-            "Bu həftə tapşırığı sınadınmı?"
+            "Bu gün rollu oyun da işlədəcəyik, bunu necə qarşılayırsınız?"
           ],
           [
             "K",
-            "Bir dəfə, sonra unutdum, açığı."
-          ],
-          [
-            "K",
-            "Bilmirəm bu gün nə deyəcəm."
+            "Bir az qəribə gəlir, amma sınamağa hazıram."
           ],
           [
             "T",
-            "Bu, normaldır, birlikdə tapa bilərik."
+            "Rollu oyun bəzən qəribə gəlir, amma çox effektivdir."
+          ],
+          [
+            "K",
+            "İnanıram sizə."
+          ],
+          [
+            "T",
+            "Başlamazdan əvvəl sualınız var mı?"
+          ],
+          [
+            "K",
+            "Yox, başlayaq."
           ]
         ]
       },
@@ -1567,83 +1594,83 @@ const SESSIONS = [
         "dialog": [
           [
             "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Bu gün üç addımlı bir strategiya öyrədəcəyəm — Dayan, Düşün, Fəaliyyət göstər."
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "Sadə səslənir, dinləyirəm."
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "Birinci addım — Dayan. Qəzəb siqnalını hiss edən kimi fiziki olaraq dayanırsan, hərəkət etmirsən."
           ],
           [
             "K",
-            "Bir az qarışıq, açığı."
+            "Yəni sözün əsl mənasında dayanmaq?"
           ],
           [
             "T",
-            "Bu təcrübədən nə öyrəndin?"
+            "Bəli, bir addım geri, ya da sadəcə donub qalmaq — hərəkətə keçməmək."
           ],
           [
             "K",
-            "Bilmirəm hələ, düşünməyə davam edəcəm."
+            "Anladım, sonra?"
           ],
           [
             "T",
-            "Kamran, bu bacarığı necə tətbiq edəcəksən?"
+            "İkinci addım — Düşün. Özünə sual verirsən: bu reaksiya mənə nə qazandıracaq?"
           ],
           [
             "K",
-            "Çətinlik yarananda xatırlamağa çalışaram."
-          ],
-          [
-            "K",
-            "Bu, kömək edə bilər mənə görə, amma tam əmin deyiləm."
+            "Maraqlı sual, adətən bunu düşünmürəm həmin anda."
           ],
           [
             "T",
-            "Bu şübhə normaldır, sınayaraq görəcəyik."
-          ],
-          [
-            "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Elə buna görə öyrədirik — vərdiş halına gətirmək üçün."
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "Üçüncü addım nədir?"
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "Fəaliyyət göstər. Düşündükdən sonra ən yaxşı seçimi edirsən — bəzən heç nə etməmək, bəzən sakit danışmaq."
           ],
           [
             "K",
-            "Bir az qarışıq, açığı."
+            "Bunu real vəziyyətdə sınamaq istəyirəm."
           ],
           [
             "T",
-            "Bu təcrübədən nə öyrəndin?"
+            "Gəl bir rollu oyun edək — mən sizin işdəki həmkarınız oluram, siz Dayan-Düşün-Fəaliyyət-i tətbiq edirsiniz."
           ],
           [
             "K",
-            "Bilmirəm hələ, düşünməyə davam edəcəm."
+            "Yaxşı, hazıram."
           ],
           [
             "T",
-            "Kamran, bu bacarığı necə tətbiq edəcəksən?"
+            "(rol) 'Sənin işini yenə mən düzəltməli oldum, bu neçənci dəfədir?'"
           ],
           [
             "K",
-            "Çətinlik yarananda xatırlamağa çalışaram."
-          ],
-          [
-            "K",
-            "Bu, kömək edə bilər mənə görə, amma tam əmin deyiləm."
+            "(dayanır) ...Dayanıram indi... düşünürəm... 'Bu barədə sakit danışa bilərikmi, məni narahat etdi bu.'"
           ],
           [
             "T",
-            "Bu şübhə normaldır, sınayaraq görəcəyik."
+            "Əla tətbiq etdiniz! Necə hiss etdiniz bu prosesdə?"
+          ],
+          [
+            "K",
+            "Çətin idi dayanmaq, amma bacardım."
+          ],
+          [
+            "T",
+            "Bu, məşq tələb edən bir bacarıqdır, ilk dəfədən mükəmməl olmayacaq."
+          ],
+          [
+            "K",
+            "Yaxşı, bu həftə real həyatda sınayacam."
           ]
         ]
       },
@@ -1655,43 +1682,43 @@ const SESSIONS = [
         "dialog": [
           [
             "T",
-            "Bu gün öyrəndiklərini necə xatırlayacaqsan?"
+            "Dayan-Düşün-Fəaliyyət göstər strategiyasını bir cümləylə desəniz?"
           ],
           [
             "K",
-            "Bilmirəm dəqiq, cəhd edərəm xatırlamağa."
+            "Dayan, sual ver özünə, sonra ən yaxşısını et."
           ],
           [
             "T",
-            "Növbəti həftəyə qədər bunu sınayacaqsanmı?"
+            "Tam doğrudur. Bu həftə bunu sınaya bilərsinizmi?"
           ],
           [
             "K",
-            "Bəli, çalışacam."
+            "Cəhd edərəm, söz verirəm."
           ],
           [
             "T",
-            "Kamran, bu gün özünü necə hiss edirsən görüşdən sonra?"
+            "Kiçik bir uğur da qeyd olunmalıdır."
           ],
           [
             "K",
-            "Yorğun, amma danışmaq kömək etdi bir az."
-          ],
-          [
-            "K",
-            "Bu, çətin bir seans idi bu gün."
+            "Yaxşı, yazaram nə baş verdiyini."
           ],
           [
             "T",
-            "Bunu bölüşdüyün üçün sağ ol."
-          ],
-          [
-            "T",
-            "Bu barədə düşünməyə davam edə bilərsən istəsən."
+            "Bu gün rollu oyun sizə necə hiss etdirdi?"
           ],
           [
             "K",
-            "Yaxşı, düşünərəm."
+            "Əvvəlcə qəribə, sonra faydalı."
+          ],
+          [
+            "T",
+            "Bu, çox təbiidir — yeni bacarıq həmişə qəribə başlayır."
+          ],
+          [
+            "K",
+            "Sağ olun, görüşənədək."
           ]
         ]
       }
@@ -1720,59 +1747,59 @@ const SESSIONS = [
         "dialog": [
           [
             "T",
-            "Kamran, bu həftə özünü necə hiss etdin?"
+            "Kamran, bu gün düşüncələrimizi necə sorğulayacağımıza baxacağıq."
           ],
           [
             "K",
-            "Bir az yaxşı, əvvəlkindən sakit idim, açığı."
+            "Bu, mənə maraqlı gəlir, düşüncələrimi heç sorğulamamışam."
           ],
           [
             "T",
-            "Bura gəlməzdən əvvəl bu gün necə keçdi?"
+            "Keçən həftə Dayan-Düşün-Fəaliyyət göstər-i sınadınızmı?"
           ],
           [
             "K",
-            "Normal, bir az yorğunam sadəcə."
+            "Bir dəfə, yarımçıq oldu, amma köhnə tərzimdən fərqli idi."
           ],
           [
             "T",
-            "Kamran, danışmaq istədiyin başqa bir şey var mı bu gün?"
+            "Bu, əla bir başlanğıcdır."
           ],
           [
             "K",
-            "Yox, hazıram başlamağa."
+            "Sağ olun, çətin idi amma."
           ],
           [
             "T",
-            "Keçən seansdan sonra nə düşündün?"
+            "Bu gün özünüzü necə hiss edirsiniz?"
           ],
           [
             "K",
-            "Bir az fikirləşdim, amma tam əmin deyiləm nəyi."
-          ],
-          [
-            "K",
-            "Açığı bu gün bir az narahatam."
+            "Düşüncəli, bir az da həyəcanlı."
           ],
           [
             "T",
-            "Bu barədə bir az danışa bilərikmi?"
-          ],
-          [
-            "T",
-            "Bu həftə tapşırığı sınadınmı?"
+            "Bu həftə hansı düşüncə sizi ən çox narahat etdi?"
           ],
           [
             "K",
-            "Bir dəfə, sonra unutdum, açığı."
-          ],
-          [
-            "K",
-            "Bilmirəm bu gün nə deyəcəm."
+            "'Bu, ədalətsizdir' düşüncəsi tez-tez gəlir."
           ],
           [
             "T",
-            "Bu, normaldır, birlikdə tapa bilərik."
+            "Elə bu gün bunu birlikdə araşdıracağıq."
+          ],
+          [
+            "K",
+            "Yaxşı, maraqlıdır."
+          ],
+          [
+            "T",
+            "Başlamazdan əvvəl sualınız var mı?"
+          ],
+          [
+            "K",
+            "Yox, hazıram."
           ]
         ]
       },
@@ -1808,59 +1835,59 @@ const SESSIONS = [
           ],
           [
             "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Gəl konkret bir nümunədən başlayaq — son əsəbləşdiyiniz an hansı düşüncə var idi başınızda?"
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "'Bu, ədalətsizdir, mənə qarşı bilərəkdən edir' kimi bir şey."
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "Bu düşüncəyə nə qədər inanırsınız, 0-100 arası?"
           ],
           [
             "K",
-            "Bir az qarışıq, açığı."
+            "80 kimi bir şey, o an çox inanmışdım."
           ],
           [
             "T",
-            "Bu təcrübədən nə öyrəndin?"
+            "İndi, sakit halda, bu rəqəm neçəyə düşür?"
           ],
           [
             "K",
-            "Bilmirəm hələ, düşünməyə davam edəcəm."
+            "Bəlkə 40, indi bir az şübhələnirəm."
           ],
           [
             "T",
-            "Kamran, bu bacarığı necə tətbiq edəcəksən?"
+            "Başqa bir izah ola bilərmi həmin insanın davranışına?"
           ],
           [
             "K",
-            "Çətinlik yarananda xatırlamağa çalışaram."
-          ],
-          [
-            "K",
-            "Bu, kömək edə bilər mənə görə, amma tam əmin deyiləm."
+            "Bəlkə... o da öz problemləri ilə məşğuldur, mənimlə bağlı deyil."
           ],
           [
             "T",
-            "Bu şübhə normaldır, sınayaraq görəcəyik."
-          ],
-          [
-            "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Bu, maraqlı bir alternativ oldu."
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "Bəli, bunu düşünməmişdim əvvəllər."
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "Bu təhrifin adı nədir sizcə — fikir oxuma, yoxsa katastrofikləşdirmə?"
           ],
           [
             "K",
-            "Bir az qarışıq, açığı."
+            "Fikir oxumaya bənzəyir, onun niyyətini bildiyimi düşünmüşəm."
+          ],
+          [
+            "T",
+            "Dəqiq belədir. Bunu tanımaq özü böyük bir addımdır."
+          ],
+          [
+            "K",
+            "Sağ olun, bu, çox faydalı oldu mənim üçün."
           ]
         ]
       },
@@ -1872,43 +1899,43 @@ const SESSIONS = [
         "dialog": [
           [
             "T",
-            "Bu gün öyrəndiklərini necə xatırlayacaqsan?"
+            "Bu gün düşüncələrinizi sorğulamağı necə hiss etdiniz?"
           ],
           [
             "K",
-            "Bilmirəm dəqiq, cəhd edərəm xatırlamağa."
+            "Çətin idi əvvəlcə, amma faydalı oldu."
           ],
           [
             "T",
-            "Növbəti həftəyə qədər bunu sınayacaqsanmı?"
+            "Bu həftə bir düşüncəni bu şəkildə sorğulaya bilərsinizmi?"
           ],
           [
             "K",
-            "Bəli, çalışacam."
+            "Cəhd edərəm."
           ],
           [
             "T",
-            "Kamran, bu gün özünü necə hiss edirsən görüşdən sonra?"
+            "Kağıza yazmaq kömək edə bilər."
           ],
           [
             "K",
-            "Yorğun, amma danışmaq kömək etdi bir az."
-          ],
-          [
-            "K",
-            "Bu, çətin bir seans idi bu gün."
+            "Yaxşı, edərəm."
           ],
           [
             "T",
-            "Bunu bölüşdüyün üçün sağ ol."
-          ],
-          [
-            "T",
-            "Bu barədə düşünməyə davam edə bilərsən istəsən."
+            "Özünüzü necə hiss edirsiniz indi?"
           ],
           [
             "K",
-            "Yaxşı, düşünərəm."
+            "Daha aydın düşünürəm, sanki dumandan çıxmışam."
+          ],
+          [
+            "T",
+            "Bu, çox güclü bir təsvir oldu."
+          ],
+          [
+            "K",
+            "Sağ olun."
           ]
         ]
       }
@@ -1936,59 +1963,59 @@ const SESSIONS = [
         "dialog": [
           [
             "T",
-            "Kamran, bu həftə özünü necə hiss etdin?"
+            "Kamran, bu gün kommunikasiya bacarıqlarına baxacağıq."
           ],
           [
             "K",
-            "Bir az yaxşı, əvvəlkindən sakit idim, açığı."
+            "Bu mövzu mənə lazımdır, açığı, ailəmdə problem var bu sahədə."
           ],
           [
             "T",
-            "Bura gəlməzdən əvvəl bu gün necə keçdi?"
+            "Keçən həftə düşüncələrinizi sorğulamağı sınadınızmı?"
           ],
           [
             "K",
-            "Normal, bir az yorğunam sadəcə."
+            "Bəli, bir dəfə, faydalı oldu."
           ],
           [
             "T",
-            "Kamran, danışmaq istədiyin başqa bir şey var mı bu gün?"
+            "Bu, çox yaxşı bir vərdiş formalaşdırır."
           ],
           [
             "K",
-            "Yox, hazıram başlamağa."
+            "Ümid edirəm."
           ],
           [
             "T",
-            "Keçən seansdan sonra nə düşündün?"
+            "Bu gün özünüzü necə hiss edirsiniz?"
           ],
           [
             "K",
-            "Bir az fikirləşdim, amma tam əmin deyiləm nəyi."
-          ],
-          [
-            "K",
-            "Açığı bu gün bir az narahatam."
+            "Bir az narahat, açığı ailə mövzusu həssasdır mənim üçün."
           ],
           [
             "T",
-            "Bu barədə bir az danışa bilərikmi?"
-          ],
-          [
-            "T",
-            "Bu həftə tapşırığı sınadınmı?"
+            "Bunu anlayıram, yavaş gedəcəyik."
           ],
           [
             "K",
-            "Bir dəfə, sonra unutdum, açığı."
-          ],
-          [
-            "K",
-            "Bilmirəm bu gün nə deyəcəm."
+            "Sağ olun."
           ],
           [
             "T",
-            "Bu, normaldır, birlikdə tapa bilərik."
+            "Bu gün 'Mən' dilini öyrənəcəyik — ittiham etmədən öz hissini ifadə etmək."
+          ],
+          [
+            "K",
+            "Maraqlıdır, indiyə qədər belə düşünməmişəm."
+          ],
+          [
+            "T",
+            "Başlamazdan əvvəl sualınız var mı?"
+          ],
+          [
+            "K",
+            "Yox, başlayaq."
           ]
         ]
       },
@@ -2016,67 +2043,67 @@ const SESSIONS = [
           ],
           [
             "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "'Mən' dili ilə desək necə olardı — 'sən məni əsəbləşdirdin' əvəzinə?"
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "Bəlkə... 'mən bu vəziyyətdə əsəbiləşirəm, çünki...' kimi?"
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "Tam doğrudur. Davam edin, cümləni tamamlayın."
           ],
           [
             "K",
-            "Bir az qarışıq, açığı."
+            "'...çünki fikrim eşidilmir kimi hiss edirəm.'"
           ],
           [
             "T",
-            "Bu təcrübədən nə öyrəndin?"
+            "Bu, çox güclü bir cümlə oldu. Fərqi hiss etdiniz?"
           ],
           [
             "K",
-            "Bilmirəm hələ, düşünməyə davam edəcəm."
+            "Bəli, ittiham etmirəm, sadəcə öz hissimi deyirəm."
           ],
           [
             "T",
-            "Kamran, bu bacarığı necə tətbiq edəcəksən?"
+            "İşdəki bir vəziyyətdə bunu necə tətbiq edərdiniz?"
           ],
           [
             "K",
-            "Çətinlik yarananda xatırlamağa çalışaram."
-          ],
-          [
-            "K",
-            "Bu, kömək edə bilər mənə görə, amma tam əmin deyiləm."
+            "Həmkarıma 'sən həmişə gecikirsən' əvəzinə 'mən vaxtında başlamağı vacib sayıram' deyərdim bəlkə."
           ],
           [
             "T",
-            "Bu şübhə normaldır, sınayaraq görəcəyik."
-          ],
-          [
-            "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Əla nümunə. Bu, qarşı tərəfi müdafiəyə keçirmir."
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "İndi görürəm niyə köhnə tərzim münaqişəni artırırmış."
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "Bu həftə bu formulanı bir dəfə real vəziyyətdə sınaya bilərsinizmi?"
           ],
           [
             "K",
-            "Bir az qarışıq, açığı."
+            "Cəhd edərəm, çətin olsa da."
           ],
           [
             "T",
-            "Bu təcrübədən nə öyrəndin?"
+            "Kiçik bir uğur da böyük addımdır."
           ],
           [
             "K",
-            "Bilmirəm hələ, düşünməyə davam edəcəm."
+            "Yaxşı, məqbul gəlir mənə."
+          ],
+          [
+            "T",
+            "Nəticəni növbəti seansda paylaşarsınız."
+          ],
+          [
+            "K",
+            "Yaxşı, edərəm."
           ]
         ]
       },
@@ -2088,43 +2115,43 @@ const SESSIONS = [
         "dialog": [
           [
             "T",
-            "Bu gün öyrəndiklərini necə xatırlayacaqsan?"
+            "'Mən' dilini bir cümləylə xatırlatsanız necə olardı?"
           ],
           [
             "K",
-            "Bilmirəm dəqiq, cəhd edərəm xatırlamağa."
+            "İttiham etmək əvəzinə öz hissimi ifadə etmək."
           ],
           [
             "T",
-            "Növbəti həftəyə qədər bunu sınayacaqsanmı?"
+            "Tam doğrudur. Bu həftə bunu sınayacaqsınızmı?"
           ],
           [
             "K",
-            "Bəli, çalışacam."
+            "Bəli, xüsusən işdə."
           ],
           [
             "T",
-            "Kamran, bu gün özünü necə hiss edirsən görüşdən sonra?"
+            "Kiçik bir cəhd də böyük dəyişiklikdir."
           ],
           [
             "K",
-            "Yorğun, amma danışmaq kömək etdi bir az."
-          ],
-          [
-            "K",
-            "Bu, çətin bir seans idi bu gün."
+            "Yaxşı, xatırlayaram."
           ],
           [
             "T",
-            "Bunu bölüşdüyün üçün sağ ol."
-          ],
-          [
-            "T",
-            "Bu barədə düşünməyə davam edə bilərsən istəsən."
+            "Bu gün özünüzü necə hiss edirsiniz?"
           ],
           [
             "K",
-            "Yaxşı, düşünərəm."
+            "Bir az açıq, sanki yeni bir dil öyrənirəm."
+          ],
+          [
+            "T",
+            "Elə də düşünmək olar, əslində."
+          ],
+          [
+            "K",
+            "Sağ olun, görüşənədək."
           ]
         ]
       }
@@ -2153,59 +2180,59 @@ const SESSIONS = [
         "dialog": [
           [
             "T",
-            "Kamran, bu həftə özünü necə hiss etdin?"
+            "Kamran, bu gün problem-həll bacarıqlarına baxacağıq."
           ],
           [
             "K",
-            "Bir az yaxşı, əvvəlkindən sakit idim, açığı."
+            "Yaxşı, buna ehtiyacım var, çox problemi həll etmədən buraxıram."
           ],
           [
             "T",
-            "Bura gəlməzdən əvvəl bu gün necə keçdi?"
+            "Keçən həftə 'Mən' dilini sınadınızmı?"
           ],
           [
             "K",
-            "Normal, bir az yorğunam sadəcə."
+            "Bir dəfə, evdə, işə yaradı əslində."
           ],
           [
             "T",
-            "Kamran, danışmaq istədiyin başqa bir şey var mı bu gün?"
+            "Bu, çox gözəl bir nəticədir."
           ],
           [
             "K",
-            "Yox, hazıram başlamağa."
+            "Özüm də təəccübləndim."
           ],
           [
             "T",
-            "Keçən seansdan sonra nə düşündün?"
+            "Bu gün özünüzü necə hiss edirsiniz?"
           ],
           [
             "K",
-            "Bir az fikirləşdim, amma tam əmin deyiləm nəyi."
-          ],
-          [
-            "K",
-            "Açığı bu gün bir az narahatam."
+            "Nisbətən inamlı, artıq bəzi alətlərim var."
           ],
           [
             "T",
-            "Bu barədə bir az danışa bilərikmi?"
-          ],
-          [
-            "T",
-            "Bu həftə tapşırığı sınadınmı?"
+            "Bu gün konkret bir problemi addım-addım həll etməyi məşq edəcəyik."
           ],
           [
             "K",
-            "Bir dəfə, sonra unutdum, açığı."
-          ],
-          [
-            "K",
-            "Bilmirəm bu gün nə deyəcəm."
+            "Yaxşı, konkret bir şeyim var açığı."
           ],
           [
             "T",
-            "Bu, normaldır, birlikdə tapa bilərik."
+            "Əla, elə onunla başlayaq."
+          ],
+          [
+            "K",
+            "Sağ olun."
+          ],
+          [
+            "T",
+            "Başlamazdan əvvəl sualınız var mı?"
+          ],
+          [
+            "K",
+            "Yox, hazıram."
           ]
         ]
       },
@@ -2233,67 +2260,67 @@ const SESSIONS = [
           ],
           [
             "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Gəl konkret bir problemdən başlayaq — hazırda sizi ən çox əsəbləşdirən nədir?"
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "İşdə bir layihə var, komandam vaxtında bitirmir."
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "Problemi bir cümləylə tərif etsək necə olardı?"
           ],
           [
             "K",
-            "Bir az qarışıq, açığı."
+            "'Komanda son tarixlərə əməl etmir, bu məni gərginləşdirir.'"
           ],
           [
             "T",
-            "Bu təcrübədən nə öyrəndin?"
+            "İndi mümkün həll yollarını sadalayaq, mühakimə etmədən — ağlınıza nə gəlir?"
           ],
           [
             "K",
-            "Bilmirəm hələ, düşünməyə davam edəcəm."
+            "Danışa bilərəm onlarla, ya da rəhbərə xəbər verə bilərəm, ya da özüm bitirə bilərəm."
           ],
           [
             "T",
-            "Kamran, bu bacarığı necə tətbiq edəcəksən?"
+            "Üç seçim də var. Hər birinin nəticəsi nə olardı?"
           ],
           [
             "K",
-            "Çətinlik yarananda xatırlamağa çalışaram."
-          ],
-          [
-            "K",
-            "Bu, kömək edə bilər mənə görə, amma tam əmin deyiləm."
+            "Danışmaq ən yaxşısı görünür, digərləri münaqişəni artıra bilər."
           ],
           [
             "T",
-            "Bu şübhə normaldır, sınayaraq görəcəyik."
-          ],
-          [
-            "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Bu seçimi necə tətbiq edərdiniz, addım-addım?"
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "Əvvəlcə sakit vaxt seçərəm, sonra 'mən' dilində problemi izah edərəm."
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "Bu, çox strukturlu bir yanaşma oldu."
           ],
           [
             "K",
-            "Bir az qarışıq, açığı."
+            "Əvvəllər birbaşa partlayardım, indi fərqli hiss edirəm."
           ],
           [
             "T",
-            "Bu təcrübədən nə öyrəndin?"
+            "Bu addımları başqa bir problemə də tətbiq edə bilərsinizmi?"
           ],
           [
             "K",
-            "Bilmirəm hələ, düşünməyə davam edəcəm."
+            "Sanırım bəli, məntiq eynidir."
+          ],
+          [
+            "T",
+            "Bu, ən dəyərli bacarıqlardan biridir — problemi hissədən ayırmaq."
+          ],
+          [
+            "K",
+            "Sağ olun, bu, çox aydınladı fikrimi."
           ]
         ]
       },
@@ -2305,43 +2332,43 @@ const SESSIONS = [
         "dialog": [
           [
             "T",
-            "Bu gün öyrəndiklərini necə xatırlayacaqsan?"
+            "Problem-həll addımlarını bir daha xatırlasaq?"
           ],
           [
             "K",
-            "Bilmirəm dəqiq, cəhd edərəm xatırlamağa."
+            "Problemi tərif et, seçimləri sadala, ən yaxşısını seç, tətbiq et."
           ],
           [
             "T",
-            "Növbəti həftəyə qədər bunu sınayacaqsanmı?"
+            "Mükəmməl xatırladınız."
           ],
           [
             "K",
-            "Bəli, çalışacam."
+            "Sağ olun."
           ],
           [
             "T",
-            "Kamran, bu gün özünü necə hiss edirsən görüşdən sonra?"
+            "Bu həftə real bir problemə tətbiq edə bilərsinizmi?"
           ],
           [
             "K",
-            "Yorğun, amma danışmaq kömək etdi bir az."
-          ],
-          [
-            "K",
-            "Bu, çətin bir seans idi bu gün."
+            "Cəhd edərəm, artıq bir neçə fikrim var."
           ],
           [
             "T",
-            "Bunu bölüşdüyün üçün sağ ol."
-          ],
-          [
-            "T",
-            "Bu barədə düşünməyə davam edə bilərsən istəsən."
+            "Bu, çox yaxşı bir başlanğıcdır."
           ],
           [
             "K",
-            "Yaxşı, düşünərəm."
+            "Özümü daha az çarəsiz hiss edirəm indi."
+          ],
+          [
+            "T",
+            "Bu, dəyərli bir dəyişiklikdir."
+          ],
+          [
+            "K",
+            "Sağ olun, görüşənədək."
           ]
         ]
       }
@@ -2369,59 +2396,59 @@ const SESSIONS = [
         "dialog": [
           [
             "T",
-            "Kamran, bu həftə özünü necə hiss etdin?"
+            "Kamran, bu gün öyrəndiyimiz bacarıqları birlikdə real ssenarilərdə sınayacağıq."
           ],
           [
             "K",
-            "Bir az yaxşı, əvvəlkindən sakit idim, açığı."
+            "Bir az həyəcanlıyam, açığı."
           ],
           [
             "T",
-            "Bura gəlməzdən əvvəl bu gün necə keçdi?"
+            "Bu normaldır, hər şeyi birlikdə edəcəyik."
           ],
           [
             "K",
-            "Normal, bir az yorğunam sadəcə."
+            "Yaxşı, bu məni rahatladır."
           ],
           [
             "T",
-            "Kamran, danışmaq istədiyin başqa bir şey var mı bu gün?"
+            "Keçən həftə problem-həll addımlarını sınadınızmı?"
           ],
           [
             "K",
-            "Yox, hazıram başlamağa."
+            "Bəli, işdə bir məsələni bu şəkildə həll etdim."
           ],
           [
             "T",
-            "Keçən seansdan sonra nə düşündün?"
+            "Bu, əla bir nəticədir."
           ],
           [
             "K",
-            "Bir az fikirləşdim, amma tam əmin deyiləm nəyi."
-          ],
-          [
-            "K",
-            "Açığı bu gün bir az narahatam."
+            "Özümdən razıyam, açığı."
           ],
           [
             "T",
-            "Bu barədə bir az danışa bilərikmi?"
-          ],
-          [
-            "T",
-            "Bu həftə tapşırığı sınadınmı?"
+            "Bu gün özünüzü necə hiss edirsiniz?"
           ],
           [
             "K",
-            "Bir dəfə, sonra unutdum, açığı."
-          ],
-          [
-            "K",
-            "Bilmirəm bu gün nə deyəcəm."
+            "Hazır, bir az gərgin olsam da."
           ],
           [
             "T",
-            "Bu, normaldır, birlikdə tapa bilərik."
+            "Gərginlik normaldır, bu, çətin bir seansdır."
+          ],
+          [
+            "K",
+            "Anlayıram."
+          ],
+          [
+            "T",
+            "Başlamazdan əvvəl sualınız var mı?"
+          ],
+          [
+            "K",
+            "Yox, başlayaq."
           ]
         ]
       },
@@ -2449,67 +2476,67 @@ const SESSIONS = [
           ],
           [
             "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Gəl daha bir ssenari sınayaq — bu dəfə ailə mühitindən. Hazırsınız?"
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "Hazıram, əvvəlkindən bir az daha rahatam indi."
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "(rol) 'Sən heç vaxt evdə köməkçi olmursan, hər şeyi mən görürəm!'"
           ],
           [
             "K",
-            "Bir az qarışıq, açığı."
+            "(dayanır, nəfəs alır) 'Anlayıram ki, bu səni yorur, gəl bölüşək kim nəyi edəcək.'"
           ],
           [
             "T",
-            "Bu təcrübədən nə öyrəndin?"
+            "Bu, üç bacarığı birdən istifadə etdiniz — dayanma, nəfəs, 'mən' dili."
           ],
           [
             "K",
-            "Bilmirəm hələ, düşünməyə davam edəcəm."
+            "Fərq etmədim özüm, avtomatik gəldi."
           ],
           [
             "T",
-            "Kamran, bu bacarığı necə tətbiq edəcəksən?"
+            "Bu, çox gözəl bir işarədir — vərdiş formalaşmağa başlayır."
           ],
           [
             "K",
-            "Çətinlik yarananda xatırlamağa çalışaram."
-          ],
-          [
-            "K",
-            "Bu, kömək edə bilər mənə görə, amma tam əmin deyiləm."
+            "Deməli təkrar məşq işə yarayır."
           ],
           [
             "T",
-            "Bu şübhə normaldır, sınayaraq görəcəyik."
-          ],
-          [
-            "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Bir ssenari də sınayaq — bu dəfə siz seçin, hansı vəziyyət sizi ən çox çətinləşdirir?"
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "Trafikdə, kimsə qəfil qabağıma keçəndə."
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "(rol edir) Yaxşı, təsəvvür edin bu az əvvəl oldu."
           ],
           [
             "K",
-            "Bir az qarışıq, açığı."
+            "(dayanır) Bu, çətin bir ssenari, amma... dərin nəfəs alıram, bunun dəyməyəcəyini xatırlayıram."
           ],
           [
             "T",
-            "Bu təcrübədən nə öyrəndin?"
+            "Bu vəziyyətdə tez qərar vermək lazımdır, yaxşı idarə etdiniz."
           ],
           [
             "K",
-            "Bilmirəm hələ, düşünməyə davam edəcəm."
+            "Sağ olun, bu, ən çətin sınadığım ssenari idi."
+          ],
+          [
+            "T",
+            "Çətin ssenarilərlə məşq etmək, real həyatda hazır olmağı asanlaşdırır."
+          ],
+          [
+            "K",
+            "İndi bir az daha inamlıyam özümə görə."
           ]
         ]
       },
@@ -2521,43 +2548,43 @@ const SESSIONS = [
         "dialog": [
           [
             "T",
-            "Bu gün öyrəndiklərini necə xatırlayacaqsan?"
+            "Bu gün bir neçə çətin ssenari sınadınız, necə hiss edirsiniz?"
           ],
           [
             "K",
-            "Bilmirəm dəqiq, cəhd edərəm xatırlamağa."
+            "Yorğun, amma özümə güvənim artdı."
           ],
           [
             "T",
-            "Növbəti həftəyə qədər bunu sınayacaqsanmı?"
+            "Bu, çox gözəl bir irəliləyişdir."
           ],
           [
             "K",
-            "Bəli, çalışacam."
+            "Sağ olun."
           ],
           [
             "T",
-            "Kamran, bu gün özünü necə hiss edirsən görüşdən sonra?"
+            "Bu həftə real həyatda bir vəziyyətdə bu bacarıqları tətbiq edə bilərsinizmi?"
           ],
           [
             "K",
-            "Yorğun, amma danışmaq kömək etdi bir az."
-          ],
-          [
-            "K",
-            "Bu, çətin bir seans idi bu gün."
+            "Cəhd edərəm, artıq hazır hiss edirəm özümü."
           ],
           [
             "T",
-            "Bunu bölüşdüyün üçün sağ ol."
-          ],
-          [
-            "T",
-            "Bu barədə düşünməyə davam edə bilərsən istəsən."
+            "Kiçik uğurları da qeyd edin, hamısı önəmlidir."
           ],
           [
             "K",
-            "Yaxşı, düşünərəm."
+            "Yaxşı, edərəm."
+          ],
+          [
+            "T",
+            "Bu proqramın sonuna yaxınlaşırıq, gördüyünüz iş təqdirəlayiqdir."
+          ],
+          [
+            "K",
+            "Sağ olun, bunu eşitmək dəyərlidir mənim üçün."
           ]
         ]
       }
@@ -2586,59 +2613,59 @@ const SESSIONS = [
         "dialog": [
           [
             "T",
-            "Kamran, bu həftə özünü necə hiss etdin?"
+            "Kamran, bu proqram boyu nə dəyişdi sənə görə?"
           ],
           [
             "K",
-            "Bir az yaxşı, əvvəlkindən sakit idim, açığı."
+            "Bəzi şeylər yaxşılaşdı, amma hər şey həll olmadı."
           ],
           [
             "T",
-            "Bura gəlməzdən əvvəl bu gün necə keçdi?"
+            "Hələ də çətin olan nə var?"
           ],
           [
             "K",
-            "Normal, bir az yorğunam sadəcə."
+            "Bir neçə şey, amma indi bilirəm necə yanaşım."
           ],
           [
             "T",
-            "Kamran, danışmaq istədiyin başqa bir şey var mı bu gün?"
+            "Bu bacarıqları necə davam etdirəcəksən?"
           ],
           [
             "K",
-            "Yox, hazıram başlamağa."
+            "Bilmirəm dəqiq, cəhd edəcəm xatırlamağa."
           ],
           [
             "T",
-            "Keçən seansdan sonra nə düşündün?"
+            "Bu, bizim son seansımızdır. Bunu necə qarşılayırsınız?"
           ],
           [
             "K",
-            "Bir az fikirləşdim, amma tam əmin deyiləm nəyi."
-          ],
-          [
-            "K",
-            "Açığı bu gün bir az narahatam."
+            "Bir az qəribə, amma hazır hiss edirəm özümü."
           ],
           [
             "T",
-            "Bu barədə bir az danışa bilərikmi?"
-          ],
-          [
-            "T",
-            "Bu həftə tapşırığı sınadınmı?"
+            "İlk gəldiyiniz günü xatırlayırsınızmı?"
           ],
           [
             "K",
-            "Bir dəfə, sonra unutdum, açığı."
-          ],
-          [
-            "K",
-            "Bilmirəm bu gün nə deyəcəm."
+            "Bəli, çox utanmışdım, danışmaq belə çətin idi."
           ],
           [
             "T",
-            "Bu, normaldır, birlikdə tapa bilərik."
+            "İndi ilə müqayisə etsəniz, nə fərq görürsünüz?"
+          ],
+          [
+            "K",
+            "Daha sakinəm, özümü idarə edə bilirəm."
+          ],
+          [
+            "T",
+            "Bu, böyük bir yol qət etməkdir."
+          ],
+          [
+            "K",
+            "Sağ olun köməyiniz üçün."
           ]
         ]
       },
@@ -2674,59 +2701,59 @@ const SESSIONS = [
           ],
           [
             "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Bu proqram boyu öyrəndiyiniz bacarıqlardan hansı ən çox işə yaradı?"
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "Dayan-Düşün-Fəaliyyət göstər, kəsinliklə. Ən çox onu işlədirəm."
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "Ailənizlə, iş yerinizlə bu dəyişikliyi necə əlaqələndirəcəksiniz?"
           ],
           [
             "K",
-            "Bir az qarışıq, açığı."
+            "Ailəyə artıq danışmışam bəzi şeyləri, onlar da dəstək olur."
           ],
           [
             "T",
-            "Bu təcrübədən nə öyrəndin?"
+            "Bu, çox vacibdir — dəstək şəbəkəsi bu işi asanlaşdırır."
           ],
           [
             "K",
-            "Bilmirəm hələ, düşünməyə davam edəcəm."
+            "Doğrudur, tək başıma daha çətin olardı."
           ],
           [
             "T",
-            "Kamran, bu bacarığı necə tətbiq edəcəksən?"
+            "Gərginlik geri gəlsə, ilk nə edəcəksiniz?"
           ],
           [
             "K",
-            "Çətinlik yarananda xatırlamağa çalışaram."
-          ],
-          [
-            "K",
-            "Bu, kömək edə bilər mənə görə, amma tam əmin deyiləm."
+            "Dayanacam, nəfəs alacam, sonra düşünəcəm."
           ],
           [
             "T",
-            "Bu şübhə normaldır, sınayaraq görəcəyik."
-          ],
-          [
-            "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Bu, çox möhkəm bir plandır."
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "Sağ olun, özümü hazır hiss edirəm."
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "Əgər çətin bir an olsa və bu alətlər kifayət etməsə, nə edərsiniz?"
           ],
           [
             "K",
-            "Bir az qarışıq, açığı."
+            "Yenidən sizə müraciət edərəm lazım olsa."
+          ],
+          [
+            "T",
+            "Bu qapı həmişə açıqdır. Bu aylar ərzində böyük irəliləyiş etdiniz."
+          ],
+          [
+            "K",
+            "Sağ olun, bu proqram həyatımı dəyişdi deyə bilərəm."
           ]
         ]
       },
@@ -2738,43 +2765,43 @@ const SESSIONS = [
         "dialog": [
           [
             "T",
-            "Bu gün öyrəndiklərini necə xatırlayacaqsan?"
+            "Bu proqram bitsə də, öyrəndiyiniz bacarıqlar sizinlədir həmişə."
           ],
           [
             "K",
-            "Bilmirəm dəqiq, cəhd edərəm xatırlamağa."
+            "Yadımda saxlayacam, xüsusən Dayan-Düşün-Fəaliyyət göstər-i."
           ],
           [
             "T",
-            "Növbəti həftəyə qədər bunu sınayacaqsanmı?"
+            "Çətinlik yarananda kimə müraciət edə bilərsiniz?"
           ],
           [
             "K",
-            "Bəli, çalışacam."
+            "Ailəmə, ya da lazım olsa yenə sizə."
           ],
           [
             "T",
-            "Kamran, bu gün özünü necə hiss edirsən görüşdən sonra?"
+            "Bu qapı həmişə açıqdır."
           ],
           [
             "K",
-            "Yorğun, amma danışmaq kömək etdi bir az."
-          ],
-          [
-            "K",
-            "Bu, çətin bir seans idi bu gün."
+            "Sağ olun, hər şey üçün."
           ],
           [
             "T",
-            "Bunu bölüşdüyün üçün sağ ol."
-          ],
-          [
-            "T",
-            "Bu barədə düşünməyə davam edə bilərsən istəsən."
+            "Sizinlə işləmək çox dəyərli oldu mənim üçün."
           ],
           [
             "K",
-            "Yaxşı, düşünərəm."
+            "Mənim üçün də, özümü tamam fərqli hiss edirəm əvvəlkindən."
+          ],
+          [
+            "T",
+            "Bu dəyişikliyi özünüzlə aparın, Kamran."
+          ],
+          [
+            "K",
+            "Aparacam, sağ olun yenə."
           ]
         ]
       }
