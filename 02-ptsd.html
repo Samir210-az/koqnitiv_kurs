@@ -75,6 +75,8 @@
   main{position:relative; z-index:2; max-width:880px; margin:0 auto; padding:0 24px 100px;}
 
   .hero{padding:64px 0 40px; text-align:center;}
+  .hero-illus{display:flex; justify-content:center; margin-bottom:28px;}
+  .hero-illus svg{max-width:100%; height:auto;}
   .tag{
     display:inline-block; font-size:.76rem; letter-spacing:.14em; text-transform:uppercase;
     color:var(--rose); background:var(--rose-soft); border:1px solid rgba(251,113,133,.35);
@@ -347,6 +349,31 @@
 <main>
 
     <div class="hero">
+    <div class="hero-illus">
+      <svg width="360" height="170" viewBox="0 0 360 170" fill="none">
+        <defs>
+          <radialGradient id="lightg" cx="50%" cy="35%" r="65%">
+            <stop offset="0%" stop-color="#f0cd8e" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#f0cd8e" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="shieldg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#d9a85a"/>
+            <stop offset="100%" stop-color="#d9705a"/>
+          </linearGradient>
+        </defs>
+        <circle cx="180" cy="75" r="85" fill="url(#lightg)"/>
+        <path d="M180 20 L150 22 Q135 22 132 40 L128 80 Q128 118 180 148 Q232 118 232 80 L228 40 Q225 22 210 22 Z" fill="none" stroke="url(#shieldg)" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M180 20 L150 22 Q135 22 132 40 L128 80 Q128 118 180 148 Q232 118 232 80 L228 40 Q225 22 210 22 Z" fill="#1d423d" opacity=".55"/>
+        <path d="M158 78 l16 16 32-36" stroke="#f3eee1" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>
+        <g stroke="#f0cd8e" stroke-width="1.6" opacity=".55" stroke-linecap="round">
+          <path d="M180 8 L180 -4"/>
+          <path d="M120 30 L108 20"/>
+          <path d="M240 30 L252 20"/>
+          <path d="M105 75 L90 75"/>
+          <path d="M255 75 L270 75"/>
+        </g>
+      </svg>
+    </div>
     <span class="tag">Modul 02 · Travma ilə İş</span>
     <h1>Postravmatik Stress və CBT</h1>
     <p>Bu modula hər dəfə bir az fərqli girirəm, açığı. Travma otağa girəndə tələsmək olmur — nə sözdə, nə addımda. Aşağıda illərin gətirdiyi 12 seanslıq yol xəritəsi var: real dialoqlar, iş dəftəri materialları, uşaqdan böyüyə qədər hər yaşa uyğunlaşan tempi. Oxu, amma tələsmə — elə bu modulun özü də tələsməməyi öyrədir.</p>
@@ -803,19 +830,35 @@ const SESSIONS = [
         "dialog": [
           [
             "T",
-            "Bu çətinlik ilk nə vaxt başladı, xatırlayırsan?"
+            "Bu çətinlik ilk nə vaxt başladı, xatırlayırsınızmı?"
           ],
           [
             "K",
-            "Dəqiq bilmirəm, tədricən başladı sanki."
+            "Qəzadan bir həftə sonra başladı, tədricən pisləşdi."
           ],
           [
             "T",
-            "Aygün, sən bunu necə xatırlayırsan?"
+            "Yuxu ilə bağlı nə müşahidə etmisiniz?"
           ],
           [
             "K",
-            "Bir hadisədən sonra bəlkə, tam əmin deyiləm."
+            "Gecə bir neçə dəfə oyanır, bəzən qışqıraraq."
+          ],
+          [
+            "T",
+            "Gündüz vaxtı hansı davranış dəyişiklikləri var?"
+          ],
+          [
+            "K",
+            "Sinif yoldaşlarından uzaqlaşıb, əvvəlki kimi oynamır."
+          ],
+          [
+            "T",
+            "Maşın səsinə reaksiyası necədir?"
+          ],
+          [
+            "K",
+            "Donub qalır, bəzən əllərini qulaqlarına aparır."
           ],
           [
             "T",
@@ -823,63 +866,47 @@ const SESSIONS = [
           ],
           [
             "K",
-            "Çox, işimə də, münasibətlərimə də."
+            "Məktəbə getməkdə çətinlik çəkir, iştahı da azalıb."
           ],
           [
             "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Ailədə bu barədə necə danışırsınız?"
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "Açığı, mövzudan qaçırıq, onu narahat etməkdən qorxuruq."
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "Bunu anlayıram, çox valideyn belə edir."
           ],
           [
             "K",
-            "Bir az qarışıq, açığı."
+            "Bəs biz nə etməliyik?"
           ],
           [
             "T",
-            "Bu təcrübədən nə öyrəndin?"
+            "Bu gün buna birlikdə baxacağıq, addım-addım."
           ],
           [
             "K",
-            "Bilmirəm hələ, düşünməyə davam edəcəm."
+            "Yaxşı, kömək lazımdır bizə."
           ],
           [
             "T",
-            "Aygün, bu bacarığı necə tətbiq edəcəksən?"
+            "Əvvəllər oxşar bir çətinlik yaşamışdı?"
           ],
           [
             "K",
-            "Çətinlik yarananda xatırlamağa çalışaram."
-          ],
-          [
-            "K",
-            "Bu, kömək edə bilər mənə görə, amma tam əmin deyiləm."
+            "Yox, heç vaxt belə bir şey olmamışdı."
           ],
           [
             "T",
-            "Bu şübhə normaldır, sınayaraq görəcəyik."
-          ],
-          [
-            "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Bu məlumat mənə çox kömək edəcək, sağ olun."
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
-          ],
-          [
-            "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
-          ],
-          [
-            "K",
-            "Bir az qarışıq, açığı."
+            "Sağ olun, sizinlə danışmaq özü rahatlıq verdi."
           ]
         ]
       },
@@ -1045,59 +1072,59 @@ const SESSIONS = [
           ],
           [
             "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Dəqiq vaxt demək çətindir, amma məşq etdikcə tez azalır adətən."
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "Yaxşı, bu ümidverici bir cavabdır."
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "Gəl bu zəngi kağızda çəkək, necə görünür sənə görə?"
           ],
           [
             "K",
-            "Bir az qarışıq, açığı."
+            "Bəlkə qırmızı bir işıq kimi, çox parlaq."
           ],
           [
             "T",
-            "Bu təcrübədən nə öyrəndin?"
+            "Bu zəng ən çox nə vaxt çalır sənə görə?"
           ],
           [
             "K",
-            "Bilmirəm hələ, düşünməyə davam edəcəm."
+            "Maşın səsi eşidəndə, ya da pəncərədən baxanda."
           ],
           [
             "T",
-            "Aygün, bu bacarığı necə tətbiq edəcəksən?"
+            "Zəng çalanda bədənində nə baş verir?"
           ],
           [
             "K",
-            "Çətinlik yarananda xatırlamağa çalışaram."
-          ],
-          [
-            "K",
-            "Bu, kömək edə bilər mənə görə, amma tam əmin deyiləm."
+            "Ürəyim sürətlənir, nəfəsim dəyişir."
           ],
           [
             "T",
-            "Bu şübhə normaldır, sınayaraq görəcəyik."
-          ],
-          [
-            "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Bunu bilmək, zəngi tanımaq deməkdir — bu, böyük addımdır."
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "İndi bir az daha başa düşürəm özümü."
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "Zəng çaldığını fərq edən kimi nə edə bilərsən?"
           ],
           [
             "K",
-            "Bir az qarışıq, açığı."
+            "Nəfəs ala bilərəm, ya da özümə deyə bilərəm ki, bu keçəcək."
+          ],
+          [
+            "T",
+            "Tam belədir, bu, sənin əlindəki ilk alətdir."
+          ],
+          [
+            "K",
+            "Sağ olun, bunu bilmək kömək edir."
           ]
         ]
       },
@@ -1254,67 +1281,67 @@ const SESSIONS = [
           ],
           [
             "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Gəl birlikdə bir dövrə edək — 4 saniyə al."
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "(nəfəs alır) Yaxşı."
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "İndi 4 saniyə saxla."
           ],
           [
             "K",
-            "Bir az qarışıq, açığı."
+            "Bu hissə bir az çətindir mənə görə."
           ],
           [
             "T",
-            "Bu təcrübədən nə öyrəndin?"
+            "Normaldır, məşq etdikcə asanlaşır."
           ],
           [
             "K",
-            "Bilmirəm hələ, düşünməyə davam edəcəm."
+            "Yaxşı, davam edək."
           ],
           [
             "T",
-            "Aygün, bu bacarığı necə tətbiq edəcəksən?"
+            "İndi 4 saniyə burax."
           ],
           [
             "K",
-            "Çətinlik yarananda xatırlamağa çalışaram."
-          ],
-          [
-            "K",
-            "Bu, kömək edə bilər mənə görə, amma tam əmin deyiləm."
+            "(nəfəsini burax) Bu daha rahat idi."
           ],
           [
             "T",
-            "Bu şübhə normaldır, sınayaraq görəcəyik."
-          ],
-          [
-            "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Yenə 4 saniyə saxla, boş vəziyyətdə."
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "Sanırım bacarıram indi."
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "Bədənində indi nə fərq var əvvəlkinə görə?"
           ],
           [
             "K",
-            "Bir az qarışıq, açığı."
+            "Çiyinlərim bir az aşağı düşdü."
           ],
           [
             "T",
-            "Bu təcrübədən nə öyrəndin?"
+            "Bunu evdə də edə bilərsənmi bu həftə?"
           ],
           [
             "K",
-            "Bilmirəm hələ, düşünməyə davam edəcəm."
+            "Bəli, xüsusən yatmazdan əvvəl sınayaram."
+          ],
+          [
+            "T",
+            "Əla, bu, ən güclü alətlərindən biri olacaq."
+          ],
+          [
+            "K",
+            "Sağ olun, öyrətdiyiniz üçün."
           ]
         ]
       },
@@ -1472,67 +1499,67 @@ const SESSIONS = [
           ],
           [
             "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Qorxu hissini bədənində harada hiss edirsən?"
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "Qarnımda, bəzən əllərim də soyuyur."
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "Bəs sevinc haradadır sənə görə?"
           ],
           [
             "K",
-            "Bir az qarışıq, açığı."
+            "Sinəmdə, yüngül bir hiss kimi."
           ],
           [
             "T",
-            "Bu təcrübədən nə öyrəndin?"
+            "Gəl bir bədən konturu çəkək, hər hissi rənglə göstərək."
           ],
           [
             "K",
-            "Bilmirəm hələ, düşünməyə davam edəcəm."
+            "Yaxşı, mən rəsm çəkməyi sevirəm."
           ],
           [
             "T",
-            "Aygün, bu bacarığı necə tətbiq edəcəksən?"
+            "Qorxuya hansı rəngi verərdin?"
           ],
           [
             "K",
-            "Çətinlik yarananda xatırlamağa çalışaram."
-          ],
-          [
-            "K",
-            "Bu, kömək edə bilər mənə görə, amma tam əmin deyiləm."
+            "Boz, tutqun bir gün kimi."
           ],
           [
             "T",
-            "Bu şübhə normaldır, sınayaraq görəcəyik."
-          ],
-          [
-            "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Sevincə hansı rəngi?"
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "Sarı, günəş kimi."
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "Bu, çox faydalı bir üsuldur — hissin böyüməzdən əvvəl onu tanımaq."
           ],
           [
             "K",
-            "Bir az qarışıq, açığı."
+            "Bunu əvvəllər rənglə düşünməmişdim."
           ],
           [
             "T",
-            "Bu təcrübədən nə öyrəndin?"
+            "Qəzəbi də göstərə bilərsənmi haradadır?"
           ],
           [
             "K",
-            "Bilmirəm hələ, düşünməyə davam edəcəm."
+            "Burda, əllərimdə, sıx bir hiss kimi."
+          ],
+          [
+            "T",
+            "Bu, özün haqqında çox dəyərli bir məlumatdır."
+          ],
+          [
+            "K",
+            "Bu məşqi bəyəndim."
           ]
         ]
       },
@@ -2757,83 +2784,83 @@ const SESSIONS = [
         "dialog": [
           [
             "T",
-            "Bu addımı atmaq sənə necə gəldi 1-10 şkalada?"
+            "Gəl bu vəziyyətləri asandan çətinə sıralayaq."
           ],
           [
             "K",
-            "Bəlkə 7, çox çətin idi açığı."
+            "Yaxşı, pəncərə kənarında oturmaq ən asanı kimi gəlir mənə."
           ],
           [
             "T",
-            "Bu təcrübədən sonra narahatlığın necə dəyişdi?"
+            "Bunu termometrdə hansı rəqəmə qoyardın?"
           ],
           [
             "K",
-            "Bir az azaldı, amma tam getmədi."
+            "Bəlkə 3."
           ],
           [
             "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Bəs maşın siqnalı haradadır bu sırada?"
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "O daha çətindir, bəlkə 7."
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "Bu ikisinin arasında nə var?"
           ],
           [
             "K",
-            "Bir az qarışıq, açığı."
+            "Bəlkə anla qısa məsafə maşınla getmək."
           ],
           [
             "T",
-            "Bu təcrübədən nə öyrəndin?"
+            "Yaxşı, onu 5 ətrafında qoyaq."
           ],
           [
             "K",
-            "Bilmirəm hələ, düşünməyə davam edəcəm."
+            "Mənə məntiqli gəlir bu sıra."
           ],
           [
             "T",
-            "Aygün, bu bacarığı necə tətbiq edəcəksən?"
+            "Ən asan pillədən başlayıb tədricən yuxarı qalxacağıq."
           ],
           [
             "K",
-            "Çətinlik yarananda xatırlamağa çalışaram."
-          ],
-          [
-            "K",
-            "Bu, kömək edə bilər mənə görə, amma tam əmin deyiləm."
+            "Tələsmədən olması xoşuma gəlir."
           ],
           [
             "T",
-            "Bu şübhə normaldır, sınayaraq görəcəyik."
-          ],
-          [
-            "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Bu siyahıda hələ hazır olmadığın bir şey varmı?"
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "Maşın siqnalı, hələ yox."
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "Bu tam normaldır, sən hazır olana qədər ona toxunmayacağıq."
           ],
           [
             "K",
-            "Bir az qarışıq, açığı."
+            "Məni məcbur etmədiyiniz üçün sağ olun."
           ],
           [
             "T",
-            "Bu təcrübədən nə öyrəndin?"
+            "Bu pilləkən sənindir, sənin tempinlə gedəcəyik."
           ],
           [
             "K",
-            "Bilmirəm hələ, düşünməyə davam edəcəm."
+            "Bunu bəyənirəm."
+          ],
+          [
+            "T",
+            "Bu həftə hansı pilləni sınamaq istəyirsən?"
+          ],
+          [
+            "K",
+            "Pəncərə pilləsini, bacararam deyə düşünürəm."
           ]
         ]
       },
@@ -2972,84 +2999,84 @@ const SESSIONS = [
         ],
         "dialog": [
           [
-            "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
-          ],
-          [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "Ana, mən qəzanın mənim günahım olduğunu düşünürdüm."
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "(anaya) Bu, Aygünlə seanslarımızda birlikdə işlədiyimiz bir mövzudur."
           ],
           [
-            "K",
-            "Bir az qarışıq, açığı."
-          ],
-          [
-            "T",
-            "Bu təcrübədən nə öyrəndin?"
-          ],
-          [
-            "K",
-            "Bilmirəm hələ, düşünməyə davam edəcəm."
+            "M",
+            "Amma indi bilirəm ki, belə deyilmiş, mən sadəcə arxada oturan uşaq idim."
           ],
           [
             "T",
-            "Aygün, bu bacarığı necə tətbiq edəcəksən?"
+            "Bunu ondan eşitmək sizə necə hiss etdirir?"
           ],
           [
-            "K",
-            "Çətinlik yarananda xatırlamağa çalışaram."
-          ],
-          [
-            "K",
-            "Bu, kömək edə bilər mənə görə, amma tam əmin deyiləm."
+            "M",
+            "Ürəyim sızlayır bunu daşıdığı üçün, deməsinə çox sevindim."
           ],
           [
             "T",
-            "Bu şübhə normaldır, sınayaraq görəcəyik."
-          ],
-          [
-            "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Aygün, ananın bilməsini istədiyin başqa nə var?"
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "Maşın səslərinə də bir az daha yaxşı dözürəm indi."
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "Bu, real və ölçülə bilən bir irəliləyişdir — təbrik edirəm ikinizi də."
           ],
           [
-            "K",
-            "Bir az qarışıq, açığı."
-          ],
-          [
-            "T",
-            "Bu təcrübədən nə öyrəndin?"
-          ],
-          [
-            "K",
-            "Bilmirəm hələ, düşünməyə davam edəcəm."
+            "M",
+            "Səninlə çox fəxr edirəm, Aygün."
           ],
           [
             "T",
-            "Aygün, bu bacarığı necə tətbiq edəcəksən?"
+            "Öyrəndiyin nəfəs məşqini anana göstərmək istəyirsənmi?"
           ],
           [
             "K",
-            "Çətinlik yarananda xatırlamağa çalışaram."
-          ],
-          [
-            "K",
-            "Bu, kömək edə bilər mənə görə, amma tam əmin deyiləm."
+            "Bəli, göstərə bilərəm."
           ],
           [
             "T",
-            "Bu şübhə normaldır, sınayaraq görəcəyik."
+            "Hazır olanda başla."
+          ],
+          [
+            "K",
+            "Yaxşı, bax ana — 4 saniyə al, 4 saniyə saxla..."
+          ],
+          [
+            "T",
+            "Bunu evdə də birlikdə məşq edə bilərsiniz."
+          ],
+          [
+            "M",
+            "İstəyirəm bunu, birlikdə edərik."
+          ],
+          [
+            "T",
+            "Bu gün hər ikiniz üçün çox mənalı bir seans oldu."
+          ],
+          [
+            "K",
+            "Açığı, özümü indi bir az yüngül hiss edirəm."
+          ],
+          [
+            "T",
+            "Bunu eşitmək gözəldir."
+          ],
+          [
+            "M",
+            "Bizə bu yolda rəhbərlik etdiyiniz üçün sağ olun."
+          ],
+          [
+            "T",
+            "Bu işi ikiniz gördünüz, mən sadəcə yanınızda idim."
           ]
         ]
       },
@@ -3215,59 +3242,59 @@ const SESSIONS = [
           ],
           [
             "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Bu proqram boyu öyrəndiyin bacarıqlardan hansı ən çox kömək etdi?"
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "Nəfəs məşqi, kəsinliklə."
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "Maşın siqnalı qorxusu geri gəlsə, nə edərsən?"
           ],
           [
             "K",
-            "Bir az qarışıq, açığı."
+            "Əvvəlcə nəfəs alaram, sonra bəlkə kağızdakı cümləni oxuyaram."
           ],
           [
             "T",
-            "Bu təcrübədən nə öyrəndin?"
+            "Bu, çox möhkəm bir planıdır."
           ],
           [
             "K",
-            "Bilmirəm hələ, düşünməyə davam edəcəm."
+            "Sağ olun, özümü hazır hiss edirəm."
           ],
           [
             "T",
-            "Aygün, bu bacarığı necə tətbiq edəcəksən?"
+            "Əgər çətin bir an gəlsə və bu alətlər kifayət etməsə, nə edərsən?"
           ],
           [
             "K",
-            "Çətinlik yarananda xatırlamağa çalışaram."
-          ],
-          [
-            "K",
-            "Bu, kömək edə bilər mənə görə, amma tam əmin deyiləm."
+            "Anama deyərəm, ya da lazım olsa yenə sizə gələrəm."
           ],
           [
             "T",
-            "Bu şübhə normaldır, sınayaraq görəcəyik."
-          ],
-          [
-            "T",
-            "Bunu bir az daha izah edə bilərsənmi?"
+            "Tam doğrudur — bu qapı həmişə açıq qalacaq."
           ],
           [
             "K",
-            "Bilmirəm necə deyim, çətindir izah etmək."
+            "Bunu bilmək məni daha təhlükəsiz hiss etdirir."
           ],
           [
             "T",
-            "Bu vəziyyətdə başqa nə hiss etdin?"
+            "Bu aylar ərzində özün üçün əsl bir alətlər qutusu qurmusan."
           ],
           [
             "K",
-            "Bir az qarışıq, açığı."
+            "Bununla fəxr edirəm, açığı."
+          ],
+          [
+            "T",
+            "Bu qutunu özünlə apar, Aygün."
+          ],
+          [
+            "K",
+            "Aparacam, sağ olun hər şey üçün."
           ]
         ]
       },
