@@ -18,6 +18,12 @@
 <style>:root{ --acc:#d9a85a; --acc-soft:rgba(217,168,90,0.18); --acc-rgb:217,168,90; }</style>
 </head>
 <body>
+<div id="authGateOverlay" style="position:fixed;inset:0;z-index:99999;background:#0c211f;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;font-family:'Inter',sans-serif;color:#f3eee1;">
+  <div style="width:34px;height:34px;border:3px solid rgba(217,168,90,0.25);border-top-color:#d9a85a;border-radius:50%;animation:agSpin .8s linear infinite"></div>
+  <div style="font-size:.85rem;letter-spacing:.02em;color:#c9c2ae">Giriş yoxlanılır...</div>
+</div>
+<style>@keyframes agSpin{to{transform:rotate(360deg)}}</style>
+
 
 <div class="blob blob-1"></div>
 <div class="blob blob-2"></div>
@@ -2454,6 +2460,75 @@ const SESSIONS = [
     <div id="programModalContent"></div>
   </div>
 </div>
+
+
+<!-- AUTH-GATE-V1 -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-database.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCBhyGNzZRGgQShP_C9kwAzTm_g_0zJlzg",
+  authDomain: "an-psixoloji-33442.firebaseapp.com",
+  databaseURL: "https://an-psixoloji-33442-default-rtdb.firebaseio.com",
+  projectId: "an-psixoloji-33442",
+  storageBucket: "an-psixoloji-33442.firebasestorage.app",
+  messagingSenderId: "528809299356",
+  appId: "1:528809299356:web:59cae89a64e446dc520c59"
+};
+const agApp = initializeApp(firebaseConfig, "AuthGate-koqnitivkurs");
+const agDb = getDatabase(agApp);
+const agAuth = getAuth(agApp);
+
+const PORTAL_URL = "https://samir210-az.github.io/an-kurs-portali/";
+const REPO_SLUG = "koqnitiv_kurs";
+const REPO_RE = new RegExp('/' + REPO_SLUG.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(/|$)');
+let agDone = false;
+
+function denyAccess(){
+  if(agDone) return;
+  agDone = true;
+  window.location.replace(PORTAL_URL);
+}
+
+function grantAccess(cust){
+  if(agDone) return;
+  agDone = true;
+  const overlay = document.getElementById('authGateOverlay');
+  if(overlay) overlay.remove();
+  if(cust && cust.username){
+    const wm = document.createElement('div');
+    wm.textContent = '© ' + cust.username;
+    wm.style.cssText = 'position:fixed;bottom:8px;right:10px;z-index:9998;font-size:11px;color:rgba(243,238,225,0.35);pointer-events:none;font-family:Inter,sans-serif;letter-spacing:.02em;user-select:none;';
+    document.body.appendChild(wm);
+  }
+}
+
+setTimeout(()=>{ denyAccess(); }, 9000);
+
+onAuthStateChanged(agAuth, async (user) => {
+  if(!user){ denyAccess(); return; }
+  try{
+    const custSnap = await get(ref(agDb, 'portal/customers/' + user.uid));
+    const cust = custSnap.val();
+    if(!cust || !Array.isArray(cust.allowedCourses) || !cust.allowedCourses.length){ denyAccess(); return; }
+    let hasAccess = false;
+    for(const cid of cust.allowedCourses){
+      try{
+        const cSnap = await get(ref(agDb, 'portal/courses/' + cid));
+        const c = cSnap.val();
+        if(c && c.url && REPO_RE.test(c.url)){ hasAccess = true; break; }
+      }catch(e){ /* skip unreadable course */ }
+    }
+    if(!hasAccess){ denyAccess(); return; }
+    grantAccess(cust);
+  }catch(e){
+    console.error('Auth gate error', e);
+    denyAccess();
+  }
+});
+</script>
 
 </body>
 </html>
