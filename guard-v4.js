@@ -52,7 +52,7 @@ import("https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js").then(functi
 }).then(function(mods){
   log("firebase-auth + firebase-database yuklendi");
   var appMod = mods[0], authMod = mods[1], dbMod = mods[2];
-  var app = appMod.initializeApp(FB_CONFIG);
+  var app = appMod.getApps().length ? appMod.getApp() : appMod.initializeApp(FB_CONFIG);
   var auth = authMod.getAuth(app);
   var db = dbMod.getDatabase(app);
 
