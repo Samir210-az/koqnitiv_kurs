@@ -2489,7 +2489,7 @@ const SESSIONS = [
 
 <!-- AUTH-GATE-V1 -->
 <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
 import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-database.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
 
@@ -2502,7 +2502,7 @@ const firebaseConfig = {
   messagingSenderId: "528809299356",
   appId: "1:528809299356:web:59cae89a64e446dc520c59"
 };
-const agApp = initializeApp(firebaseConfig, "AuthGate-koqnitivkurs");
+const agApp = getApps().length ? getApp() : initializeApp(firebaseConfig);
 const agDb = getDatabase(agApp);
 const agAuth = getAuth(agApp);
 
