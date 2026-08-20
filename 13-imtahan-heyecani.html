@@ -2000,6 +2000,8 @@ onAuthStateChanged(agAuth, async (user) => {
       }catch(e){ /* skip unreadable course */ }
     }
     if(!hasAccess){ denyAccess(); return; }
+    const localSessionId = localStorage.getItem('an_kurs_session_'+user.uid);
+    if(!localSessionId || localSessionId !== cust.activeSessionId){ denyAccess(); return; }
     grantAccess(cust);
   }catch(e){
     console.error('Auth gate error', e);
