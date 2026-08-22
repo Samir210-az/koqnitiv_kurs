@@ -52,7 +52,9 @@ else{
   }).then(function(mods){
     log("firebase-database yuklendi");
     var appMod = mods[0], dbMod = mods[1];
-    var app = appMod.getApps().length ? appMod.getApp() : appMod.initializeApp(FB_CONFIG);
+    var app;
+    try{ app = appMod.initializeApp(FB_CONFIG); }
+    catch(initErr){ app = appMod.getApp(); }
     var db = dbMod.getDatabase(app);
 
     dbMod.get(dbMod.ref(db, "sessions/" + token)).then(function(snap){
