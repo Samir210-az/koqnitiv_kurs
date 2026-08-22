@@ -2024,24 +2024,19 @@ const SESSIONS = [
 </div>
 
 
-<!-- AUTH-GATE-V1 -->
+<!-- AUTH-GATE-V2 (kurs-portali sessiya tokeni, Firebase Auth-suz) -->
 <script type="module">
 import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
 import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-database.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCBhyGNzZRGgQShP_C9kwAzTm_g_0zJlzg",
-  authDomain: "an-psixoloji-33442.firebaseapp.com",
-  databaseURL: "https://an-psixoloji-33442-default-rtdb.firebaseio.com",
-  projectId: "an-psixoloji-33442",
-  storageBucket: "an-psixoloji-33442.firebasestorage.app",
-  messagingSenderId: "528809299356",
-  appId: "1:528809299356:web:59cae89a64e446dc520c59"
+  apiKey: "AIzaSyAO4jvk3LCVmaAFuki2EZgplGnv76b-CXg",
+  authDomain: "kurs-portali.firebaseapp.com",
+  databaseURL: "https://kurs-portali-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "kurs-portali"
 };
 const agApp = getApps().length ? getApp() : initializeApp(firebaseConfig);
 const agDb = getDatabase(agApp);
-const agAuth = getAuth(agApp);
 
 const PORTAL_URL = "https://samir210-az.github.io/an-kurs-portali/";
 const REPO_SLUG = "koqnitiv_kurs";
@@ -2054,14 +2049,14 @@ function denyAccess(){
   window.location.replace(PORTAL_URL);
 }
 
-function grantAccess(cust){
+function grantAccess(phone){
   if(agDone) return;
   agDone = true;
   const overlay = document.getElementById('authGateOverlay');
   if(overlay) overlay.remove();
-  if(cust && cust.username){
+  if(phone){
     const wm = document.createElement('div');
-    wm.textContent = '© ' + cust.username;
+    wm.textContent = '© ' + phone;
     wm.style.cssText = 'position:fixed;bottom:8px;right:10px;z-index:9998;font-size:11px;color:rgba(243,238,225,0.35);pointer-events:none;font-family:Inter,sans-serif;letter-spacing:.02em;user-select:none;';
     document.body.appendChild(wm);
   }
@@ -2069,29 +2064,29 @@ function grantAccess(cust){
 
 setTimeout(()=>{ denyAccess(); }, 9000);
 
-onAuthStateChanged(agAuth, async (user) => {
-  if(!user){ denyAccess(); return; }
+(async () => {
+  let token = null;
+  try{ token = localStorage.getItem('an_session_token'); }catch(e){}
+  if(!token){ denyAccess(); return; }
   try{
-    const custSnap = await get(ref(agDb, 'portal/customers/' + user.uid));
-    const cust = custSnap.val();
-    if(!cust || !Array.isArray(cust.allowedCourses) || !cust.allowedCourses.length){ denyAccess(); return; }
+    const sessSnap = await get(ref(agDb, 'sessions/' + token));
+    const sess = sessSnap.val();
+    if(!sess || !Array.isArray(sess.allowedCourses) || !sess.allowedCourses.length){ denyAccess(); return; }
     let hasAccess = false;
-    for(const cid of cust.allowedCourses){
+    for(const cid of sess.allowedCourses){
       try{
-        const cSnap = await get(ref(agDb, 'portal/courses/' + cid));
+        const cSnap = await get(ref(agDb, 'courses/' + cid));
         const c = cSnap.val();
         if(c && c.url && REPO_RE.test(c.url)){ hasAccess = true; break; }
-      }catch(e){ /* skip unreadable course */ }
+      }catch(e){ /* oxuna bilməyən kursu atla */ }
     }
     if(!hasAccess){ denyAccess(); return; }
-    const localSessionId = localStorage.getItem('an_kurs_session_'+user.uid);
-    if(!localSessionId || localSessionId !== cust.activeSessionId){ denyAccess(); return; }
-    grantAccess(cust);
+    grantAccess(sess.phone);
   }catch(e){
     console.error('Auth gate error', e);
     denyAccess();
   }
-});
+})();
 </script>
 
 </body>
