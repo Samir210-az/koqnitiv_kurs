@@ -1,13 +1,13 @@
 (function(){"use strict";
-/* AN Kurs Portalı - Sessiya Qoruyucusu (BİRLƏŞDİRİLMİŞ - istehsal + debug) */
+/* AN Kurs Portalı - Sessiya Qoruyucusu v5 (kurs-portali layihəsi, Firebase Auth-suz) */
 var COURSE_KEY = "koqnitiv_kurs";
 var PORTAL_URL = "https://samir210-az.github.io/an-kurs-portali/";
 var DEBUG = location.search.indexOf("debug=1") !== -1;
 var FB_CONFIG = {
-  apiKey: "AIzaSyCBhyGNzZRGgQShP_C9kwAzTm_g_0zJlzg",
-  authDomain: "an-psixoloji-33442.firebaseapp.com",
-  databaseURL: "https://an-psixoloji-33442-default-rtdb.firebaseio.com",
-  projectId: "an-psixoloji-33442"
+  apiKey: "AIzaSyAO4jvk3LCVmaAFuki2EZgplGnv76b-CXg",
+  authDomain: "kurs-portali.firebaseapp.com",
+  databaseURL: "https://kurs-portali-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "kurs-portali"
 };
 
 var badge = null;
@@ -40,48 +40,37 @@ function grant(){
   log("ICAZE VERILDI");
 }
 
-log("guard basladi. COURSE_KEY=" + COURSE_KEY);
+log("guard v5 basladi. COURSE_KEY=" + COURSE_KEY);
 
-import("https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js").then(function(appMod){
-  log("firebase-app yuklendi");
-  return Promise.all([
-    appMod,
-    import("https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js"),
-    import("https://www.gstatic.com/firebasejs/12.14.0/firebase-database.js")
-  ]);
-}).then(function(mods){
-  log("firebase-auth + firebase-database yuklendi");
-  var appMod = mods[0], authMod = mods[1], dbMod = mods[2];
-  var app = appMod.getApps().length ? appMod.getApp() : appMod.initializeApp(FB_CONFIG);
-  var auth = authMod.getAuth(app);
-  var db = dbMod.getDatabase(app);
+var token = null;
+try{ token = localStorage.getItem("an_session_token"); }catch(e){}
+if(!token){ deny("sessiya tokeni yoxdur"); }
+else{
+  import("https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js").then(function(appMod){
+    log("firebase-app yuklendi");
+    return Promise.all([appMod, import("https://www.gstatic.com/firebasejs/12.14.0/firebase-database.js")]);
+  }).then(function(mods){
+    log("firebase-database yuklendi");
+    var appMod = mods[0], dbMod = mods[1];
+    var app = appMod.getApps().length ? appMod.getApp() : appMod.initializeApp(FB_CONFIG);
+    var db = dbMod.getDatabase(app);
 
-  auth.authStateReady().then(function(){
-    var user = auth.currentUser;
-    log("authStateReady bitdi. user=" + (user ? user.uid : "null"));
-    if(!user){ deny("istifadeci yoxdur"); return; }
+    dbMod.get(dbMod.ref(db, "sessions/" + token)).then(function(snap){
+      var sess = snap.val();
+      log("sessiya=" + JSON.stringify(sess));
+      if(!sess){ deny("sessiya tapilmadi/vaxti bitib"); return; }
 
-    dbMod.get(dbMod.ref(db, "portal/admins/" + user.uid)).then(function(adminSnap){
-      log("admin=" + JSON.stringify(adminSnap.val()));
-      if(adminSnap.val() === true){ grant(); return; }
-
-      dbMod.get(dbMod.ref(db, "portal/customers/" + user.uid)).then(function(snap){
-        var cust = snap.val();
-        log("customer=" + JSON.stringify(cust));
-        if(!cust){ deny("musteri qeydi yoxdur"); return; }
-
-        dbMod.get(dbMod.ref(db, "portal/courses")).then(function(csnap){
-          var courses = csnap.val() || {};
-          var allowed = cust.allowedCourses || [];
-          log("allowedCourses=" + JSON.stringify(allowed));
-          var ok = allowed.some(function(cid){
-            var c = courses[cid];
-            return c && c.url && c.url.indexOf(COURSE_KEY) !== -1;
-          });
-          if(ok){ grant(); } else { deny("kurs uygunlugu tapilmadi"); }
-        }).catch(function(e){ deny("courses: " + (e.code||e.message)); });
-      }).catch(function(e){ deny("customer: " + (e.code||e.message)); });
-    }).catch(function(e){ deny("admin: " + (e.code||e.message)); });
-  }).catch(function(e){ deny("authStateReady: " + (e.code||e.message)); });
-}).catch(function(e){ deny("import: " + (e.message||e)); });
+      dbMod.get(dbMod.ref(db, "courses")).then(function(csnap){
+        var courses = csnap.val() || {};
+        var allowed = sess.allowedCourses || [];
+        log("allowedCourses=" + JSON.stringify(allowed));
+        var ok = allowed.some(function(cid){
+          var c = courses[cid];
+          return c && c.url && c.url.indexOf(COURSE_KEY) !== -1;
+        });
+        if(ok){ grant(); } else { deny("kurs uygunlugu tapilmadi"); }
+      }).catch(function(e){ deny("courses: " + (e.code||e.message)); });
+    }).catch(function(e){ deny("sessions: " + (e.code||e.message)); });
+  }).catch(function(e){ deny("import: " + (e.message||e)); });
+}
 })();
