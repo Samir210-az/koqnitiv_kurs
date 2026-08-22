@@ -2246,7 +2246,7 @@ const SESSIONS = [
 
 <!-- AUTH-GATE-V2 (kurs-portali sessiya tokeni, Firebase Auth-suz) -->
 <script type="module">
-import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+import { initializeApp, getApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
 import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-database.js";
 
 const firebaseConfig = {
@@ -2255,7 +2255,9 @@ const firebaseConfig = {
   databaseURL: "https://kurs-portali-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "kurs-portali"
 };
-const agApp = getApps().length ? getApp() : initializeApp(firebaseConfig);
+let agApp;
+try{ agApp = initializeApp(firebaseConfig); }
+catch(initErr){ agApp = getApp(); }
 const agDb = getDatabase(agApp);
 
 const PORTAL_URL = "https://samir210-az.github.io/an-kurs-portali/";
